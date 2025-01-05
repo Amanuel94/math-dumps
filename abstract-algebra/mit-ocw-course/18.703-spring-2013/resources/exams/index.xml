@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Exams on MIT OpenCourseWare</title>
+    <link>/resources/exams/</link>
+    <description>Recent content in Exams on MIT OpenCourseWare</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language><atom:link href="/resources/exams/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>18.703 Modern Algebra, Exam 1</title>
+      <link>/resources/mit18_703s13_pra_1t/data.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/resources/mit18_703s13_pra_1t/data.json</guid>
+      <description>This resource contains information exam 1.</description>
+    </item>
+    
+    <item>
+      <title>18.703 Modern Algebra, Exam 2</title>
+      <link>/resources/mit18_703s13_pra_2t/data.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/resources/mit18_703s13_pra_2t/data.json</guid>
+      <description>This resource contains information exam 2.</description>
+    </item>
+    
+    <item>
+      <title>18.703 Modern Algebra, Exam 3</title>
+      <link>/resources/mit18_703s13_prft/data.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/resources/mit18_703s13_prft/data.json</guid>
+      <description>This resource contains information exam 3.</description>
+    </item>
+    
+    <item>
+      <title>Exams</title>
+      <link>/pages/exams/data.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/pages/exams/data.json</guid>
+      <description> PRACTICE EXAMS Practice Exam 1 (PDF) Practice Exam 2 (PDF) Practice Exam 3 (PDF) </description>
+    </item>
+    
+  </channel>
+</rss>

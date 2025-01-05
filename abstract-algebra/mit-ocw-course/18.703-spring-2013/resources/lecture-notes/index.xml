@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Lecture Notes on MIT OpenCourseWare</title>
+    <link>/resources/lecture-notes/</link>
+    <description>Recent content in Lecture Notes on MIT OpenCourseWare</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language><atom:link href="/resources/lecture-notes/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>18.703 Modern Algebra, A quick primality test</title>
+      <link>/resources/mit18_703s13_pra_l_22/data.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/resources/mit18_703s13_pra_l_22/data.json</guid>
+      <description>This resource contains information regarding a quick primality test.</description>
+    </item>
+    
+    <item>
+      <title>18.703 Modern Algebra, Basic Properties of Rings</title>
+      <link>/resources/mit18_703s13_pra_l_15/data.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/resources/mit18_703s13_pra_l_15/data.json</guid>
+      <description>This resource contains information regarding basic properties of rings.</description>
+    </item>
+    
+    <item>
+      <title>18.703 Modern Algebra, Conjugation in Sn</title>
+      <link>/resources/mit18_703s13_pra_l_6/data.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/resources/mit18_703s13_pra_l_6/data.json</guid>
+      <description>This resource contains information regarding Conjugation in sn.</description>
+    </item>
+    
+    <item>
+      <title>18.703 Modern Algebra, Cosets</title>
+      <link>/resources/mit18_703s13_pra_l_3/data.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/resources/mit18_703s13_pra_l_3/data.json</guid>
+      <description>This resource contains information regarding cosets.</description>
+    </item>
+    
+    <item>
+      <title>18.703 Modern Algebra, Cyclic Groups</title>
+      <link>/resources/mit18_703s13_pra_l_4/data.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/resources/mit18_703s13_pra_l_4/data.json</guid>
+      <description>This resource contains information regarding cyclic groups.</description>
+    </item>
+    
+    <item>
+      <title>18.703 Modern Algebra, Euclidean Domains</title>
+      <link>/resources/mit18_703s13_pra_l_20/data.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/resources/mit18_703s13_pra_l_20/data.json</guid>
+      <description>This resource contains information regarding euclidean domains.</description>
+    </item>
+    
+    <item>
+      <title>18.703 Modern Algebra, Field of Fractions</title>
+      <link>/resources/mit18_703s13_pra_l_17/data.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/resources/mit18_703s13_pra_l_17/data.json</guid>
+      <description>This resource contains information regarding field of fractions.</description>
+    </item>
+    
+    <item>
+      <title>18.703 Modern Algebra, Group actions and automorphisms</title>
+      <link>/resources/mit18_703s13_pra_l_23/data.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/resources/mit18_703s13_pra_l_23/data.json</guid>
+      <description>This resource contains information regarding group actions and automorphisms.</description>
+    </item>
+    
+    <item>
+      <title>18.703 Modern Algebra, Groups</title>
+      <link>/resources/mit18_703s13_pra_l_1/data.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/resources/mit18_703s13_pra_l_1/data.json</guid>
+      <description>This resource contains information regarding groups.</description>
+    </item>
+    
+    <item>
+      <title>18.703 Modern Algebra, Homomorphisms and kernels</title>
+      <link>/resources/mit18_703s13_pra_l_8/data.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/resources/mit18_703s13_pra_l_8/data.json</guid>
+      <description>This resource contains information regarding homomorphisms and kernels.</description>
+    </item>
+    
+    <item>
+      <title>18.703 Modern Algebra, Isomorphisms</title>
+      <link>/resources/mit18_703s13_pra_l_7/data.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/resources/mit18_703s13_pra_l_7/data.json</guid>
+      <description>This resource contains information regarding isomorphisms.</description>
+    </item>
+    
+    <item>
+      <title>18.703 Modern Algebra, Permutation groups</title>
+      <link>/resources/mit18_703s13_pra_l_5/data.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/resources/mit18_703s13_pra_l_5/data.json</guid>
+      <description>This resource contains information regarding permutation groups.</description>
+    </item>
+    
+    <item>
+      <title>18.703 Modern Algebra, Polynomial rings </title>
+      <link>/resources/mit18_703s13_pra_l_21/data.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/resources/mit18_703s13_pra_l_21/data.json</guid>
+      <description>This resource contains information regarding polynomial rings.</description>
+    </item>
+    
+    <item>
+      <title>18.703 Modern Algebra, Presentations and Groups of small order</title>
+      <link>/resources/mit18_703s13_pra_l_12/data.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/resources/mit18_703s13_pra_l_12/data.json</guid>
+      <description>This resource contains information regarding presentations and groups of small order.</description>
+    </item>
+    
+    <item>
+      <title>18.703 Modern Algebra, Prime and Maximal Ideals </title>
+      <link>/resources/mit18_703s13_pra_l_18/data.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/resources/mit18_703s13_pra_l_18/data.json</guid>
+      <description>This resource contains information regarding prime and maximal ideals.</description>
+    </item>
+    
+    <item>
+      <title>18.703 Modern Algebra, Quotient Groups</title>
+      <link>/resources/mit18_703s13_pra_l_9/data.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/resources/mit18_703s13_pra_l_9/data.json</guid>
+      <description>This resource contains information regarding quotient groups.</description>
+    </item>
+    
+    <item>
+      <title>18.703 Modern Algebra, Ring Homomorphisms and Ideals</title>
+      <link>/resources/mit18_703s13_pra_l_16/data.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/resources/mit18_703s13_pra_l_16/data.json</guid>
+      <description>This resource contains information regarding ring homomorphisms and ideals.</description>
+    </item>
+    
+    <item>
+      <title>18.703 Modern Algebra, Rings </title>
+      <link>/resources/mit18_703s13_pra_l_14/data.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/resources/mit18_703s13_pra_l_14/data.json</guid>
+      <description>This resource contains information regarding rings.</description>
+    </item>
+    
+    <item>
+      <title>18.703 Modern Algebra, Special Domains</title>
+      <link>/resources/mit18_703s13_pra_l_19/data.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/resources/mit18_703s13_pra_l_19/data.json</guid>
+      <description>This resource contains information regarding special domains.</description>
+    </item>
+    
+    <item>
+      <title>18.703 Modern Algebra, Subgroups</title>
+      <link>/resources/mit18_703s13_pra_l_2/data.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/resources/mit18_703s13_pra_l_2/data.json</guid>
+      <description>This resource contains information regarding subgroups.</description>
+    </item>
+    
+    <item>
+      <title>18.703 Modern Algebra, Sylow Theorems and applications</title>
+      <link>/resources/mit18_703s13_pra_l_13/data.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/resources/mit18_703s13_pra_l_13/data.json</guid>
+      <description>This resource contains information regarding sylow theorems and applications.</description>
+    </item>
+    
+    <item>
+      <title>18.703 Modern Algebra, The Alternating Groups</title>
+      <link>/resources/mit18_703s13_pra_l_11/data.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/resources/mit18_703s13_pra_l_11/data.json</guid>
+      <description>This resource contains information regarding the alternating groups.</description>
+    </item>
+    
+    <item>
+      <title>18.703 Modern Algebra, The isomorphism theorems</title>
+      <link>/resources/mit18_703s13_pra_l_10/data.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/resources/mit18_703s13_pra_l_10/data.json</guid>
+      <description>This resource contains information regarding the isomorphism theorems.</description>
+    </item>
+    
+  </channel>
+</rss>

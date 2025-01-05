@@ -1,0 +1,1534 @@
+\documentclass[10pt,a4paper]{book}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{makeidx}
+\usepackage{graphicx}
+\usepackage{amsthm}
+\usepackage{cancel}
+\usepackage{mdframed}
+
+
+
+
+
+\usepackage[width=15.00cm, height=24.00cm]{geometry}
+\begin{document}
+	\fontfamily{qpl}
+	
+	\renewcommand{\familydefault}{ptm}
+	\title{Mathematical Analysis by Tom M. Apostol(condensed)}
+	\maketitle
+	\chapter{Real and Complex Number Systems}
+
+%	\newtheoremstyle{sltheorem}{}{}{\slshape}{}{\bfseries}{.}{ }{}
+	%\theoremstyle{sltheorem}
+	\newtheorem{Thm}{Theorem}
+		\newtheorem{deff}{Definition}
+	\begin{deff}
+		A set of real numbers is called inductive if it has the following two properties:
+		\begin{enumerate}
+			\item The number $1$ is in the set.
+			\item For every $x$ in the set, the number $x+1$ is also in the set.
+		\end{enumerate}
+	\end{deff}
+\begin{Thm}
+	Assume $x \geq 0$. Then for every integer  $n \geq 1$ there is a finite decimal $r_n = a_0.a_1a_2 \cdots a_n$ such that
+	$$r_n \leq x < r_n + \frac{1}{10^n}.$$
+\end{Thm}
+\noindent P.P: for $x$'s decimal representation (finite or infinite) $s_0. s_1s_2 \dots$, we can have $a_k \leq s_k < a_k + 1 $ for every $k$.
+\begin{Thm}
+	(Cauchy-Schwarz Inequality): If $a_1 \dots a_n$ and $b_1 \dots b_n$ are arbitrary real numbers, we have
+	$$\bigg(\sum_k a_kb_k\bigg)^2 \leq \bigg(\sum_k a_k^2\bigg)\bigg(\sum_k b_k^2\bigg)$$ 
+\end{Thm}
+\noindent P.P: Lagrange's identity $(\sum_k a_kb_k)^2 = (\sum_k a_k^2)(\sum_k b_k^2) - \sum_{1 \leq j < k \leq n}(a_kb_j - a_jb_k)^2$
+\begin{Thm}
+	(Minkowski's inequality)$$\bigg(\sum_k (a_k + b_k)^2 \bigg)^{1/2} \leq \bigg(\sum_k a_k^2 \bigg)^{1/2} + \bigg(\sum_k b_k^2 \bigg)^{1/2}$$
+\end{Thm}
+\chapter{Some Basic Notations of Set Theory}
+\begin{Thm}
+	Let $F$ be a collection of sets. Then for any set $B$, we have 
+		$$B - \bigcup_{A \in F} A =  \bigcap_{A \in F} (B - A),$$
+		and
+		$$B - \bigcap_{A \in F} A =  \bigcup_{A \in F} (B - A),$$
+\end{Thm}
+P.P: First statement: $B$ without the whole equals common of [$B$ without the individuals]. Second Statement:  $B$ equals the sum of $B-A$ and the intersections of the $A$(since $B-A$ does not contain this intersection).
+\begin{Thm}
+	If $F = \{A_1, A_2, \dots\}$ is a countable collection of sets, let $G = \{B_1, B_2, \dots \},$ where $B_1 = A_1$ and for $n>1$,
+	$$B_n =  A_n - \bigcup_{k=1}^{n-1} A_k.$$
+	Then $G$ is a collection of disjoint sets, and we have 
+		$$\bigcup_{k=1}^{\infty} A_k = \bigcup_{k=1}^{\infty} B_k$$
+\end{Thm}
+\noindent P.P: $B_n$ is composed of the new members of $A_n$. 
+\chapter{Elements of Point Set Topology}
+\begin{deff}
+	The set of all $n-$dimensional point is called $n-$dimensional Euclidean Space or simply $n-$space, and is denoted by $\mathbb{R}^n$. 
+\end{deff}
+\begin{deff}
+The inner product of two $n-$dimensional points $\mathbf{x}$ and $\mathbf{y}$ is defined as
+$$\mathbf{x}\cdot\mathbf{y} = \sum_{k=1}^{n}x_ky_k$$
+\end{deff}
+
+\begin{deff}
+Let $\mathbf{a}$ be a given point in $\mathbb{R}^n$ and let $r$ be a given positive number. The set of all points $\mathbf{x}$ in $\mathbb{R}^n$ such that
+$$\lVert \mathbf{x} - \mathbf{a} \rVert < r$$
+is called an open $n-$ball of radius $r$ and center $\mathbf{a}$. We denote this set by $B(\mathbf{a})$ or by $B(\mathbf{a};r)$.
+\end{deff}
+\begin{deff}
+	Let $S$ be a subset of $\mathbb{R}^n$, and assume that $\mathbf{a} \in S$. Then $\mathbf{a}$ is called an interior point of $S$ if there is an open $n-$ball with center $\mathbf{a}$, all of whose point belong to $S$. The set of all interior points of $S$ is denoted by $\text{int } S$.
+\end{deff}
+\begin{deff}
+	Let $S$ be an open subset of $\mathbb{R}^1$. An open interval $I$ is called a component of $S$ if $I \subseteq S $and if there is no open interval $J\neq I$ such that $I \subseteq J \subseteq S$
+\end{deff}
+\begin{Thm}
+	Every point of a nonempty open set $S$ belongs to one and only one component interval of $S$.
+\end{Thm}
+\noindent P.P: A point can not exist in two different non-overlapping intervals.
+\begin{Thm}
+	\textbf{(Representation theorem for open sets  on the real line)}: Every nonempty open set $S$ in $\mathbb{R}^1$ is a union of a countable collection of disjoint component intervals of $S$.
+\end{Thm}
+\begin{deff}
+	Let $S$ be a subset of $\mathbb{R}^n$, and $\mathbf{x}$ a point in $\mathbb{R}^n$, $\mathbf{x}$ not necessarily in $S$. Then $\mathbf{x}$ is said to be adherent to $S$ if every $n-$ball $B(\mathbf{x})$ contains at least one point $S$.
+\end{deff}
+\begin{deff}
+	If $S \subseteq \mathbb{R}^n$, and $\mathbf{x} \in \mathbb{R}^n$, then $\mathbf{x}$  is called an accumulation point of $S$ if every $n-$ball $B(\mathbf{x})$ contains at least one point $S$ distinct from $\mathbf{x}$. If $\mathbf{x} \in S$ but $\mathbf{x}$ is not an accumulation point of $S$, then $\mathbf{x}$ is called an isolated point.
+\end{deff}
+\begin{Thm}
+	If $\mathbf{x}$ is an accumulation point, then every $n-$ball $B(\mathbf{x})$ contains infinitely many points of $S$.
+\end{Thm}
+\noindent P.P: The infinitude of real values of $r$.
+\begin{Thm}
+	A set $S$ in $\mathbb{R}^n$ is closed if, and only if, it contains all its adherent points.
+\end{Thm}
+\noindent P.P: a closed set contain the points on its "boundaries".
+\begin{deff}
+ The set of all adherent points of a set $S$ is called the closure of  $S$ and is denoted by $\overline{S}$. The set of all accumulation points  of $S$ is called the derived set of $S$ and is denoted by $S^\prime$
+\end{deff}
+\begin{Thm}
+	\textbf{(Bolzano-Weierstrass Theorem)} If a bounded set $S$ in $\mathbb{R}^n$ contains infinitely many points, then there is at least one point in $\mathbb{R}^n$ which is an accumulation point of $S$. 
+\end{Thm}
+\noindent P.P: There should be a place that has infinite density of points in a bounded set, if the number of points in the set is infinite.
+\begin{Thm}
+	\textbf{(The Cantor Intersection Theorem)}: Let $\{Q_1, Q_2, \dots\}$ be a countable collection of nonempty sets in $\mathbb{R}^n$ such that
+	\begin{enumerate}
+		\item $Q_{k+1} \subseteq Q_k$
+		\item Each set $Q_k$ is closed and $Q_1$ is bounded.
+
+	\end{enumerate}
+	Then the intersection $S = \bigcap_{k=1}^{\infty} Q_k$ is closed and nonempty.
+\end{Thm}
+\noindent P.P: This happens because all closed infinite sets contain their accumulation points and $S$ should have an accumulation point.
+\begin{deff}
+	A collection $F$ of sets is said to be a covering of a given set $S$ if $S \subseteq \bigcup_{A \in F}$. If $F$ is a collection of open sets, then $F$ is called an open covering of $S$.  
+\end{deff}
+\begin{Thm}
+	Let $G =\{A_1, A_2, \dots\}$ denote a countable collection of all $n-$balls having rational radii and centers at points with rational coordinates. Assume $\mathbf{x} \in \mathbb{R}^n$ and let $S$ be an open set in $\mathbb{R}^n$ which contains $\mathbf{x}$. Then at least one of the $n-$balls of $G$ contains $\mathbf{x}$ and is contained in $S$. That is, we have
+	$$\mathbf{x} \in A_k \subseteq S \text{ \hspace{0.3cm}for some $A_k$ in $G$}$$
+\end{Thm}
+\noindent P.P: The rationals are so dense that there is at least one arbitrarily close to any other real number such that you can have this trade-off of how small should the radius of $A_k$ should be to be in $S$ and how big it should be to contain $\mathbf{x}$.
+\begin{Thm}
+\textbf{(Lindelof covering theoerm)}: Assume $A\subseteq \mathbb{R}^n$ and let $F$ be an open covering of $A$. Then there is a countable subcollection of $F$ which also covers $A$.
+\end{Thm}
+\noindent P.P: Since $G$ of theorem 12 is countable and as $A$ could not be bounded.
+\begin{Thm}
+	\textbf{(The Heine-Borel Covering Theorem)} Let $F$ be an open covering of a closed and bounded set $A$ in $\mathbb{R}^n$. Then a finite subcollection of $F$ also covers $A$.
+\end{Thm}
+\noindent P.P: Duh! because it is bounded and contains its accumulation point(s).
+\begin{deff}
+	A set $S$ in $\mathbb{R}^n$ is said to be compact if, and only if, every open covering of $S$ contains a finite sub-cover, that is, a finite subcollection which also covers $S$.
+\end{deff}
+\begin{Thm}
+	Let $S$ be a subset of $\mathbb{R}^n$. Then the following three statments are equivalent:
+		\begin{enumerate}
+			\item $S$ is compact.
+			\item $S$ is closed and bounded.
+			\item  Every infinite subset of $S$ has an accumulation point in $S$.
+		\end{enumerate}
+\end{Thm}
+\noindent P.P: There exists an open finite covering $F$ of an closed bounded set such that the collection does not cover the corresponding open set (1 $\implies$ 2).
+\begin{deff}
+	A metric space is a nonempty set $M$ of objects(called points) together with a function $d$ from $M \times M$ to $\mathbb{R}$(called the metric of the space) satisfying the following properties for all points $x,y,z$ in $M$:
+	\begin{enumerate}
+		\item $d(x,x) = 0$.
+		\item $d(x,y) > 0$ if $x \neq y$.
+		\item $d(x,y) = d(y,x)$.
+		\item $d(x,y) \leq d(x,z) + d(z,y)$
+	\end{enumerate}
+\end{deff}
+\begin{Thm}
+	Let $(S,d)$ be a metric subspace of $(M,d)$, and let $X$ be a subspace of $S$. Then $X$ is open in $S$ if, and only if, 
+		$$X = A \cap S$$
+		for some set $A$ which is open in $M$.
+		
+\end{Thm}
+\noindent P.P: $X \subseteq S$ and $X$ is open in $S$. 
+\begin{Thm}
+	Let $(S,d)$ be a metric subspace of $(M,d)$, and let $Y$ be a subspace of $S$. Then $Y$ is closed in $S$ if, and only if, 
+	$$Y = B \cap S$$
+	for some set $B$ which is open in $M$.
+	
+\end{Thm}
+\noindent P.P: $Y \subseteq S$ and $X$ is closed in $S$. 
+\begin{deff}
+	Let $S$ be a subset of a metric space $M$. A point $x$ in $M$ is called a boundary point of $S$ if every point of $S$ if every ball $B_M(x;r)$ contains at least one point of $S$ and at least one point of $M -S$. The set of all boundary points of $S$ is called the boundary of $S$ and is denoted by $\partial S$ 
+\end{deff}
+\chapter{Limits and Continuity}
+\begin{Thm}
+	A sequence $\{x_n\}$ in a metric space $(S,d)$ can converge to at most one point in $S$.
+\end{Thm}
+\noindent P.P: The triangle inequality forces the distinct points of converge come closer infinitesimally to each other.
+\begin{Thm}
+	In a metric space $(S,d)$, assume $x_n \rightarrow p$ and let $T = \{x_1, x_2, \dots \}$ be the range of $\{x_n\}$. Then:
+	\begin{itemize}
+		\item $T$ is bounded.
+		\item $p$ is an adherent point of $T$
+	\end{itemize} 
+
+\end{Thm}
+\noindent \textbf{P.P}: If not bounded, then infinite $x$'s in infinite space fail to satisfy the definition of convergence. For infinite $x$'s in a limited(finite) space, there has to be a point whose balls contain the $x$'s, i.e the adherent point.
+
+\begin{Thm}
+Given a metric space $(S, d)$ and a subset $T \subseteq S$. If a point $p$ in $S$ is an accumulation point of $T$, then there is a sequence of points in $T$ which converges to $p$.
+\end{Thm}
+\textbf{P.P}: Every ball $B_S(p;\varepsilon)$ contains elements of $T$
+\begin{Thm}
+In a metric space $(S, d)$ a sequence converges to $p$ if, and only if, every infinite subsequence converges to $p$.
+\end{Thm}
+\noindent \textbf{P.P}: Picking out certain elements does not change the density distribution of the numbers.
+
+\begin{Thm}
+Assume that converges in a metric space $(S, d)$. Then for every $\varepsilon > 0$ there is an integer $N$ such that
+$$d(x_n, x_m) < \varepsilon \text{ whenever } n \geq N \text{ and } m\geq N$$
+\end{Thm}
+\noindent \textbf{P.P}: As $x_n$ and $x_m$ get closer to a single point they get closer to each other. 
+
+\begin{deff}
+    A sequence $\{x_n\}$ in a metric space $(S, d)$ is called a \textbf{Cauchy sequence} if it satisfies the following condition (called the Cauchy condition) :\\
+    \hspace*{1cm} For every $\varepsilon >0$ there is an integer $N$ such that
+    $$d(x_n, x_m) < \varepsilon \text{ whenever } n \geq N \text{ and } m\geq N$$
+
+\end{deff}
+
+\begin{Thm}
+In Euclidean space $\mathbb{R}^k$ every Cauchy sequence is convergent.
+\end{Thm}
+\noindent \textbf{P.P}: In $ U = \mathbb{R}^k$, as two points get closer to each other, they get closer to a single point.
+
+\begin{deff}
+    A sequence $\{x_n\}$ in a metric space $(S, d)$ is called a \textbf{Cauchy sequence} if it satisfies the following condition (called the Cauchy condition) :\\
+    \hspace*{1cm} For every $\varepsilon >0$ there is an integer $N$ such that
+    $$d(x_n, x_m) < \varepsilon \text{ whenever } n \geq N \text{ and } m\geq N$$
+
+\end{deff} A metric space $(S, d)$ is called \textbf{complete} if every Cauchy sequence in $S$ converges in $S$
+
+\begin{Thm}
+In any metric space $(S, d)$ every compact subset $T$ is complete.
+\end{Thm}
+\noindent \textbf{P.P}: A compact set is closed and hence contains all of its adherent points.
+
+\begin{deff}
+    If $p$ is an accumulation point of $A$ and if $b \in T$, the notation \\
+        $$\lim_{x \rightarrow p} f(x) =  b$$
+        is defined as the following:\\
+    \hspace*{1cm} For every $\varepsilon >0$ there is a $\delta > 0$ such that
+    $$d_T(f(x), b) < \varepsilon \text{ whenever }x \in A, x \neq p, \text{ and } d_S(x,p) < \delta$$
+
+\end{deff} 
+
+\begin{Thm}
+Assume $p$ is an accumulation point of $A$ and assume $b in T$. Then
+$$\lim_{x \rightarrow p} f(x) =  b$$
+if, and only if,
+$$\lim_{n \rightarrow \infty} f(x_n) =  b$$
+for every sequence $\{x_n\}$ of points in $A - \{ p\}$ which converges to $p$.
+
+
+\end{Thm}
+\noindent \textbf{P.P}: The discreetness of the the inputs does not change the value of the function.
+
+
+
+\begin{Thm}
+Let $f$ and $g$ be complex-valued functions defined on a subset $A$ of a metric space $(S, d)$. Let $p$ be an accumulation point of $A$, and assume that
+$$\lim_{x \rightarrow p} f(x) = a \text{    and    } \lim_{x \rightarrow p} g(x) = b$$
+Then we also have:
+\begin{itemize}
+    \item $\lim_{x \rightarrow p} f(x) \pm g(x) =  a \pm b$
+    \item $\lim_{x \rightarrow p} f(x)\cdot g(x) =  ab$
+\end{itemize}
+
+\end{Thm}
+
+
+\begin{Thm}
+Let $p$ be an accumulation point of $A$ and assume that
+
+$$\lim_{x \rightarrow p} \mathbf{f}(x) = \mathbf{a} \text{    and    } \lim_{x \rightarrow p} \mathbf{g}(x) = \mathbf{b}$$
+
+Then we also have:
+\begin{itemize}
+    \item $\lim_{x \rightarrow p} [\mathbf{f}(x) \pm \mathbf{g}(x)] = \mathbf{a} \pm \mathbf{b}$
+    \item $\lim_{x \rightarrow p} \lambda\mathbf{f}(x)  = \lambda \mathbf{a}$
+    \item $\lim_{x \rightarrow p} \mathbf{f}(x) \cdot \mathbf{g}(x) = \mathbf{a} \cdot \mathbf{b}$
+    \item $\lim_{x \rightarrow p} \lVert \mathbf{f}(x)\rVert  = \lVert\mathbf{a}\rVert$
+\end{itemize}
+
+
+\end{Thm}
+\noindent \textbf{P.P}: A vector function is a collection of real-valued functions.
+
+
+
+\begin{deff}
+Let $(S, d_S)$ and $(T, d_T)$ be metric spaces and let $f : S \rightarrow T$ be a function from $S$ to $T$. The function f is said to be continuous at a point $p$ in $S$ if for every $\varepsilon > 0$ there is a $\delta > 0$ such that\\
+$$d_T(f(x), f(p)) < \varepsilon \text{ whenever } d_T(x,p) < \delta $$
+
+\end{deff}
+\noindent \textbf{P.P}: This definition reflects the intuitive idea that points close to $p$ are mapped by $f$ into points close to $f(p)$. 
+
+\begin{deff}
+ Let $f : S \rightarrow T$ be a function from a set $S$ to a set $T$. If $Y$ is a subset of $T$, the inverse image of $Y$ under $f$, denoted by $f^{-1}(Y)$, is defined to be the largest subset of $S$ which $f$ maps into $Y$; that is, 
+ 
+  $$f^{-1}(Y) = \{x: x \in S \text{  and  } f(x) \in Y \}$$
+\end{deff}
+
+\begin{Thm}
+. Let $f : S \rightarrow T$ be a function from $S$ to $T$. If $X \subseteq S$ and $Y \subseteq T$, then we have:
+\begin{enumerate}
+    \item $X = f^{-1}(Y) \implies f(X) \subseteq Y$
+    \item $Y = f(X) \implies X \subseteq f^{-1}(Y)$
+\end{enumerate}
+\end{Thm}
+\noindent \textbf{P.P}: (1): There might be a $y$ that is not in the map $f$. (2): There might be $z \notin X$ such that $f(z) \in f(Y)$, i.e, the function $f$ is not one-to-one. 
+
+\begin{Thm}
+Let $f : S \rightarrow T$ be a function from one metric space $(S, d_S)$ to another $(T, d_T)$. Then $f$ is continuous on $S$ if, and only if, for every open/closed set $Y$ in $T$, the inverse image $f^{-1}(Y)$ is open/closed in $S$.
+
+\end{Thm}
+\noindent \textbf{P.P}: If a function is continuous, all the points near $y =  f(x)$ are the image of points near $x$. If every point in $Y$ is in $int Y$, then $f^{-1}(Y) = int f^{-1}(Y) $.
+
+\begin{Thm}
+Let $f : S \rightarrow T $ be a function from one metric space $(S, d_S)$ to another $(T, d_T)$. If $f$ is continuous on a compact subset $X$ of $S$, then the image $f(X)$ is a compact subset of T; in particular, $f(X)$ is closed and bounded in $T$.
+\end{Thm}
+\noindent \textbf{P.P}: $\#X > \#f(X)$ and if points in vicinity remain close under the mapping, finite covering of $X$ will guarantee the finite covering of $f(X)$. 
+
+
+\begin{Thm}
+Let $f : S \rightarrow T$ be a function from one metric space $(S, d_S)$ to another $(T, d_T)$. Assume that f is one-to-one on $S$, so that the inverse function $f ^{-1}$ exists. If $S$ is compact and if $f$ is continuous on S; then $f^{-1}$ is continuous on $f(S)$.
+
+\end{Thm}
+\noindent \textbf{P.P}: $f^{-1}: f(S) \rightarrow S$ is from a compact set to a compact set. If $f$ is one-to-one, so is $f^{-1}$.
+
+\begin{deff}
+ Let $f : S \rightarrow T$ be a function from one metric space $(S, d_S)$ to another $(T, d_T)$. Assume also that $f$ is one-to-one on $S$, so that the inverse function $f^{-1}$ exists. If $f$ is continuous on $S$ and if $f^{-1}$ is continuous on $f(S)$, then $f$ is called a \textbf{topological mapping} or a \textbf{homeomorphism}, and the metric spaces $(S, d_S)$ and $(f(S), d_T)$ are said to be \textbf{homeomorphic}.
+\end{deff}
+
+\begin{Thm}
+Let $f$ be defined on an interval $S$ in $\mathbb{R}$. Assume that $f$ is continuous at a point $c$ in $S$ and that $f(c)  \neq 0$. Then there is a 1-ball $B(c; \delta)$ such that $f(x)$ has the same sign as $f(c)$ in $B(c; \delta) \cap S$.
+
+\end{Thm}
+
+\begin{Thm}
+\textbf{(Bolzano)}Let $f$ be real-valued and continuous on a compact interval $[a, b]$ in $\mathbb{R}$, and suppose that $f(a)$ and $f(b)$ have opposite signs; that is, assume $f(a)f(b) < 0$. Then there is at least one point $c$ in the open interval $(a, b)$ such that $f(c) = 0$.
+
+\end{Thm}
+
+\begin{Thm}
+ A metric space $S$ is called \textbf{disconnected} if $S = A \cup B$, where $A$ and $B$ are disjoint nonempty open sets in $S$. We call $S$ connected if it is not disconnected.
+
+\end{Thm}
+
+\begin{deff}
+A real-valued function $f$ which is continuous on a metric space $S$ is said to be two-valued on $S$ if $f(S) \subseteq \{0, 1\}$, i.e , maps to the discrete metric space.
+
+\end{deff}
+
+\begin{Thm}
+ A metric space $S$ is connected if, and only if, every two-valued function on $S$ is constant.
+\end{Thm}
+\noindent \textbf{P.P}: Points in vicinity should be mapped in vicinity, otherwise they should be disconnected?
+
+\begin{Thm}
+ Let $f : S \rightarrow M$ be a function from a metric space $S$ to another metric space $M$. Let $X$ be a connected subset of $S$. If $f$ is continuous on $X$, then $f(X)$ is a connected subset of M.
+
+\end{Thm}
+\noindent \textbf{P.P}: If $f$ is continuous, then points near each other should be mapped near each other, and not separated by gaps like discontinuouities.
+
+\begin{Thm}
+Let $F$ be a collection of connected subsets of a metric space $S$ such that the intersection $T = \bigcap_{A\in F} A$ is not empty. Then the union $U = \bigcup_{A \in F} A$ is connected.
+
+\end{Thm}
+\noindent \textbf{P.P}: The points in the intersection of the $A$'s connect them.
+
+Components of a set are disjoint connected sets.
+
+\begin{deff}
+$S$ in $\mathbb{R}^n$ is called \textbf{arcwise connected} if for any two points $\mathbf{a}$ and $\mathbf{b}$ in $S$ there is a continuous function $\mathbf{f} : [0, 1] \rightarrow S$ such that
+$$\mathbf{f}(0) = \mathbf{a} \textbf{    and    } \mathbf{f}(1) = \mathbf{b}. $$
+\end{deff}
+\noindent \textbf{P.P}: Arc-wise connected means any two points, $\mathbf{a}$ and $\mathbf{b}$ can be connected by a path. 
+
+\begin{Thm}
+Every arcwise connected set $S$ in $\mathbb{R}^n$ is connected.
+\end{Thm}
+\noindent \textbf{P.P}: If $S = A \cup B$ and $A$ and $B$ were disjoint the points $\mathbf{a} \in A$ and $\mathbf{b} \in B$ could not be connected by an arc/path.
+
+\begin{Thm}
+Every open connected set $S$ in $\mathbb{R}^n$ is arcwise connected.
+\end{Thm}
+\noindent \textbf{P.P}: For every $x$ and $y$ in $S$, since $B(x;r_x)$ and $B(y;r_y)$ are subsets of $S$, a path of at least length $r_x + r_y$ connect the center of the balls, i.e, $x$ and $y$.
+
+\begin{Thm}
+Let $f : S \rightarrow T$ be a function from one metric space $(S, d_S)$ to another $(T, d_T)$. Then $f$ is said to be \textbf{uniformly continuous} on a subset $A$ of $S$ if the following condition holds:\\
+\hspace*{1cm} For every $\varepsilon > 0$ there exists a $\delta > 0$ (depending only on $\varepsilon$) such that if $x \in A$ and $p \in A$ then:
+$$d_T(f(x), f(p)) < \varepsilon \text{   whenever  } d_S(x,p) < \delta_\varepsilon$$
+
+\end{Thm}
+\noindent \textbf{P.P}: A function is uniformly continuous if its graph can be "covered" by identical non-overlapping rectangles.
+
+\begin{Thm}
+ Let $f : S \rightarrow T$ be a function from one metric space $(S, d_S)$ to another $(T, d_T)$. Let $A$ be a compact subset of $S$ and assume that $f$ is continuous on $A$. Then $f$ is uniformly continuous on $A$.
+
+\end{Thm}
+\noindent \textbf{P.P}:  If $f$ is continuous on a closed and bounded set $S$, then it does not undergo a huge amount of increase/decrease.\\
+
+Let $f : S \rightarrow S$ be a function from a metric space $(S, d)$ into itself. A point $p$ in $S$ is called \textbf{a fixed point} of $f$ if $f(p) = p$. The function $f$ is called a \textbf{contraction} of $S$ if there is a positive number $\alpha < 1$ (called a \textbf{contraction constant}), such that
+
+$$d(f(x), f(y)) \leq \alpha d(x,y) \text{  for all $x$, $y$ in $S$} $$
+\begin{Thm}
+\textbf{Fixed-point Theorem}: A contraction $f$ of a complete metric space $S$ has a unique fixed point $p$.
+
+\end{Thm}
+
+\noindent \textbf{P.P}: If $f$ is a contraction then it is a concave down function and it crosses $y=x$ only once.
+
+\chapter{Derivatives}
+\begin{Thm}
+If $f$ is defined on $(a, b)$ and differentiable at a point $c$ in $(a, b)$, then there is a function $f^*$ (depending on $f$ and on $c$) which is continuous at $c$ and which satisfies the equation 
+   $$f(x)-f(c) =  (x-c)f^*(x)$$
+for all $x$ in $(a, b)$, with $f^*(c) = f^\prime(c)$. Conversely, if there is a function $f^*$, continuous at $c$, which satisfies the above equation, then $f$ is differentiable at $c$ and $f^\prime(c) = f^*(c)$.
+\end{Thm}
+\noindent \textbf{P.P}: Continuity forces $f^* = f^\prime$ at $x = c$. 
+
+\begin{deff}
+Let $f$ be defined on a closed interval $S$ and assume that $f$ is continuous at the point $c$ in $S$. Then $f$ is said to \textbf{have a righthand derivative at} $c$ if the righthand limit 
+$$\lim_{x \rightarrow ^+} \dfrac{f(x)- f(c)}{x-c}$$
+exists as a finite value, or if the limit is $+\infty$ or $-\infty$. This limit will be denoted by $f^\prime_+(c)$. Lefthand derivatives, denoted by $f^\prime_- (c)$, are similarly defined. In addition if $c$ is an interior point of $S$, then we say that $f$ has the derivative $f^\prime(c) = +\infty$ both the right- and lefthand derivatives at $c$ are $+\infty$ the derivative $f^\prime(c) = \infty$ id similarly defined.)
+
+\end{deff}
+
+\begin{Thm}
+Let $f$ be defined on an open interval $(a, b)$ and assume that for some $c$ in $(a, b)$ we have $f\prime(c) > 0$ or $f^\prime(c) = +\infty$. Then there is a 1-ball $B(c) \in (a,b)$ in which 
+$$f(x) > f(c) \text{ if } x > c \hspace*{1.5cm} \text{ and }\hspace*{1.5cm} f(x) < f(c) \text{ if } x < c  $$
+\end{Thm}
+\noindent \textbf{P.P}:$f$ is continuous at $c$ and strictly increasing on $B(c)$. 
+
+
+\begin{deff}
+Let $f$ be a real-valued function defined on a subset $S$ of a metric space $M$, and assume $a \in S$. Then $f$ is said to have a local maximum at $a$ if there is a ball $B(a)$ such that 
+$$f(x)\leq f(a) \hspace*{1cm} \text{for all } x \in B(a)\cap S$$
+If $f(x) \geq f(a)$ for all $x in B(a) \cap S$, then $f$ is said to have a local minimum at $a$.
+\end{deff}
+
+\begin{Thm}
+ Let $f$ be defined on an open interval $(a, b)$ and assume that $f$ has a local maximum or a local minimum at an interior point $c$ of $(a, b)$. If $f$ has a derivative (finite or infinite) at $c$, then $f^\prime(c)$ must be $0$.
+
+\end{Thm}
+\noindent \textbf{P.P}: The tangent is horizontal at the local extrema.
+
+
+\begin{Thm}\textbf{Rolle}
+ Assume $f$ has a derivative (finite or infinite) at each point of an open interval $(a, b)$, and assume that $f$ is continuous at both endpoints $a$ and $b$. If $f(a) = f(b)$ there is at least one interior point $c$ at which $f'(c) = 0$.
+
+\end{Thm}
+\begin{Thm}
+\textbf{(Generalized Mean-Value Theorem)}. Let $f$ and $g$ be two functions, each having a derivative (finite or infinite) at each point of an open interval $(a, b)$ and each continuous at the endpoints $a$ and $b$. Assume also that there is no interior point $x$ at which both $f^\prime(x)$ and g$^\prime(x)$ are infinite. Then for some interior point $c$ we have
+        $$f^\prime(c)(g(b) - g(a)) =  g^\prime(c)(f(b) - f(a))$$
+If $g(x) = x$, we have the mean-value theorem.
+\end{Thm}
+\noindent \textbf{P.P} Consider the case when $g(x) = x$. The equation
+$$f^\prime(c) =  \dfrac{f(b) - f(a)}{b - a}$$
+is equivalent to saying there is a point $c \in (a,b)$ such that the tangent of $f$ at $c$ is parallel to the line, $\ell$, passing through $(a, f(a))$ and $(b,f(b))$. This true since one can apply Rolle's theorem after tilting the whole thing in such a way that $\ell$ is parallel to the $x$-axis.
+
+The generalized mean-value theorem can be thought of as $x$ changes as a function of a parameter $t$, i,e $x = g(t)$ and $y = f(t)$. The $f(t)$ against $g(t)$ graph is continuous.
+
+\begin{Thm}
+\textbf{(Intermediate-value theorem for derivatives)}: Assume that $f$ is defined on a compact interval $[a, b]$ and that $f$ has a derivative (finite or infinite) at each interior point. Assume also that $f$ has finite one-sided derivatives $f^\prime_+ (a)$ and $f^\prime_-(b)$ at the endpoints, with $f^\prime_+(a) \neq f^\prime_-(b)$. Then, if $c$ is a real number between $f^\prime_+ (a)$ and $f^\prime_-(b)$, there exists at least one interior point $x$ such that $f^\prime(x) = c$.
+
+\end{Thm}
+\noindent\textbf{P.P}: If $f^\prime(x) \neq c$ for all $x$ in $(a,b)$ then there should be a cusp(i.e a sudden change of a tangent) at $x$ which contradicts the fact that $f$ has a derivative in $(a,b)$.s
+
+\begin{Thm}
+ \textbf{(Taylor's Formula  with Remainder)}:Let $f$ and $g$ be two functions having finite $n$th derivatives $f^{(n)}$ and $g^{(n)}$ in an open interval $(a, b)$ ,and continuous $(n - 1)$st derivatives in the closed interval $[a, b]$. Assume that $c \in [a, b]$. Then, for every $x$ in $[a, b]$, $x \neq c$, there exists a point $x_1$ interior to the interval joining $x$ and $c$ such that 
+ 
+ $$\Bigg[f(x) - \sum_{k=0}^{n-1} \dfrac{f^{(k)}(c)}{k!}(x-c)^k \Bigg]g^{(n)}(x_1) = f^{(n)}(x_1)\Bigg[g(x) - \sum_{k=0}^{n-1} \dfrac{g^{(k)}(c)}{k!}(x-c)^k \Bigg]$$
+ 
+ 
+ 
+ 
+\end{Thm}
+
+
+\noindent \textbf{P.P}: "Young man, in mathematics, you don't understand things, you just get used to them."
+
+\begin{deff}Let $\mathbf{f}(t) = (f_1(t),  \dots, f_n(t))$. Then
+
+$$\mathbf{f}^\prime(t) = (f_1^\prime(t), \dots, f_n^\prime(t) )$$
+\end{deff}
+
+Let $S$ be an open set in Euclidean space $\mathbb{R}^n$, and let $f : S \rightarrow R$ be a real-valued function defined on $S$. If $\mathbf{x} = (x_1, \dots , x_n)$ and $\mathbf{c} = (c_1, \dots , c_n)$ are two points of $S$ having corresponding coordinates equal except for the $k$th, that is, if $x_i = c_i;$ for $i \neq k$ and if $x_k \neq c_k$, then we can consider the limit
+$$D_kf(\mathbf{c}) =  \lim_{x_k \rightarrow c_k} \dfrac{f(\mathbf{x}) - f(\mathbf{c})}{x_k - c_k}$$
+NOTE: Since partial derivative only sees the derivatives along a finite set of co-ordinates, it is possible that there could exist a function not continuous but has all partial derivatives.
+
+\begin{deff}
+ Let $f$ be a complex-valued function defined on an open set $S$ in $\mathbb{C}$, and assume $c \in S$. Then f is said to be differentiable at $c$ if the limit 
+ 
+ $$\lim_{z \rightarrow c}\dfrac{f(z) - f(c)}{z - c}$$
+ 
+\end{deff}
+\newtheorem{Thmm}[]{Theorem}
+
+\begin{Thmm}[\textbf{The Cauchy-Riemann Equations}]Let $f = u + iv$ be defined on an open set $S$ in $\mathbb{C}$. If $f'(c)$ exists for
+some $c$ in $S$, then the partial derivatives $D_1u(c), D_2u(c), D_1v(c)$ and $D_2v(c)$ also exist and we have
+
+\begin{eqnarray}
+f'(c)& = & D_1u(c) + iD_1v(c)\\
+f'(c)& = & D_2v(c) - iD_2u(c)
+\end{eqnarray}
+
+\end{Thmm}
+\noindent \textbf{P.P}: In order for $f'(a + bi) = \lim_{(x,y) \rightarrow (a,b)} \Delta f/ \Delta z$ to exist $\lim_{(a,y) \rightarrow (a,b)} \Delta f/ \Delta z = \lim_{(x,b) \rightarrow (a,b)}\Delta f/ \Delta z$.
+
+\chapter{Bounded Variations and Rectifiable Curves}
+\begin{Thm}
+Let $f$ be an increasing function defined on $[a, b]$ and let $x_0$, $x_1$, ... , $x_n$
+be $n + 1$ points such that
+$$a = x_0 < x_1 < \dots < x_n = b$$
+Then we have the inequality
+
+$$\sum_{k = 1}^{n-1} [f(x_k +) - f(x_k -)] \leq f(b)-f(a)$$
+
+
+\end{Thm}
+\noindent \textbf{P.P}:The sum at the jump of $f(x)$ at $x = x_i$ is within $(f(a), f(b))$ if $f$ is monotonic.
+
+\begin{Thm}
+If $f$ is monotonic on $[a, b]$, then the set of discontinuities of $f$ is countable.
+\end{Thm}
+\noindent \textbf{P.P}: The jumps of $f$ are within an interval that has a finite width. A finite-width interval can only be a union of a countable set of disjoint non-zero width intervals
+
+\begin{deff}
+If $[a, b]$ is a compact interval, a set of point
+$$P = \{x_0, x_1, \dots, x_n\}$$
+satisfying the inequalities
+$$a = x_0 < x_1 < \dots < x_n = b$$
+is called a partition of $[a, b]$. The interval $[x_{k-1}, x_k]$ is called the $k$-th subinterval of $P$ and we write $\Delta x_k = x_{k}- x_{k-1} $ so that $\sum_{k = 1}^n \Delta x_k = b - a$. The collection of all possible partitions of $[a, b]$ will be denoted by $\mathcal{P}([a, b])$.
+\end{deff}
+
+\begin{deff}
+Let $f$ be defined on $[a, b]$. If $P = \{x_0, x_1, \dots , x_n\}$ is a partition of $[a, b]$, write $\Delta f_k = f(x_k) - f(x_{k- 1})$ , for $k = 1, 2, \dots , n$. If there exists a
+positive nuber $M$ such that
+$$\sum_{k=1}^n|\Delta f_k| \leq M$$
+or all partitions of $[a, b]$, then $f$ is said to be of bounded variation on $[a, b]$.
+\end{deff}
+Counter example:
+$$f(x) = 
+\begin{cases}
+1/x \text{ if } x \neq 0\\
+0 \text{ if otherwise}
+\end{cases}$$
+
+\begin{Thm}
+If $f$ is monotonic on $[a, b]$, then $f$ is of bounded variation on $[a, b]$
+\end{Thm}
+\noindent \textbf{P.P}: The sum telescopes for a monotonic function.
+\begin{Thm}
+ If $f$ is continuous on $[a, b]$ and if $f'$ exists and is bounded in the interior, say $|f'(x)| \leq A$ for all $x$ in $(a, b)$, then $f$ is of bounded variation on $[a, b]$.
+\end{Thm}
+\noindent \textbf{P.P} : We know $mx + b$ is of bounded variation. Pick $m = A$ and $b = \min(f(x))$. Then $mx + b \geq f(x)$ hence $f$ is of bounded variation.
+
+
+\begin{Thm}
+If $f$ is of bounded variation on $[a, b]$, say $\sum |\Delta f_k| \leq M$,  for all partitions of $[a, b]$, then $f$ is bounded on $[a, b]$. In fact
+$$|f(x)| \leq |f(a)| + M \text{    for all $x$ in $[a,b]$}$$
+\end{Thm}
+\noindent \textbf{P.P}: The value of $f$ at $x$ is less than its total jump in $[a,b]$ more than the smallest value of $x$ in $[a,b]$, i.e $f(a)$
+
+\begin{deff}
+Let $f$ be of bounded variation on $[a, b]$, and let $\sum (P)$ denote the sum
+ $\sum_{k=1}^n |\Delta f_k|$ corresponding to the partition $P = \{x_0, x_1, \dots , x_n\}$, of $[a, b]$. The number
+   $$V_f(a,b)= \sup\big\{\sum (P): P \in \mathcal{P}[a,b]\big\}$$
+  is called the total variation of $f$ on the interval $[a,b]$.
+
+\end{deff}
+ This can be thought as the maximum jump $f$ can have in $[a,b]$, i.e, for a continuous function, when $P = \{x: x\text{ is a turning point of } f \text{ in } [a,b] \}$
+ 
+ \begin{Thm}
+ Assume that $f$ and $g$ are each of bounded variation on $[a, b]$. Then so are their sum, difference, and product. Also, we have
+  $$V_{f \pm g}  \leq V_f + V_g$$
+  and
+  $$V_{fg} \leq AV_f + BV_g$$
+  where $A = \sup \{|g(x)|: x \in [a,b]\}$ and $B = \sup \{|f(x)|: x \in [a,b]\}$
+  
+  
+ \end{Thm}
+ \noindent \textbf{P.P}: This is in a way the consequence of the fact that $f\pm g$ tends to have lower number of turning points in a fixed interval than the total number of turning points of $f$ and $g$. And $fg \leq Af$ and $fg \leq Bf$; the equality rarely shows up.
+ 
+ \begin{Thm}
+ Let $f$ be of bounded variation on $[a, b]$. and assume that $f$ is bounded away from zero; that is, suppose that there exists a positive number $m$ such that $0 < m \leq |f(x)|$ or all $x$ in $[a, b]$. Then $g= 1/f$ is also of a bounded variation on $[a,b]$, and $V_g \leq V_f / m^2$. 
+ \end{Thm}
+ 
+ \begin{Thm}
+ Let $f$ be of bounded variation on $[a, b]$, and assume that $c \in (a, b)$. Then $f$ is of bounded variation on $[a, c]$ and on $[c, b]$ and we have
+ $$V_f(a,b) = V_f(a,c) + V_f(c,d)$$
+ \end{Thm}
+ \noindent \textbf{P.P}:  If $c$ is a turning point of $f$, then it is trivial. If otherwise then $|f(c) - f(x_k)| + |f(x_{k+1} - f(c))| = |f(x_{k+1} - f(x_k))|$, where $x_k$ and $x_{k+1}$ are the immediate turning points of $f$ found to the left and to the right of $c$ respectively.
+ 
+ \begin{Thm}
+ Let $f$ be of bounded variation on $[a, b]$. Let $V$ be defined on $[a, b]$ as follows: $V(x) = V_f(a, x)$ if $a < x \leq b$, $V(a) = 0$. Then
+ \begin{enumerate}
+     \item $V$ is an increasing function on $[a,b]$.
+     \item  $V-f$ is an an increasing function on $[a,b]$.
+ \end{enumerate}
+ 
+ 
+ \end{Thm}
+ \noindent \textbf{P.P}: (1) $V_f$ is additive. (2) $V(x) - V(y) = V(y,x) \geq f(y) - f(x)$.
+ 
+ \begin{Thm}
+  Let $f$ be defined on $[a, b]$. Then $f$ is of bounded variation on $[a, b]$ if, and only if, $f$ can be expressed as the difference of two increasing functions.
+ \end{Thm}
+ 
+ \noindent \textbf{P.P}: Theorem 55 and 58.
+ 
+ \begin{Thm}
+Let $f$ be of bounded variation on $[a, b]$. If $x \in (a, b]$, let $V(x) =
+V_f(a, x)$ and put $V(a) = 0$. Then every point of continuity of $f$ is also a point of
+continuity of $V$. The converse is also true.
+
+\end{Thm}
+
+\noindent \textbf{P.P}: $\omega_f(x) = 0 \Longleftrightarrow \omega_V(x) = 0$.\\
+
+Let the set of all polygons that can be inscribed in a curve $f$ be $I_f$. The curve $f$ is \textbf{rectifiable} if the length of the curve is $\sup\{p: p \text{ is the length of a polygon in $I_f$}\}$. More formally... \\
+
+Let $\mathbf{f} : [a, b] \rightarrow \mathbb{R}^n$ be a path in $\mathbb{R}^n$. For any partition of $[a, b]$ given by $P = \{t_0, t_1, \dots , t_m\}$, the points $\mathbf{f}(t_0),  \mathbf{f}(t_1), \dots$ are the vertices of an inscribed polygon. The length of this polygon is denoted by $\Lambda_{\mathbf{f}}(P)$ and
+is defined to be the sum
+
+$$\Lambda_{\mathbf{f}}(P) = \sum_{k=1}^n  \lVert \mathbf{f}(t_k) - \mathbf{f}(t_{k-1}) \rVert$$.
+
+\begin{deff}
+
+If the set of numbers $\Lambda_{\mathbf{f}}(P)$ is bounded for all partitions $P$ of $[a, b]$, then the path $\mathbf{f}$ is said to be rectifiable and its arc length, denoted by $\Lambda_{\mathbf{f}}(a, b)$, is defined by the equation
+
+$$\Lambda_{\mathbf{f}}(a, b) = \sup\{\Lambda_{\mathbf{f}}(P) : P \in \mathcal{P}[a,b]\}$$
+If the set of numbers $\Lambda_{\mathbf{f}}(P)$ is unbounded, $\mathbf{f}$ is called nonrectiflable.
+\end{deff}
+\begin{Thm}
+7. Consider a path $\mathbf{f} : [a, b] \rightarrow \mathbb{R}^n$ with components $\mathbf{f} = (f_1, \dots ,f_n)$ is rectifiable if, and only if, each component $f_k$ is of bounded variation on
+$[a, b]$. If $\mathbf{f}$ is rectifiable, we have the inequalities
+   $$V_k(a,b) \leq \Lambda_{\mathbf{f}}(a,b) \leq V_1(a,b) + \dots + V_n(a,b)$$
+where $V_k(a,b)$  is the total variation of $f_k$ in $[a,b]$ 
+\end{Thm}
+
+\noindent \textbf{P.P}: For the $V_k(a,b) \leq  \Lambda_{\mathbf{f}}(a,b)$, one can observe that the total variation of $f_k$ is less than the $k$-th component (in $\mathbb{R}^n$) of a certain increasing function with the same arc-length as $\mathbf{f}$. \\
+For the $\Lambda_{\mathbf{f}}(a,b) \leq V_1(a,b) + \dots + V_n(a,b)$ observe that any increasing function  originating from a "Rook domain"\footnote{a rook domain is a corner of a square, cube or a hypercube along with the sides forming it.} approaches to look like the side of the rook domain which is at most the sum of the total variations $V_1, V_2, \dots, V_k$ , hence less than  than this sum. It is easier to visualize on $\mathbb{R}^2$
+ 
+ \begin{Thm}
+If $c \in (a, b)$ we have
+$$\Lambda(a,b) = \Lambda(a,c) + \Lambda(c,b)$$
+ \end{Thm}
+ \begin{Thm}
+  Consider a rectifiable path $\mathbf{f}$ defined on $[a, b]$. If $x \in (a, b]$, let
+$s(x) = \Lambda_{\mathbf{f}}(a, x)$ and let $s(a) = 0$. Then we have:
+   \begin{enumerate}
+       \item The function $s$ so defined is increasing and continuous on $[a, b]$
+       \item If there is no subinterval of $[a, b]$ on which $\mathbf{f}$ is constant, then $s$ is strictly increasing on $[a, b]$.
+   \end{enumerate}
+ \end{Thm}
+ 
+ Two curves $\mathbf{f}$ and $\mathbf{g}$ are called \textit{equivalent} if $\mathbf{g}(t) = \mathbf{f}(u(t))$ for a real-valued monotonic function $u: [c,d] \rightarrow [a,b]$ and a vector function $\mathbf{f}: [a,b] \rightarrow \mathbb{R}^n$.
+ 
+ \chapter{The Riemann-Stiletjes Integral}
+ \noindent Notations: \begin{enumerate}
+\item $f,g,\alpha, \beta,\dots$ are all bounded in the compact interval $[a,b]$.
+\item $P = \{x_0, x_1, \dots, x_n\}$
+\item A partition $P'$ of $[a, b]$ is said to be \textit{finer} than $P$ (or \textit{a refinement} of $P$) if $P \subseteq P'$.
+\item $\Delta \alpha_k = \alpha(x_k) - \alpha(x_{k-1})$
+\item The norm of a partition $P$ is the length of the largest subinterval of $P$ and is denoted by $\lVert P \rVert$.
+\item $\alpha \nearrow$ on $[a,b]$ = $\alpha$ is increasing on $[a,b]$.
+\end{enumerate}
+
+
+\begin{deff}
+Let $P = \{x_0, x_1, \dots , x_n\}$ be a partition of $[a, b]$ and let $t_k$ be a point in the subinterval $[x_{k-1}, x_k]$. A sum of the form
+$$S(P,f, \alpha) = \sum_{k = 1}^{n} f(t_k) \Delta \alpha_k$$
+is called a Riemann-Stieltjes sum off with respect to $\alpha$. We say $f$ is Riemann-Stieltjes integrable with respect to $\alpha$ in $[a,b]$, and we write "$f \in R(\alpha)$ in $[a,b]$" if there exists a number $A$ having the following property. For every $\varepsilon > 0$ there exsists a partiton $P_{\varepsilon}$ of $[a,b]$ such that for every partion $P$ that is finer than $P_{\varepsilon}$ and for every choice of points $t_k \in [x_{k-1}, x_k]$ , we have $  |S(P,f,\alpha) - A| < \varepsilon$.
+\end{deff}
+
+For $\alpha(x) = x$, we usually omit $\alpha$ from notations.
+
+\begin{Thm}
+If $f \in R(\alpha)$ and if $g \in R(\alpha)$ on $[a, b]$, then $c_1 f + c_2g \in R(\alpha)$ on
+$[a, b]$ (for any two constants $c_l$ and $c_2$) and we have 
+
+$$\int_{a}^{b} (c_1 f + c_2g)\ d\alpha  = c_1 \int_{a}^{b} f \ d\alpha + c_2 \int_{a}^{b} g \ d\alpha$$
+\end{Thm}
+
+
+\begin{Thm}
+If $f \in R(\alpha)$ and $f \in R(\beta)$ on $[a, b]$, then $f \in R(c_1\alpha + c_2\beta)$ on $[a, b]$ (for any two constants $c_l$ and $c_2$) and we have
+$$\int_{a}^{b} f\ d(c_1 \alpha + c_2 \beta) = c_1\int_{a}^{b} f \ d\alpha + c_2\int_{a}^{b}f \ d\beta $$
+\end{Thm}
+
+\begin{Thm}
+Assume that $c \in (a, b)$. If two of the three integrals in (1) exist, then the third also exists and we have
+    $$\int_{a}^{c} f \ d\alpha + \int_{c}^{b} f \ d\alpha = \int_{a}^{b} f \ d\alpha   .$$
+
+
+\end{Thm}
+\noindent \textbf{P.P}: The sum of the areas under $f$ from $a$ to $c$ and $c$ to $b$ equals that from $a$ to $b$.
+
+\begin{deff}
+ If $a < b$, we define $\int_{b}^{a} f \ d\alpha = - \int_{a}^{b} f \ d\alpha$ whenever $\int_{a}^{b} f \ d\alpha$  exists. We also define $\int_{a}^{a} f \ d\alpha = 0$
+\end{deff}
+
+\begin{Thm}
+If $f \in R(\alpha)$ on $[a, b]$, then $a \in R(f)$ on $[a, b]$ and we have
+    $$\int_{a}^{b} f(x) \ d\alpha(x) + \int_{a}^{b} \alpha(x)\ df(x) = f(b)\alpha(b) - f(a)\alpha(a)$$
+\end{Thm}
+
+\begin{Thm}
+Let $f \in R(\alpha)$ on $[a, b]$ and let $g$ be a strictly monotonic continuous function defined on an interval $S$ having endpoints $c$ and $d$. Assume that $a = g(c)$ and $b = g(d)$. Let $h$ and $\beta$ be the composite functions defined as follows:
+      $$h(x) = f(g(x)), \hspace*{2cm} \beta(x) = \alpha(g(x))$$
+if $x \in S$. Then
+$$\int_a^b f\  d\alpha = \int_c^d h\  d\beta.$$
+
+\end{Thm}
+\newcommand{\PP}{\noindent \textbf{P.P}: }
+\newcommand{\da}{d \alpha}
+
+\PP The summands $f \Delta \alpha_k$ (in $[a,b]$) and $h \Delta \beta_k$ (in $[c,d]$) are identical.
+
+
+\begin{Thm}
+Assume $f \in R(\alpha)$ on $[a, b]$ and assume that $\alpha$ has a continuous derivative $\alpha'$ on $[a, b]$. Then the Riemann integral $\int_a^b f(x) \alpha'(x)\ dx$ exists, and we have:
+$$\int_a^b f(x)\  d\alpha(x) = \int_a^b f(x) \alpha'(x)\ dx$$
+\end{Thm}
+\PP $\da(x) = \alpha'(x) dx$
+
+\begin{Thm}
+Given $a < c < b$. Define a on $[a, b]$ as follows: The values $\alpha(a),
+\alpha(c), \alpha(b)$ are arbitrary;
+$$\alpha(x) = \alpha(a)\ \ \text{    if}\ a \leq x < c,$$
+and
+$$\alpha(x) = \alpha(b)\ \ \text{    if}\  c < x \leq c.$$
+Let $f$ be defined on $[a, b]$ in such a way that at least one of the functions $f$ or $\alpha$ is
+continuous from the left at $c$ and at least one is continuous from the right at $c$. Then
+$f \in R(\alpha)$ on $[a, b]$ and we have
+$$\int_a^b f \da = f(c)(\alpha(c+) - \alpha(c-))$$
+
+\end{Thm}
+\PP Total area under the graph of $f$ is $w\ell = [\alpha(c+) - \alpha(c-)]f(c)$. If both $f$ is discontinuous at $c$, there are two cases:
+\begin{itemize}
+    \item If $\alpha$ is continuous everywhere in $[a,b]$ then $ \Delta \alpha_k = 0$ for all $x_k, x_{k+1} \in P$, making $S(P,f,\alpha)=0$.
+    \item if $\alpha$ is not continuous at $c$ then $\alpha(c+) - \alpha(c-) \neq 0$. Hence the length of the rectangle does not exist. 
+\end{itemize}
+
+\begin{deff}
+A function, $f$, a defined on $[a, b]$ is called a step function
+if there is a partition
+$$a = x_1 < \dots < x_n = b$$
+such that $\alpha$ is constant on each open subinterval $(x_{k-1}, x_k)$. The number $\alpha(x_k+) - \alpha(x_k-)$ is called the jump at $x_k$ if $1 < k < n$. The jump at $x_1$ is $\alpha(x_1+) - \alpha(x_1)$,and the jump at $x_n$ is $\alpha(x_n) - \alpha(x_n-)$.
+
+\end{deff}
+
+\begin{Thm}
+Let $\alpha$ be a step function defined on $[a, b]$ with jump $\alpha_k$ at $x_k$, where $x_1, \dots,  x_n$ are as described
+in Definition 32. Let $f$ be defined on $[a, b]$ in such a way that not both $f$ and $\alpha$ are discontinuous from the right or from the left at each $x_k$. Then $\int_a^b f\da$ exists and we have
+$$\int_a^b f\da = \sum_{k=1}^n f(x_k)\alpha_k$$
+
+\end{Thm}
+\PP follows from theorem 66 and 70.
+\begin{Thm}
+Every finite sum can be written as a Riemann-Stieltjes integral. In fact, given a sum $\sum_{k=1}^n a_k$, define $f$ on $[0, n]$ as follows:
+$$f(x) = a_k\ \ \text{if}\ \ k-1 < x \leq k\ \ (k = 1,2 \dots,n),\ \  f(0) = 0.$$
+Then
+$$\sum_{k=1}^n a_k = \sum_{k=1}^n f(k) = \int_0^n f(x)\  d[x].$$
+where $[x]$ is the greatest integer $\leq x$
+\end{Thm}
+
+\begin{Thm}
+If $f$ has a continuous derivative $f'$ on $[a, b]$, then we have
+$$\sum_{a<n\leq b} f(n) =  \int_a^b f(x)\ dx + \int_a^b (x-[x])f'(x)\ dx + f(a)((a-[a])) - f(b)((b-[b])).$$
+\end{Thm}
+
+\begin{deff}
+ Let $P$ be a partition of $[a, b]$ and let
+ $$M_k(f) = \sup\{f(x): x \in [x_{k-1}, x_k]\}$$
+ $$m_k(f) = \inf\{f(x): x \in [x_{k-1}, x_k]\}$$
+The numbers 
+$$U(P, f, \alpha) = \sum_{k=1}^n M_k(f)\Delta \alpha_k \hspace*{0.5cm} \text{ and } \hspace*{0.5cm}
+L(P, f, \alpha) = \sum_{k=1}^n m_k(f)\Delta \alpha_k$$
+are called, respectively, the upper and lower Stieltjes sums of $f$ with respect to $\alpha$ for the partition $P$.
+
+
+ \end{deff}
+ \newcommand{\ai}{\alpha \nearrow}
+\begin{Thm}
+Assume $\ai$  on $[a,b]$. Then:
+\begin{enumerate}
+    \item If $P'$ is finer than $P$, we have
+    $$U(P',f, \alpha) \leq U(P,f, \alpha)\hspace*{0.5cm} \text{ and } \hspace*{0.5cm} L(P',f, \alpha) \geq L(P,f, \alpha)$$
+    \item For any two partitions $P_1$ and $P_2$, we have
+        $$ L(P_1,f, \alpha) \leq  U(P_2,f, \alpha)$$
+\end{enumerate}
+\end{Thm}
+\PP (1) $2\sup A\cup B \leq \sup A + \sup B.$ (2)$\sum m_k(f)\Delta \alpha_k \leq M_k(f) \sum\Delta \alpha_k$
+
+\begin{deff}
+Assume that $\ai$ on $[a, b]$. The upper Stieltjes integral of $f$ with respect to $\alpha$ is defined as follows:
+$$\overline{I}(f,\alpha) = \overline{\int_a^b} f \da =  \inf\{U(P,f,\alpha): P\in \mathcal(P)[a,b]$$
+The lower Stieltjes integral is similarly defined:
+$$\underline{I}(f,\alpha) = \underline{\int_a^b} f \da =  \sup\{L(P,f,\alpha): P\in \mathcal(P)[a,b]$$
+\end{deff}
+
+\begin{Thm}
+ Assume that $\ai$ on $[a, b]$. Then $\underline{I}(f,\alpha) \leq \overline{I}(f,\alpha)$.
+\end{Thm}
+\PP $m_k \leq f(t_k) \leq M_k$.
+
+\begin{Thm} . Assume that $\ai$ on $[a, b]$ and $c \in (a,b)$. Then:
+$$\overline{\int_a^b} (f+g)\ \da \leq \overline{\int_a^b} f \ \da + \overline{\int_a^b} g \ \da$$
+and
+$$\underline{\int_a^b} (f+g)\ \da \geq \underline{\int_a^b} f \ \da + \underline{\int_a^b} g \ \da$$
+\end{Thm}
+\PP This happens because $\sup\{s + t\} \leq \sup\{s\} + \sup\{t\}$
+\begin{deff}
+We say that $f$ satisfies \textbf{Riemann's condition} with respect to $\alpha$ on
+$[a, b]$ if, for every $\varepsilon > 0$, there exists a partition $P_\varepsilon$, such that $P$ finer than $P_\varepsilon$ implies
+$$0 \leq U(P,f,\alpha)-L(P,f,\alpha) < \varepsilon$$
+\end{deff}
+
+\begin{Thm}lim
+Assume that $\ai$ on $[a, b]$. Then the following three statements are equivalent: 
+\begin{enumerate}
+	\item $f \in R(\alpha)$ on $[a,b]$
+	\item $f$ satisfies Riemann's condition with respect to $\alpha$ on $[a, b]$.
+	\item $\overline{I}(f,\alpha) = \underline{I}(f,\alpha)$.
+\end{enumerate}
+\end{Thm}
+
+\begin{Thm}
+Assume that $\ai$ on $[a, b]$. If $f \in R(\alpha)$ and $g \in R(\alpha)$ on $[a, b]$ and
+if $f(x) \leq g(x)$ for all $x$ in $[a, b]$, then we have
+$$\int_a^b f(x)\  \da(x) \leq \int_a^b g(x)\  \da(x)$$
+\end{Thm}
+\begin{Thm}
+ Assume that $\ai$ on $[a, b]$. If $f \in R(\alpha)$ on $[a, b]$, then $|f| \in R(\alpha)$ on $[a, b]$ and we have the inequality
+ $$\bigg|\int_a^b f(x)\ \da(x)\bigg| \leq \int_a^b |f(x)|\ \da(x)$$
+\end{Thm}
+\PP The area of $|f|$ is The area of $f$ above the $x-$axis + $|$the area of f under the $x-$axis$|$. Thus $|f| \in R(\alpha)$. $\int |f|$ is greater because no terms of $|f|$ are bound to cancel out each other as opposed to the terms of $f$
+
+\begin{Thm}
+ Assume that $\ai$ on $[a, b]$. If $f \in R(\alpha)$ on $[a, b]$, then $f^2 \in R(\alpha)$ on $[a, b]$.
+\end{Thm}
+\begin{Thm}
+ Assume that $\ai$ on $[a, b]$. If $f,g \in R(\alpha)$ on $[a, b]$, then $fg \in R(\alpha)$ on $[a, b]$.
+\end{Thm}
+\PP The limit of $\sum fg \cdot \Delta \alpha_k$ should exist as the side $fg$ is finite and approaches a certain value as both $f,g \in R(\alpha)$, meaning each approaches a certain value.
+
+\newcommand{\al}{\alpha}
+\begin{Thm}
+Assume that $\al$ is of bounded variation on $[a, b]$. Let $V(x)$ denote the
+total variation of $\al$ on $[a, x]$ if $a < x \leq b$ , and let $V(a) = 0$. Let $f$ be defined and bounded on $[a, b]$. If $f \in R(\al)$ on $[a, b]$, then $f \in R(V)$ on $[a, b]$.
+\end{Thm}
+
+\PP Since $\al$ is of bounded variation the sum $\sum f |\al_k|$ does not blow up.
+\begin{Thm}
+Let $\al$ be of bounded variation on $[a, b]$ and assume that $f \in R(\al)$ on
+$[a, b]$. Then $f \in R(\al)$ on every subinterval $[c, d]$ of $[a, b]$.
+\end{Thm}
+\PP Because the area under $f$ in $[a,b]$ is the sum of some constant $+$ area under $f$ in $[c,d]$.
+
+\begin{Thm}
+Assume $f \in R(\al)$ and $g \in R(\al)$ on $[a, b]$, where $\ai$ on $[a, b]$.\\
+\noindent Define
+$$F(x) = \int_a^x f(t)\  \da(t)$$
+and
+$$G(x) = \int_a^x g(t)\ \da(t).$$
+Then $f \in R(G)$, $g \in R(F)$, $f\cdot g \in R(\alpha)$ on $[a,b]$ and we have,
+$$\int_a^b f(x)g(x) \ \da(x) = \int_a^b f(x)\ dG(x) = \int_a^b g(x)\ dF(x).$$
+\end{Thm}
+\PP $d\int_a^x g \ \da$ means $\int_a^x g \ \da - \int_a^{x - \varepsilon} g \ \da $, where $\varepsilon$ is a very small number. This value approaches the area of the rectangle $g(x) d\al(x)$. 
+
+\begin{Thm}
+If $f$ is continuous on $[a, b]$ and if $\al$ is of bounded variation on $[a, b]$,
+then $f \in R(\al)$ on $[a, b]$.
+\end{Thm}
+\PP If $\al$ is of bounded variation, then $\sum f \Delta \al_k$ does not blow up since $f$ is bounded and $f(t_k) \underset{t_k \in [x_{k-1}, x_k]} {\longrightarrow}f(x_k)=f(x_{k-1})$ if $f$ is continuous.
+\newcommand{\ep}{\varepsilon}
+\newcommand{\de}{\delta}
+
+\begin{Thm}
+Assume that $\ai$ on $[a, b]$ and let $a < c < b$. Assume further that both $\al$ and $f$ are discontinuous from the right at $x = c$; that is, assume that there
+exists an $\ep>0$ such that for every $\de> 0 $ there are values of $x$ and $y$ in the interval $(c, c + \de)$ for which
+    $$|f(x) - f(c)| \geq \ep \And |\al(y) - \al(c)| \geq \ep$$
+Then the integral $\int_a^b f \ \da$ cannot exist. The integral also fails to exist if $\al$ and $f$ are discontinuous from the left at $c$.
+\end{Thm}
+\PP $f(t_k)\Delta\al_k \rightarrow f(c-)(\al(c) - \al(c-)) \neq 0$ and $f(t_{k+1})\Delta\al_{k+1} \cancel{\rightarrow} f(c-)(\al(c) - \al(c-)) $. In other words,the limit fails to exist because there would be two rectangles with varing area in the neighbourhood of $\alpha(c)$, $f(c-)(\al(c) - \al(c-))$ and $f(c)(\al(c) - \al(c-))$.
+\begin{Thm}
+Assume that $\ai$ and let $f \in  R(\al)$ on $[a, b]$. Let $M$ and $m$ denote, respectively, the $\sup$ and $\inf$ of the set $\{f(x) : x \in [a, b]\}$. Then there exists a real number $c$ satisfying $m \leq c \leq M$ such that
+$$\int_a^b f(x)\ \da(x) =  c\int_a^b \da =  c[\al(b) - \al(a)].$$
+In particular, if $f$ is continuous on $[a, b]$, then $c = f(x_0)$ for some $x_0$ in $[a, b]$.
+
+\end{Thm}
+\PP The area of rectangle $M[\al(b) - \al(a)] > $ Area under $f$ and the area of rectangle $m[\al(b) - \al(a)] <$ Area under $f$. So there should be a $c$ that satisfies the equation in the theorem.
+
+\begin{Thm}
+Assume that $a$ is continuous and that $f \nearrow$ on $[a, b]$. Then there exists a point $x_0$ in $[a, b]$ such that
+    $$\int_a^b f(x)\ \da(x) = f(a)\int_a^{x_0} f(x) \da(x) + f(b)\int_{x_0}^b f(x)\ \da(x)$$
+\end{Thm}
+\begin{Thm}
+Let $\al$ be of bounded variation on $[a, b]$ and assume that $f \in R(\al)$ on $[a, b]$. Define $F$ by the equation
+$$F(x) = \int_a^x f\ \da \ \text{  if } x \in [a,b].$$
+Then we have:
+\begin{enumerate}
+    \item $F$ is of bounded variation on $[a,b],$
+    \item Every point of continuity of $\al$ is also a point of continuity of $F$.
+    \item If $\ai$ on $[a,b]$, the derivative $F'(x)$ exists, at each point $x$ in $(a,b)$ where $a'(x)$ exists and $f$ is continuous. For such $x$, we have
+    $$F'(x) = f(x)\al'(x)$$.
+\end{enumerate}
+\end{Thm}
+
+\PP (1) follows from $\sum_{(P)} |\int_{x_{k-1}}^{x_k} f \ \da | \leq \int_{x_{k-1}}^{x_k} |f| \ \da.$ which is bounded (Note $\al$ is bounded). (2) follows because if $\Delta \al_k$ gets infinitesimally smaller and smaller, $F(y)- F(x)$ approaches the area of a line which is 0. (3) follows from the reduction of $\int f \ \da$ to the Riemann integral.
+
+\begin{Thm}
+Assume $f \in \mathbb{R}$ on $[a, b]$. Let $\al$ be a function which is continuous on
+$[a, b]$ and whose derivative $\al'$ is Riemann integrable on $[a, b]$. Then the following integrals exist and are equal:
+$$\int_a^b f(x) \ \da(x) = \int_a^b f(x) \al'(x) \ dx.$$
+
+\end{Thm}
+
+\begin{Thm}
+ \textbf{(Change of variable in a Riemann integral)}. Assume that $g$ has a
+continuous derivative $g'$ on an interval $[c, d]$. Let $f$ be continuous on $g([c, d])$ and define $F$ by the equation
+$$F(x) = \int_{g(c)}^x f(t) \ dt$$
+Then, for each $x$ in $[c, d]$ the integral $\int_c^x f[g(t)]g'(t) dt$ exists and has the value $F[g(x)]$. 
+
+\end{Thm}
+\PP when $g$ is decreasing, $g' < 0$.
+
+\begin{Thm}\textbf{(Second MVT)}
+Let $g$ be continuous and assume that $f \nearrow$ on $[a, b]$. Let $A $ and $B$ be two real numbers satisfying the inequalities
+$$A \leq f(a+) \hspace*{1cm} \And \hspace*{1cm} B \geq f(b-)$$
+Then there exists a point $x_0$ in $[a, b]$ such that
+\begin{enumerate}
+     
+
+    \item $\int_a^b f(x)g(x)\ dx = A\int_a^{x_0} g(x) dx + B\int_{x_0}^b g(x)\ dx$
+    \item In particular if $f(x)\geq 0$, we have  $\int_a^b f(x)g(x)\ dx  = B\int_{x_0}^b g(x) \ dx.$
+\end{enumerate}
+\end{Thm}
+\PP $\int B > \int f$ whatsoever. Hence there should be an optimal $x_0$.
+
+\begin{Thm}
+Let $f$ be continuous at each point $(x, y)$ of a rectangle
+    $$Q = \{(x,y): a\leq x \leq b,\ c\leq y \leq d \}.$$
+Assume that $\al$ is of bounded variation on $[a, b]$ and let $F$ be the function defined on $[c, d]$ by the equation 
+$$F(y) = \int_a^b f(x,y)\ \da(x). $$
+Then $F$ is continuous on $[c, d]$. In other words, if $y_0 \in [c, d]$, we have
+\begin{eqnarray*}
+\lim_{y \rightarrow y_0} \int_a^b f(x,y)\ \da & = & \int_a^b \lim_{y \rightarrow y_0}f(x,y)\ \da\\
+& = & \int_a^b f(x,y_0)\ \da
+\end{eqnarray*}
+\end{Thm}
+\PP $f(x, y) = g_x(y)$ and limit is distributive over addition.
+
+\begin{Thm}
+Let $Q = \{(x, y) : a \leq x \leq b,\  c \leq y \leq d\}$. Assume that $\al$ is of bounded variation on $[a, b]$ and, for each fixed $y$ in $[c, d]$, assume that the integral
+$$F(y) = \int_a^b f(x,y)\ \da$$
+exists. If the partial derivative $D_2f$ is continuous on $Q$, the derivative $F(y)$ exists for each $y$ in $(c, d)$ and is given by  
+    $$F'(y) = \int_a^b D_2f(x,y) \ \da(x)$$
+\end{Thm}
+
+\begin{Thm}
+Let $Q = \{(x, y) : a \leq x \leq b, c \leq y \leq d\}$. Assume that $\al$ is of
+bounded variation on $[a, b]$, $\beta$ is of bounded variation on $[c, d]$, and $f$ is continuous on $Q$. If $(x, y)$ a $Q$, define
+$$F(y) = \int_a^b f(x,y)\ \da(x), \hspace*{1cm} G(x) = \int_c^d f(x,y)\ d\beta(y).$$
+Then $F \in R(\beta)$ on $[c, d]$, $G \in R(\al)$ on $[a, b]$, and we have
+$$\int_c^d F(y) \ d\beta(y) = \int_a^b G(x) \ \da(x).$$ 
+
+\end{Thm}
+
+\PP The order of integration can be reversed.
+\begin{deff}
+A set $S$ of real numbers is said to have \textbf{measure zero} if, for every
+$\varepsilon > 0$, there is a countable covering of $S$ by open intervals, the sum of whose lengths is less than $\varepsilon$.
+\end{deff}
+\
+This means a set $S$ has measure zero if $S = \bigcup_k (a_k, b_k)$ and $\sum_k b_k - a_k < \varepsilon$
+
+\begin{Thm}
+Let $F$ be a countable collection of sets in $\mathbb{R}$, say $F= \{F_1,F_2,\dots \}$,
+each of which has measure zero. Then their union
+$$S = \bigcup_{k=1}^\infty F_k$$
+also has a measure zero.
+\end{Thm}
+\PP $$\sum_{k=1}^\infty \dfrac{\varepsilon}{2^k} = \varepsilon$$
+
+\begin{deff}
+Let $f$ be defined and bounded on an interval $S$. If $T \subseteq S$, the
+number
+$$\Omega_f(T) =  \sup \{f(x) - f(y): x,y \in T\}$$
+is called the oscillation of $f$ on $T$. The oscillation of $f$ at $x$ is defined to be the number
+
+$$\omega_f(x) = \lim_{h \rightarrow 0^+} \Omega_f(B(x;h) \cap S).$$;
+\end{deff}
+\begin{Thm}
+Let $f$ be defined and bounded on $[a, b]$, and let $\varepsilon > 0$ be given.
+Assume that $\omega_f(x) < \varepsilon$ for every $x$ in $[a, b]$. Then there exists a $\delta >0$  (depending only on $\varepsilon$) such that for every closed subinterval $T \subseteq [a, b]$, we have $\omega(T) < \varepsilon$
+whenever the length of $T$ is less than $\delta$.
+
+\end{Thm}
+\PP If the maximum jump of $f$ in $[a,b] < \varepsilon$, then the span of $f  < \varepsilon$ for every sufficiently small subinterval of $[a,b]$.
+
+\begin{Thm}
+Let $f$ be defined and bounded on $[a, b]$. For each $ \varepsilon > 0$ define the set $J_\varepsilon$ as follows:
+$$J_\varepsilon := \{x: x \in [a,b],\  \omega_f(x)\geq \varepsilon \}.$$
+Then $J_\varepsilon$ is a closed set.
+
+\end{Thm}
+The 'endpoints' of the interval of discontinuity are in $J_\varepsilon$.
+
+\begin{Thm}
+ \textbf{(Lebesgue's criterion for Riemann-integrability)}. Let $f$ be defined
+and bounded on $[a, b]$ and let $D$ denote the set of discontinuities of $f$ in $[a, b]$. Then $f \in R$ on $[a, b]$ if, and only if, $D$ has measure zero.
+\end{Thm}
+\PP A bounded function $f$ on a compact interval $[a, b]$ is Riemann-integrable on $[a, b]$ if, and only if, $f$ is continuous \textit{almost everywhere} on $[a,b].$ This is the case because if there are enough discontinuities, they can prevent Riemann's condition on integrability from holding: the sum $\sum (M_k - m_k)\Delta x_k = S_1 + S_2$, where $S_1$ contains points of discontinuities,  and $S_1 \geq \sum $ jump of $f \times$ measure of $D$. 
+
+\section*{More from the exercise}
+$$\int_a^b f(x)g(x) \ \da(x) = f(a)\int_a^{x_0} g(x) \ \da(x) + f(b)\int_{x_0}^b g(x) \ \da(x).$$
+\noindent \textit{Cauchy-Schwartz}: For $\ai$ we have
+$$\bigg(\int_{a}^b f(x)g(x)\ dx \bigg)^2 \leq \int_{a}^b [f(x)]^2\ dx \int_{a}^b [g(x)]^2\ dx $$
+$$\Lambda_\mathbf{f}(a,b) =  \int_{a}^b \lVert \mathbf{f}'(t) \rVert\  dt$$
+\noindent If $f\in R$ and $g \in R$ then it doesn't necessarily follow that $f \circ g \in R$. Example 
+$$g(x) = \begin{cases}
+0 \text{ if $x$ is irrational}\\
+1/n \text{ if $x = m/n$ is  rational}
+\end{cases} \hspace{2cm}
+f(x) = \begin{cases}
+0 \text{ if $x = 0$}\\
+1 \text{ if otherwise}
+\end{cases}
+$$
+\chapter{Infinite Series and Infinite products}
+
+\begin{deff}
+Let $\{a_n\}$ be a sequence of real numbers. Suppose there is a real number $U$ satisfying the following two conditions:
+\begin{enumerate}
+    \item For every $\varepsilon > 0$ there exists an integer $N$ such that $n > N$ implies
+    $$a_n < U + \varepsilon.$$
+    \item Given $\varepsilon > 0$ and given $m > 0$, there exists an integer $n > m$ such that
+    $$a_n > U - \varepsilon.$$
+   
+    
+    
+\end{enumerate}
+ Then $U$ is called the limit superior (or upper limit) of $\{a_n\}$ and we write
+    $$U =\limsup_{n \rightarrow \infty} a_n $$
+Statement $(1)$ implies that the set $\{a_l, a_2, \dots \}$ is bounded above. If this set is not bounded above, we define 
+$$\limsup_{n \rightarrow \infty} a_n = + \infty.$$
+If the set is bounded above but not bounded below and if $\{a_n\}$ has no finite limit superior, then we say $\limsup_{n \rightarrow \infty} a_n = -\infty$. The limit inferior (or lower limit) of $\{a_n\}$ is defined as follows:
+$$\liminf_{n \rightarrow \infty} a_n = - \limsup_{n \rightarrow \infty} -a_n$$
+\end{deff}
+\PP Statement (1) means that ultimately \textit{all} terms of the sequence lie to the left, of $U + \varepsilon$. Statement (2) means that\textit{ infinitely many} terms lie to the right of $U -\varepsilon.$ The given definition of $\liminf$ follows from the fact that the the maximum($\sup$) of $a_n$ is the minimum of $-a_n$. In fact let $\limsup -a_n = -L.$ Then from the definition $-L-\varepsilon < -a_n < -L + \varepsilon \implies L - \varepsilon < a_n$ for ultimately all terms and $a_n < L + \varepsilon$ for infinitely many terms.
+
+\begin{Thm}
+\begin{enumerate}
+    \item $\liminf a_n \leq \limsup a_n.$
+    \item The sequence $\{a_n\}$ converges if, and only if, $\limsup a_n$ and $\liminf a_n$ are both finite and equal, in which case $\liminf a_n = \limsup a_n = \lim a_n$.
+    \item The sequence diverges to $\infty$ if, and only if, $\liminf a_n = \limsup a_n = \infty.$
+    \item The sequence diverges to $-\infty$ if, and only if, $\liminf a_n = \limsup a_n = -\infty.$
+    \item  Assume that $a_n \leq b_n$ for each $n = 1, 2, \dots$. Then we have
+    $$\limsup{ a_n } \leq \limsup{ b_n } \And \liminf{ a_n } \leq \liminf{ b_n }$$
+    
+
+\end{enumerate}
+
+\end{Thm}
+\newcommand{\se}{\searrow}
+\newcommand{\ne}{\nearrow}
+\begin{deff}
+Let $\{a_n\}$ be a sequence of real numbers. We say the sequence is increasing and we write $a_n \ne$ if $a_n \leq a_{n+1}$ for $n = 1, 2, \dots.$ If $a_n \geq a_{n+1}$ for all $n$, we say the sequence is decreasing and we write $a_n \se$ A sequence is called monotonic if it is increasing or if it is decreasing.
+\end{deff}
+\begin{Thm}
+ A monotonic sequence converges if, and only if, it is bounded.
+\end{Thm}
+
+\begin{deff}
+The ordered pair of sequences $(\{a_n\}), \{s_n\})$ is called an infinite series. The number $s_n$ is called the $n$th partial sum of the series. The series is said to converge or to diverge according as $\{s_n\}$ is convergent or divergent.
+\end{deff}
+\begin{Thm}
+Let $a = \sum a_n$ and $b = \sum b_n$ be convergent series. Then, for every
+pair of constants $\alpha$ and $\beta$, the series $\sum \alpha a_n + \beta b_n$ converges to the sum $\alpha a + \beta b$.
+\end{Thm}
+\PP $\sum_{k =1}^n \alpha a_k + \beta b_k = \alpha \sum_{k =1}^n a_k +  \beta\sum_{k =1}^n b_k$.
+\renewcommand{\if}{\hspace{0.4cm}\text{ if } \hspace{0.2cm}}
+\begin{deff}
+Let $p$ be a function whose domain is the set of positive integers and
+whose range is a subset of the positive integers such that
+$$p(n)  < p(m) \if n < m.$$
+Let $\sum a_n$ and $\sum b_n$ be related as follows:
+    $$b_1 = a_1 + \dots + a_{p(1)},$$
+    $$b_{n+1}= a_{p(n)+1} + \dots + a_{p(n+1)}.$$
+Then we say we obtain $\sum b_n$  from $\sum a_n $ \textbf{by inserting parentheses} and $\sum a_n$ is obtained from $\sum b_n$ \textbf{by removing parentheses}.
+\end{deff}
+\PP Literally! $\sum a_n = (a_1 + \dots + a_{p(1)}) + (a_{p(1)+1} + \dots + a_{p(2)}) + \dots$
+
+\begin{Thm}
+$ \sum a_n$ converges to $s$,  every series $\sum b_n$ obtained from $\sum a_n$ by inserting parentheses also converges to $s$.
+\end{Thm}
+\PP Inserting parentheses is slightly different from the rearrangement of terms.
+
+\begin{Thm}
+Let $\sum a_n, \sum b_n$ be related as in Definition 41. Assume that there
+exists a constant $M > 0$ such that $p(n + 1) - p(n) < M$ for all $n$, and assume that $\lim a_n = 0$. Then $\sum a_n$ converges if, and only if, $\sum b_n$ converges, in which case they have the same sum.
+\end{Thm}
+\PP Let $\sum b_n = t_n \rightarrow t$. Then $\sum a_n - s \leq  t_m - t + |a_j + \dots + a_k|$
+
+
+\begin{Thm}
+ If $\{a_n\}$ is a decreasing sequence converging to $0$, the alternating
+series $\sum (-1)^{n+1}a_n$ converges. If $s$ denotes its sum and $s_n$ its $n$th partial sum, we have the inequality
+$$0 < (-1)^n(s - s_n) < a_{n+1}.$$
+\end{Thm}
+\PP $(-1)^n(s-s_n) = a_{n+1} - (a_{n+2} - a_{n+3}) - \dots $.
+\begin{deff}
+A series $\sum a_n$ is called absolutely convergent if $\sum |a_n|$ converges. It is called conditionally convergent if $\sum a_n$ converges but $\sum |a_n|$ diverges.
+\end{deff}
+
+\begin{Thm}
+Absolute convergence of $\sum a_n$ implies convergence.
+\end{Thm}
+
+\begin{Thm}
+Let $\sum a_n$ be a given series with real terms, and define
+$$p_n = \dfrac{|a_n| + a_n}{2}, \hspace*{1.5cm} p_n = \dfrac{|a_n| - a_n}{2}$$
+Then:
+\begin{enumerate}
+    \item If $\sum a_n$ is conditionally convergent, both $\sum p_n$ and $\sum q_n$ diverge.
+    \item If $\sum |a_n|$ converge, both both $\sum p_n$ and $\sum q_n$ converge, and we have
+    $$\sum_{n =1 }^\infty a_n = \sum_{n =1 }^\infty p_n - \sum_{n =1 }^\infty q_n$$
+\end{enumerate}
+\end{Thm}
+\PP $p_n$ are the positive terms of $a_n$ while $q_n$ are the negative terms. Also $a_n = p_n - q_n$ and $|a_n| = p_n + q_n$.
+\renewcommand{\sp}{\hspace*{1cm}}
+\begin{Thm}
+\textbf{(Comparison Test)}. If $a_n > 0$ and $b_n > 0$ for $n = 1,2, \dots,$ and if there exist positive constants $c$ and $N$ such that
+    $$a_n < cb_n \sp \text{ for } n > N$$
+    Then the convergence of $\sum b_n$ implies that of $\sum a_n$.
+
+\end{Thm}
+\PP $\sum a_n < \text{finite sum} + c(\sum b_n - \text{finite sum})$.
+\begin{Thm}
+(\textbf{Limit comparison test}) Assume that $a_n > 0$ and $b_n > 0$ for
+$n = 1, 2, \dots ,$ and suppose that
+\[\lim_{n \rightarrow \infty} \frac{a_n}{b_n} = 1.\]
+Then $\sum a_n$ converges iff $\sum b_n$ converges.
+\end{Thm}
+\PP  If $a_n$ and $b_n$ tend to be equal over the long run, the two sums both tend to converge or both to diverge.
+
+\begin{Thm}
+\textbf{(Integral test).}Let $f$ be a positive decreasing function defined on
+$[1, +\infty)$ such that $\lim\ f(x) = 0.$ For $n = 1,2, \dots$ define
+
+$$s_n = \sum_{k=1}^n f(k)\sp t_n = \int_1^n f(t)\ dt\sp d_n = s_n - t_n.$$
+Then we have:
+\begin{enumerate}
+    \item $0 < f(n+1)\leq d_{n+1} \leq  d(n) \leq f(1)$
+    \item $\lim d_n$ exsists
+    \item $\{s_n\}$ converges iff $\{t_n\}$ converges.
+    \item $0 \leq d_k - d_\infty  \leq f(k)$
+\end{enumerate}
+ 
+\end{Thm}
+\PP Draw the graph, then observe that $d_n$ are the upper part of the rectangles.
+
+\begin{deff}
+Given two sequences $\{a_n\}$ and $\{b_n\},\ b_n \geq 0$ for all $n = 1,2, \dots$ we write 
+$$a_n = O(b_n)$$
+if there exists a constant $M>0$ such that $|a_n| \leq Mb_n$ for all $n$. We write
+$$a_n = o(b_n)\sp \text{as }\ n\rightarrow \infty$$
+if $\lim_{n \rightarrow \infty} a_n/b_n = 0$
+\end{deff}
+\begin{Thm}
+\textbf{(Ratio test)}
+Given a series $\sum a_n$ non-zero complex terms, let
+$$ r = \liminf_{n \rightarrow \infty} \bigg| \dfrac{a_{n+1}}{a_n}\bigg|,
+\sp R=  \limsup_{n \rightarrow \infty} \bigg| \dfrac{a_{n+1}}{a_n}\bigg|.$$
+Then:
+\begin{enumerate}
+\item $\sum a_n$ converges absolutely if $R<1$.
+\item $\sum a_n$ diverges if $ r> 1$.
+\item the test is inconclusive if $ r \leq 1 \leq R$.
+\end{enumerate}
+\end{Thm}
+\PP $r, R\neq 1$ means the terms are sufficiently not close to each other.
+\begin{Thm}
+Given a series $\sum a_n$ of complex terms, let
+$$\rho = \limsup_{n\righarrow \infty} \sqrt[n]{|a_n|}.$$
+
+Then:
+\begin{enumerate}
+\item $\sum{a_n}$  absolutely converges if $\rho < 1$.
+\item $\sum{a_n}$ diverges if $\rho > 1$.
+\item the test is inconclusive if $ \rho = 1$.
+\end{enumerate}
+
+\end{Thm}
+\PP If the terms are big enough to diverge the series the $n$th root tends to be 1 or greater. This relationship between convergence and $n$th root is due to the fact that series with terms $a_n \rightarrow \infty$ that diverge, tend to have greater $n$th root than the terms themselves.
+
+\begin{Thm}
+Let $\{a_n\}$ and $\{b_n\}$ be two sequences of complex numbers, define
+$$A_n = a_1 + \dots + a_n.$$
+Then we have the identity
+$$\sum_{k=`1}^na_kb_k = A_{n+1}b_{n+1}- \sum_{k =1 }^n A_k(b_{k+1} - b_k).$$
+
+\end{Thm}
+\PP Let $c_k = b_{k+1}- b_k$. Then plot $a_k$ vs $c_k$ graph. The following two test follow from this identity.
+\begin{Thm}
+\textbf{(Dirichlet's test)} Let $\sum_n a_n$ be a series with partial sums forming bounded sequence and $\{b_n\}$ be a decreasing sequence which converges to $0$. Then $\sum a_nb_n$ converges.
+\end{Thm}
+\begin{Thm}
+\textbf{(Abel's test)} $\sum a_nb_n$ converges if $\sum a_n$ converges and if $\{b_n\}$ is monotonic convergent.
+\end{Thm}
+
+\begin{Thm}
+For every real $x \neq 2\pi m$, we have
+$$\sum_{k =1}^n e^{ikx} =  \dfrac{\sin (nx/2)}{\sin (x/2)}e^{i(n+1)}x$$
+\end{Thm}
+From this theorem the following relations can be proved
+\begin{eqnarray*}
+\bigg|\sum_{k =1 }^n e^{ikx}\bigg|&\leq&\dfrac{1}{|\sin (x/2)|}\\.
+\sum_{k=1}^n \cos kx &=& -\dfrac{1}{2} + \dfrac{1}{2} \sin (2n +1)\dfrac{x}{2}\bigg/ \sin \dfrac{x}{2} \\
+\sum_{k=1}^n \sin (2k -1 )x&=& \dfrac{\sin^2 nx}{\sin x}
+\end{eqnarray*}
+
+\begin{deff}
+Let $f: \mathbb{Z}^+ \rightarrow \mathbb{Z}^+$ be a one-to-one function. Let $\sum a_n$ and $\sum b_n$ be two series such that
+$$b_n = a_{f(n)} \sp \textit{ for } n =1,2, \dots.$$
+Then $\sum_n b_n$ is called the rearrangement of $\sum_n a_n$
+
+\end{deff}
+
+\begin{Thm}
+Let $\sum_n a_n$ be an absolutely convergent series having sum $s$. Then
+every rearrangement of $\sum b_n$ also converges absolutely and has sum $s$.
+\end{Thm}
+
+\PP If $a_n$ is absolutely convergent, rearrangement of the terms doesn't change the sum as addition is commutative.
+$$\longrightarrow\longrightarrow \longleftarrow \equiv \longrightarrow \longleftarrow \longrightarrow  \equiv \longrightarrow $$
+
+\begin{Thm}
+Let $\sum a_n$ be a conditionally convergent series with real-valued terms. Let $x$ and $y$ be given numbers in the closed interval $[-\infty , \infty]$, with $x\leq y$. Then there exists a rearrangement $\sum b_n$ of $\sum a_n$ such that
+$$\liminf_{n \rightarrow \infty} t_n = x \sp \And \sp \limsup_{n \rightarrow \infty} t_n = y,$$
+where $t_n = b_1 + \dots b_n$.
+\end{Thm}
+   \PP https://demonstrations.wolfram.com/RiemannsTheoremOnRearrangingConditionallyConvergentSeries/
+\begin{deff}
+Let $f$ be  a function $\mathbb{Z}^+$ and whose range is an infinite subset of $\mathbb{Z}^+$, and assume that $f$ is one-to-one on $\mathbb{Z}^+.$ Let $\sum a_n$ and $\sum b_n$ be two series such that
+
+$b_n = a_{f(n)}, \sp if \ \ n \in \mathbb{Z}^+.$
+Then $\sum b_n$ is said to be a subseries of $\sum a_n$.
+\end{deff} 
+\begin{Thm}
+If $\sum a_n$ is absolutely convergent then every subseries $\sum b_n$ of $\sum a_n$ is also absolutely convergent. Moreover we have 
+$$\bigg| \sum_{n =1}^\infty b_n \bigg |\leq  \sum_{n =1}^\infty |b_n| \leq  \sum_{n =1}^\infty |a_n|.$$
+\end{Thm}
+\PP The fact that $\sum |b_n|$ is bounded implies absolute convergence and $\sum |b_n| \leq \sum^{\max f}|a_n|. $
+\begin{Thm}
+Let $\{f_1, f_2, \dots$ be a countable collection of functions, each defined on $\mathbb{Z}^+$, having the following properties
+\begin{itemize}
+    \item Each $f_n$ is one-to-one on $\mathbb{Z}^+$.
+    \item The range $f_n(\mathbb{Z}^+)$ is a subset $Q_n$ of $\mathbb{Z}^+$.
+    \item $\{Q_1, Q_2, \dots\}$ is a collection of disjoint sets whose union is $\mathbb{Z}^+.$
+
+ 
+\end{itemize}
+Let $\sum a_n$ be absolutely convergent series and define
+$$b_k(n) = a_{f_k(n)}, \sp \text{if } n,k \in \mathbb{Z}^+.$$
+
+Then
+\begin{enumerate}
+    \item For each $k$, $\sum_n b_k(n)$ is absolutely convergent.
+    \item If $s_k = \sum_n b_k(n)$, then the series $\sum s_n$ converges absolutely and has the same sum as $\sum a_n$.
+\end{enumerate}
+\end{Thm}
+\PP $\sum s_n$ is  infinity-sized rearrangement of $\sum a_n$. Treat each $s_n$ as a single terms of $\sum a_n$. (1) says every subseries of $\sum a_n$ converge absolutely. (2) says the sum of "disjoint" subseries of $\sum a_n$ is $\sum a_n$.
+
+\begin{deff}
+A function $f$ whose domain is $\mathbb{Z}^+ \times \mathbb{Z}^+$ is called a double sequence.
+\end{deff}
+
+\begin{deff}
+If $a \in \mathbb{C}$, we write $\lim_{p,q \rightarrow \infty} f(p,q) = a$ and we say that the double sequence $f$ converges to $a$, provieded that the following condition is satisfied: For every $\varepsilon >0$, there exists an $N$ such that $|f(p,q)-a| < \varepsilon$ whenever both $p>N$ and $q > N$.
+
+\end{deff}
+\begin{Thm}
+Assume that $\lim_{p,q \rightarrow \infty} f(p,q) = a.$ For each fixed $p$. assume that $\lim_{q \rightarrow \infty} f(p,q)$ exists. Then the $\lim_{p \rightarrow \infty}(\lim_{q \rightarrow \infty} f(p,q))$ also exists and has value $a$. $F(p) := f(p,\infty)$. Then $F(p)$ and $a$ get closer and closer infinitesimally as $p \rightarrow \infty$  
+\end{Thm}
+
+\begin{deff}
+Let $f$ be a double sequence and let $s$ be the double sequence defined by the equation
+$$s(p,q) = \sum_{m=1}^p \sum_{n=1}^q f(m,n).$$
+The pair $(f,s)$ is called a double series and is denoted by the symbol $\sum_{m,n} f(m,n)$ or, more briefly, by $\sum f(m,n).$ The double series is said to converge to the sum $a$ if 
+$$\lim_{p,q \rightarrow \infty} s(p,q) = a.$$
+\end{deff}
+\begin{deff}
+Let $f$ be a double sequence and let $g$ be a one-to-one function defined on $\mathbb{Z}^+$ with range $\mathbb{Z}^+ \times \mathbb{Z}^+.$ Let $G$ be the sequence defined by 
+$$G(n) = f[g(n)].$$
+Then $g$ is said to be an arrangement of the double sequence $f$ into $G$.
+
+\end{deff}
+\begin{Thm}
+Let $\sum f(m,n)$ be given double series and let $g$ be an arrangment of the double sequence $f$ into a sequence $G$. Then
+\begin{itemize}
+\item $\sum G(n) $ converges absolutely iff $\sum f(m,n) converges absolutely.\\
+noindent Assuming $\sum f(m,n) does converge absolutely, with sum $S$, we have further:\\
+\item $\sum G(n) = S$.
+\item $\sum_{n=1}^\infty f(m,n)$ and $\sum_{m=1}^\infty f(m,n)$ both converge absolutely.
+\item If $A_m = \sum_{n=1}^\infty f(m,n)$ and $B_n = \sum_{m=1}^\infty f(m,n)$, both series $\sum A_m$ and $\sum B_n$ converge absolutely and both have sum $S$.\end{itemize}
+
+\end{Thm}
+\PP These are special cases of the theorems under the rearrangement of a "normal" series.\\
+
+\begin{mdframed}
+The arrangement/rearrangement of a series does not change the convergence point when no infinite sums are involve since addition is commutative. 
+\end{mdframed}
+
+\begin{Thm}
+Let $f$ be a complex-valued double sequence. Assume that $\sum_{n=1}^\infty$ converges absolutely for each fixed $m$ and that
+$$
+\sum_{m=1}^\infty \sum_{n=1}^\infty |f(m,n)|,$$
+converges. Then:
+\begin{enumerate}
+    \item The double series $\sum_{m,n} f(m,n)$ converges absolutely.
+    \item The series $\sum_{m=1}^\infty f(m,n)$ converges absolutely for each $n$.
+    \item $$\sum_{n=1}^\infty\sum_{m=1}^\infty f(m,n)  =\sum_{m=1}^\infty \sum_{n=1}^\infty f(m,n) = \sum_{m,n}^\infty f(m,n)$$
+\end{enumerate}
+
+
+\end{Thm}
+\begin{Thm}
+Let $\sum a_m$ and $\sum b_n$ be two absolutely convergent series with sums $A$ and $B$. respectively. Let $f$ be the double sequence defined by
+$$f(m,n) = a_mb_n,$$
+Then $\sum_{m,n}f(m,n)$ converges and has sum $AB.$
+\end{Thm}
+\begin{deff}
+Given two series $\sum a_n$ and $\sum b_n$, define
+$c_n = \sum_{k=0}^n a_kb_{n-k} \sp \text{for } n \geq 0.$
+The series $\sum c_n$ is called the Cauchy product of $\sum a_n$ and $\sum b_n.$
+\end{deff}
+\begin{Thm}
+Let $\sum a_n$ and $\sum b_n$ be two absolutely convergent series with sums $A$ and $B$ respectively. Then their Cauchy product $\sum c_n$ converge and has the sum $AB.$
+\end{Thm}
+\PP $\sum^N c_n = B\sum^N a_n - $ error$_B\sum^N a_n$. $N \rightarrow \infty \implies $ error $\rightarrow 0.$
+
+\begin{deff}
+Let $s_n$ denote the $n$th partial sum of the series $\sum a_n,$ and let $\{\sigma_n\}$ be the sequence of the arithmetic means defined by
+$$\sigma_n = \dfrac{s_1+\dots + s_n}{n},\sp \textit{if } n=1,2 \dots$$
+The series $\sum a_n$ is said to be Cesaro summable(or $(C,1)$ summable) if $\{\sigma_n\}$ converges. If $\lim_{n\rightarrow \infty} \sigma_n = S$, then $S$ is called the Cesaro sum (or $(C,1)$ sum) of $\sum a_n$, and we write
+$$\sum a_n = S \sp (C,1).$$
+\end{deff}
+Cesaro sum is the "average" of all partial sums of $\sum a_n$.
+
+\begin{Thm}
+If a series is convergent with sum $S$, then it is also $(C,1)$ summable with Cesaro sum $S$. 
+\end{Thm}
+\PP As the number of terms increase the number of $s_n$ close to $S$ increase $\implies$ average $(\sigma_n)\rightarrow S$. 
+
+\begin{deff}
+Given a sequence $\{u_n\}$ of real or complex numbers, let 
+$$ p_1 = u_1,\sp p_n = u_1 \cdots u_n = \prod_{k=1}^n u_k.$$
+The ordered pair $(\{u_n\}, \{p_n\})$ is called an infinite product (or simply a product). The number $p_n$ is called the $n$th partial product and $u_n$ is called the $n$th factor of the product. The following symbols are used to denote the product defined by the above equalities:
+$$u_1u_2 \cdots u_n \cdots, \sp \prod_{n=1}^\infty u_n$$.
+\end{deff}
+\begin{deff}
+Given an infinite product $\prod u_n$, let $p_n = \prod_{k=1}^n u_k$.
+\begin{enumerate}
+    \item If infinitely many factors $u_n$ are zero, we say the product diverges to $0$.
+    
+    \item If no factor $u_n$ is zero, we say the product converges if there exists $p \neq 0$ such that $\{p_n\}$ converges to $p$. In this case, $p$ is called the value of the product and we write $p= \prod_{n=1}^\infty u_n$. If $\{p_n\}$ converges to zero, we say the product diverges to zero.
+    \item If there exists an $N$ such that $n>N$ implies $u_n \neq 0$, we say $\prod u_n$ converges provided that $\prod_{n=N+1}^\infty$ converges as described in (2). In this case the value of the product $\prod u_n$ is
+    $$u_1u_2 \dots u_N\prod_{n=N+1}^\infty u_n.$$
+    \item $\prod u_n$ is called divergent if it does not converge as described in (2) or (3).
+\end{enumerate}
+\end{deff}
+\begin{Thm}
+The infinite product $\prod u_n$ converges iff for every $\varepsilon >0$, there is a constant $N$ such that $n>N$ implies:
+$$|u_{n+1}\cdots u_{n+k} -1| < \varepsilon \sp \textit{ for } k =1,2 \dots.$$
+
+\end{Thm}
+\PP This follows from Cauchy's condition for convergence of a sequence. This theorem says the factors don't get small enough to make the product converge to 0, nor do they get large enough to make the product blow up.
+
+\begin{Thm}
+Assume $a_n >0$ The product $\prod (1+a_n) $ converges iff the series $\sum a_n$ converges.
+\end{Thm}
+\PP The partial product stays in the threshold of theorem 127 if $a_n \rightarrow 0$ since $\prod_n (1+a_n) =  1 + \sigma_1(a_i) + \sigma_2(a_i) + \dots.$ The convergence of $\sum a_n$ makes the symmetric polynomials $\rightarrow 0.$
+
+
+\begin{deff}
+The product $\prod (1+a_n)$ is said to be absolutlely convergent if $\prod (1+ |a_n|)$ converges.
+\end{deff}
+\begin{Thm}
+Absolute convergence of $\prod (1+a_n)$ implies its convergence.
+\end{Thm}
+\PP If $|a_n|$ is not large enough to diverge the product to $\infty$, then $a_n$ can not be small enough to diverge the product to $0$.
+\begin{Thm}
+Assume $a_n \geq 0.$ Then the product $\prod (1-a_n)$ converges iff $\sum a_n$ converges.
+\end{Thm}
+
+\chapter{Sequences of Functions}
+\begin{deff}
+A sequence of functions $\{f_n\}$ is said to converge uniformly to $f$ on a set $S$, if, for every $\varepsilon >0$, there is an integer $N$ such that $n > N$ implies
+$$|f_n(x) - f(x)| < \varepsilon \sp \textit{for every} x \in S.$$
+
+We denote this by $f_n \rightarrow f$ uniformly on the set $S$.
+\end{deff}
+\PP $|f_n(x) - f(x)| < \varepsilon \implies f(x) - \varepsilon \leq f_n(x) \leq f(x) + \varepsilon$ for all $n >N$: a $f_{n>N}$ lie with in a band of length $2\varepsilon.$
+\newcommand{\fuc}{Assume $f_n \rightarrow f$ uniformly on $S.$ }
+
+\begin{Thm}
+\fuc If each $f_n$ is continuous at a point $c \in S$, then the limit function $f$ is also continuous at point $c$.
+\end{Thm}
+\PP $|f(x) - f(c)| \leq | f(x) - f_n(x)| + |f_n(x) - f_n(c)| +|f_n(c)- f(c)|$. In other words the \textbf{band} can get as small as needed and $f_n$ can get as close to $f_n(c)$.
+\begin{Thm}
+Let $\{f_n\}$ be a sequence of functions defined  on $S$. Then there is a function $f$ such that $f_n \rightarrow f$ uniformly on $S$ iff the following condition is satisfied: for every $\varepsilon >0$, there is an integer $N$ such that $n,m >N$ implies
+$$|f_m(x) - f_n(x)| < \varepsilon \sp \textit{ for every } x \in S.$$
+\end{Thm}
+\PP Extension of Cauchy's condition.
+\begin{deff}
+Given a sequence of functions $\{f_n\}$ defined $S$, let
+$$s_n := \sum_{k=1}^n f_k(x).$$
+If there is a function $f$ such that $s_n \rightarrow f$ uniformly on $S$, we say the series $\sum f_n(x)$ converges uniformly on $S$ and we write
+$$\sum_{n=1}^\infty f_n(x) = f(x).$$
+
+\end{deff}
+\begin{Thm}
+The infinite series $\sum f_n(x)$ converges uniformly on $S$, iff, for $\varepsilon >0$ there is $N$ such that
+$$\bigg|\sum_{k = n +1}^{n + p}f_k(x)\bigg| < \varepsilon \sp \textit{ for every }\ \  p = 1,2 \dots \ \ \textit{ and } \ \ x \in S.$$
+\end{Thm}
+\begin{Thm}
+\textbf{(Weierstrass M-test).} Let $\{M_n\}$ be a sequence of non-negative number such that 
+$$0 \leq |f_n(x)| \leq M_n\sp n = 1,2 \dots \ \ \textit{ and } \ \ x \in S.$$
+Then $\sum f_n$ converges uniformly if $\sum M_n$ converges uniformly.
+\end{Thm}
+\begin{Thm}
+Assume $\sum f_n(x) = f(x)$. If each $f_n$ is continuous at a point $x_0 \in S,$ then $f$ is continuous at $x_0$.
+\end{Thm}
+\PP Continuity of $f_n \implies$ Continuity of $s_n$.
+\begin{Thm}
+Let $\al$ be of bounded variation on $[a,b].$ Assume each term of the sequence $\{f_n\}$ be a real-valued function such that $f_n \in R(\al)$ on $[a,b]$ for each $n.$ Assume $f_n \rightarrow f$ uniformly on $[a,b]$ and define $g_n(x) =  \int_a^x f_n(t)\ \da(t)$ for $x \in [a,b]$. Then:
+\begin{enumerate}
+    \item $f \in R(\al)$ on $[a,b].$ 
+    \item $g_n \rightarrow g$ uniformly on $[a,b]$ where $g(x) =  \int_a^x f(t)\ \da(t).$
+\end{enumerate}
+\end{Thm}
+\PP From $|f_n - f| < \varepsilon$, we have $ f_n - \varepsilon <f(x)< f_m + \varepsilon \implies -\varepsilon + \int f_n \leq \int f \leq \varepsilon + \int f_n.$ However, uniform convergence is not necessary for Riemann-Integrablity; if $f_n$ is boundedly convergent on $[a,b]$ (uniformly bounded and converges to $f$), then $\int f$ exists.
+\begin{Thm}
+Let $\{f_n\}$ be a sequence of real-valued function, with each term having a finite derivative on each point $c \in (a,b).$ Assume there is at least one point $x_0 \in (a,b)$ such that the sequence $\{f_n(x_0)\}$ converges and that there is a function $g$ such that $f'_n \rightarrow g$ uniformly on $[a,b].$ Then:
+\begin{enumerate}
+    \item There exists a function $f$ such that $f_n \rightarrow f$ uniformly on $(a,b)$.
+    \item For each $x \in (a,b)$, $f'(x)$ exists and equals $g(x).$
+\end{enumerate}
+\end{Thm}
+\PP $f_n \rightarrow g \implies \int f_n \rightarrow \int g = f \implies g = f'.$
+\begin{Thm}
+Let $F_n(x)$ be the $n$th partial sum of the series $\sum f_n(x)$, where $f_n$ is complex valued defined on the set $S$. Assume the sequence $\{F_n\}$ is bounded on $S$. Let $\{g_n\}$ be a sequence of functions that satisfy $g_{m+1}(x) \leq g_m(x)$ for all $x \in S$ and for all $m$. Assume furthur that $g_n \rightarrow 0$ uniformly on $S$. Then the $\sum f_ng_n$ converges uniformly on $S$.
+\end{Thm}
+\PP Dirichlet's test for sequence of functions.
+\begin{deff}
+Let $\{f_n\}$ be a sequence of Riemann-Intergrable functions on $[a,b]$. Assume $f \in R$ on $[a,b]$. Then we say $f_n$ converges in the mean to $f$, and we write
+
+$$\underset{n\to\infty}{\mathrm{l.i.m.}}  f_n = f \sp \textit{on}\ \  [a,b] $$
+if 
+$$\lim_{n\rightarrow \infty}\int_a^b |f_n(t) - f(t)|^2 dt = 0.$$
+\end{deff}
+\PP Converges in the mean means the average of all $ f_n$ in $[a,b] \rightarrow$ the average of $f$ in $[a,b]$. 
+
+\begin{Thm}
+Assume $\mathrm{l.i.m.}_{n\to \infty}$ on $[a,b].$ If $g \in R$, define
+$$h(x) = \int_a^x f(t)g(t)\ \ dt \sp h_n(x) = \int_a^x f_n(t)g(t)\ \ dt.$$
+if $x \in [a,b]$. Then $h_n \rightarrow h$ uniformly on $[a,b]$.
+\end{Thm}
+\PP $f_n$ converges to $f$, $\int f_n$ converges almost uniformly $\int f.$
+\begin{Thm}
+Assume $\mathrm{l.i.m.}_{n\to \infty} f_n = f$  and $\mathrm{l.i.m.}_{n\to \infty} g_n = g $ on $[a,b].$ Define
+$$h(x) = \int_a^x f(t)g(t)\ \ dt \sp h_n(x) = \int_a^x f_n(t)g_n(t)\ \ dt.$$
+if $x \in [a,b]$. Then $h_n \rightarrow h$ uniformly on $[a,b]$.
+\end{Thm}
+\begin{Thm}
+Given a power series $\sum_{n=1}^{\infty} a_n(z-z_0)^n$, let
+$\lambda = \limsup_{n \to \infty}{\sqrt[n]{|a_n|}}, \sp r = \dfrac{1}{\lambda}.$
+Then the series $\sum_{n=1}^{\infty} a_n(z-z_0)^n$ converges absolutely if $|z-z_0| < r$, and diverges for $|z-z_0|>r$.   $r$ is called the radius of convergence of $\sum a_n(z-z_0)^n.$ Furthermore, $\sum a_n(z-z_0)^n$ converges uniformly in every compact subset of the disk of converges.
+\end{Thm}
+
+\begin{Thm}
+Assume the power series $\sum a_n(z - z_0)^n$ converges for all $z \in B(z_0;r).$ Suppose the equation
+$f(z) = \sum_{n=1}^\infty a_n(z-z_0)^n$
+is known to be valid for every open subset $S$ of $B(z_0;r)$. Then for each $z_1 \in S$,  there exists a neighbourhood $B(z_1;R)$ in $S$ such that $f$ has a power series expansion of the form
+$$f(z) = \sum_{n=0}^{\infty} b_n(z-z_1)^n$$
+for all $z \in B(z_1;R)$, where
+$$b_k = \sum_{n=k}^\infty \ \ 
+{n\choose{k}}\ \ 
+a_n(z_1-z_0)^{n-k}.$$
+\end{Thm}
+\begin{Thm}
+Assume the power series $\sum a_n(z-z_0)^n$ converges for every $z$ in $B(z_0;r).$ Then the function defined by
+$f(z) = \sum_{n=1}^\infty a_n(z-z_0)^n$
+in $B(z_0;r)$ has a derivative at each point in $B(z_0;r)$ represented by
+$f'(z) = \sum_{n=1}^\infty na_n(z-z_0)^n-1.$
+\end{Thm}
+\noindent For a power series two power series 
+$$f(z) = \sum_{n=0}^\infty a_nz^n \sp g(z) = \sum_{n=0}^\infty b_nz^n$$
+that converge in $B(0;r_f)$ and $B(0;r_g)$ resp. we have the following properties
+\begin{enumerate}
+    \item The product $fg(z) = \sum c_n z^n$ for $z \in B(0;r_f) \cap B(0;r_g)$ where $\sum c_n$ is the Cauchy product of $\sum a_n$ and $\sum b_n$.
+    \item The substitution $f(g(z)) = \sum c_n z^n$ where $c_n = \sum a_n b_n(k)$ and $g^k(z) = \sum b_n(k) z^n$ for $|g(z)| <r_f$ and $|z| < r_g$.
+    \item The reciprocal of $f(z)$, $q(z)$ has its own power series expansion with $q(0) = 1/f(0)$.
+  \end{enumerate}  
+\begin{deff}
+   Let $f$ be a real-valued function defined on an interval $I \subset \mathbb{R}$. If $f$ has derivatives of every order at each point of $I$, we write $f \in C^\infty$ on $I.$
+\end{deff}
+If $f \in C^\infty$, the series
+$$\sum_{n=0}^\infty \dfrac{f^{(k)}(c)(x-c^n)}{n!}$$
+is called \textbf{the Taylor series generated about $c$ by $f$} and we can write 
+$$f(x) \backsim  \sum_{n=0}^\infty \dfrac{f^{(k)}(c)(x-c)^n}{n!}$$
+   
+However, for an interval containing a real number $c$ on whose neighbourhood $f$ is defined on, it can be proved that
+$$\sum_{k=0}^n \dfrac{f^{(k)}(c)}{k!}(x-c)^k + E_n(x).$$
+Where $E_n$ is an error function given by the integral
+$$E_n(x)= \dfrac{1}{n!}\int_c^x (x-t)^n f^{(n+1)}(t) \ \ dt = \dfrac{(x-c)^{n+1}}{n!} \int_0^1 u^nf^{(n+1)}[x+(c-x)u] \ \ du$$
+This error representation can be used to prove the following result:
+
+\begin{Thm}
+\textbf{(Bernstein)}
+Assume all $n+1$ derivatives of $f$ are non-negatives for $b \leq x < r$. Then for these values of $x$:
+$$f(x) = \sum_{n=0}^\infty \dfrac{f^{(b)}(c)(x-b)^n}{n!}$$
+\end{Thm}
+\begin{Thm}
+ Assume that we have
+ $$f(x) = \sum_{n=0}^\infty a_nx^n \sp \textit\ \ -r<x<r$$
+ If the series also converges at $x = r$, then the limit $\lim_{x \to r^-}f(x)$ exists and we have
+ $$\lim_{x \to r^-}f(x) = \sum_{n=0}^\infty a_nr^n.$$
+ 
+\end{Thm}
+\begin{Thm}
+Let $f(x) = \sum_{n=0}^\infty$ for $-1 < x < 1$, and assume that
+$\lim_{n \to \infty}na_n = 0.$ If $f(x) \rightarrow S$ as $x \rightarrow 1^-$, then $\sum_{n=0}^\infty a_n$ converges and has sum $S$.
+\end{Thm}
+\end{document}
+
+

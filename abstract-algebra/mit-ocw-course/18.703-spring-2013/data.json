@@ -1,0 +1,20 @@
+{
+  "course_title":"Modern Algebra",
+  "course_description":"This undergraduate course focuses on traditional algebra topics that have found greatest application in science and engineering as well as in mathematics.\n",
+  "site_uid":"d648c7c7-e22c-4052-85be-ea6c5dfad84c",
+  "legacy_uid":"48049793-bdde-46ed-7fa9-994449af4fe6","instructors": [{
+    "first_name":"James",
+    "last_name":"McKernan",
+    "middle_initial":"",
+    "salutation":"Prof.",
+    "title":"Prof. James McKernan"}],"department_numbers":["18"],
+  "learning_resource_types":["Problem Sets","Lecture Notes","Exams","Instructor Insights"],
+  "topics":[["Mathematics","Algebra and Number Theory"]],
+  "primary_course_number":"18.703",
+  "extra_course_numbers":"",
+  "term":"Spring",
+  "year":"2013",
+  "level":["Undergraduate"],
+  "image_src":"./static_resources/3d09fda4ba38b046f7a515cb5d2806e0_18-703s13.jpg",
+  "course_image_metadata":{"content_type":"resource","description":"Symmetries of an equilateral triangle.","draft":false,"file":"/courses/18-703-modern-algebra-spring-2013/3d09fda4ba38b046f7a515cb5d2806e0_18-703s13.jpg","file_type":"image/jpeg","image_metadata":{"caption":"Symmetries of an equilateral triangle.","credit":"","image-alt":"An equilateral triangle with three axes running through it."},"iscjklanguage":false,"learning_resource_types":[],"license":"https://creativecommons.org/licenses/by-nc-sa/4.0/","ocw_type":"OCWImage","resourcetype":"Image","title":"18-703s13.jpg","uid":"3d09fda4-ba38-b046-f7a5-15cb5d2806e0"}}
+

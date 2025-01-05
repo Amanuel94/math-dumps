@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Assignments on MIT OpenCourseWare</title>
+    <link>/resources/assignments/</link>
+    <description>Recent content in Assignments on MIT OpenCourseWare</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language><atom:link href="/resources/assignments/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>18.703 Modern Algebra, Homework 1</title>
+      <link>/resources/mit18_703s13_h1/data.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/resources/mit18_703s13_h1/data.json</guid>
+      <description>This resource contains information regarding homework 1.</description>
+    </item>
+    
+    <item>
+      <title>18.703 Modern Algebra, Homework 10</title>
+      <link>/resources/mit18_703s13_h10/data.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/resources/mit18_703s13_h10/data.json</guid>
+      <description>This resource contains information regarding homework 10.</description>
+    </item>
+    
+    <item>
+      <title>18.703 Modern Algebra, Homework 11</title>
+      <link>/resources/mit18_703s13_h11/data.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/resources/mit18_703s13_h11/data.json</guid>
+      <description>This resource contains information regarding homework 11.</description>
+    </item>
+    
+    <item>
+      <title>18.703 Modern Algebra, Homework 2</title>
+      <link>/resources/mit18_703s13_h2/data.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/resources/mit18_703s13_h2/data.json</guid>
+      <description>This resource contains information regarding homework 2</description>
+    </item>
+    
+    <item>
+      <title>18.703 Modern Algebra, Homework 3</title>
+      <link>/resources/mit18_703s13_h3/data.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/resources/mit18_703s13_h3/data.json</guid>
+      <description>This resource contains information regarding homework 3.</description>
+    </item>
+    
+    <item>
+      <title>18.703 Modern Algebra, Homework 4</title>
+      <link>/resources/mit18_703s13_h4/data.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/resources/mit18_703s13_h4/data.json</guid>
+      <description>This resource contains information regarding homework 4.</description>
+    </item>
+    
+    <item>
+      <title>18.703 Modern Algebra, Homework 5</title>
+      <link>/resources/mit18_703s13_h5/data.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/resources/mit18_703s13_h5/data.json</guid>
+      <description>This resource contains information regarding homework 5.</description>
+    </item>
+    
+    <item>
+      <title>18.703 Modern Algebra, Homework 6</title>
+      <link>/resources/mit18_703s13_h6/data.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/resources/mit18_703s13_h6/data.json</guid>
+      <description>This resource contains information regarding homework 6.</description>
+    </item>
+    
+    <item>
+      <title>18.703 Modern Algebra, Homework 7</title>
+      <link>/resources/mit18_703s13_h7/data.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/resources/mit18_703s13_h7/data.json</guid>
+      <description>This resource contains information regarding homework 7.</description>
+    </item>
+    
+    <item>
+      <title>18.703 Modern Algebra, Homework 8</title>
+      <link>/resources/mit18_703s13_h8/data.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/resources/mit18_703s13_h8/data.json</guid>
+      <description>This resource contains information regarding homework 8.</description>
+    </item>
+    
+    <item>
+      <title>18.703 Modern Algebra, Homework 9</title>
+      <link>/resources/mit18_703s13_h9/data.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/resources/mit18_703s13_h9/data.json</guid>
+      <description>This resource contains information regarding homework 9.</description>
+    </item>
+    
+    <item>
+      <title>Assignments</title>
+      <link>/pages/assignments/data.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/pages/assignments/data.json</guid>
+      <description>Most of the homework is assigned from the required course textbook:
+Herstein, I. N. Abstract Algebra. Macmillan, 1986. ISBN: 9780023538209 or the online text book Abstract Algebra: Theory and Applications by Tom Judson.
+PROBLEMS DUE IN Homework 1 (PDF) Lec #4 Homework 2 (PDF) Lec #7 Homework 3 (PDF) Lec #9 Homework 4 (PDF) Lec #11 Homework 5 (PDF) Lec #13 Homework 6 (PDF) Lec #14 Homework 7 (PDF) Lec #16 Homework 8 (PDF) Lec #17 Homework 9 (PDF) Lec #19 Homework 10 (PDF) Lec #E2 Homework 11 (PDF) Lec #22 </description>
+    </item>
+    
+  </channel>
+</rss>

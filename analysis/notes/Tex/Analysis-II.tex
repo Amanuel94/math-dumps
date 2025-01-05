@@ -1,0 +1,780 @@
+\documentclass[10pt,a4paper]{book}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{makeidx}
+\usepackage{graphicx}
+\usepackage{amsthm}
+\usepackage{cancel}
+\usepackage{mdframed}
+
+
+
+
+
+\usepackage[width=15.00cm, height=24.00cm]{geometry}
+\begin{document}
+	\fontfamily{qpl}
+	
+	\renewcommand{\familydefault}{ptm}
+	\title{Mathematical Analysis by Tom M. Apostol(condensed) part 2}
+	\maketitle
+\renewcommand{\PP}{\noindent \textbf{P.P: }}	
+%	\newtheoremstyle{sltheorem}{}{}{\slshape}{}{\bfseries}{.}{ }{}
+	%\theoremstyle{sltheorem}
+	\newtheorem{Thm}{Theorem}
+		\newtheorem{deff}{Definition}
+		\renewcommand{\R}{\mathbb{R}}
+
+\chapter{The Lebesgue Integral}
+\begin{deff}
+Let $I$ denote a general interval (bounded, unbounded, open, closed,
+or half-open). A function $s$ is called a step function on $I$ if there is a compact subinterval $[a, b]$ of $I$ such that $s$ is a step function on $[a, b]$ and $s(x) = 0$ if $x \in  I - [a, b]$. The integral of $s$ over $I$, denoted by $\int_I s(x) dx$ or by $\int_I s$, is defined
+to be the integral of $s$ over $[a, b]$, as given by:
+$$\int_a^b s(x) dx =  \sum_{k=1}^n c_k(x_k - x_{k-1})$$
+
+
+\end{deff}
+\noindent $\{f_n\}$ is an increasing sequence of functions on $S$ such that $f_n \to f$
+almost everywhere on $S$, we indicate this by writing
+$$f_n \nearrow f \text{  a.e on S.}$$
+\begin{Thm}
+Let $\{s_n\}$ be a decreasing sequence of nonnegative step functions such
+that $s_n \searrow 0$  a.e. on an interval $I$. Then
+$$\lim_{n \to \infty} \int_I s = 0$$ 
+\end{Thm}
+
+\PP Let $I = A \cup B$, where    $A:=\{x\in I: s_n(x) \to 0\}$ and $B := \{x\in I: s_n(x) \cancel{\to} 0 \And \text{measure}(B) = 0 \}$ Then
+$$\int_I s_n = \int_A s_n + \int_B s_n  < (b-a)\varepsilon + \max s_n \cdot \varepsilon$$
+\begin{Thm}
+Let $\{t_n\}$ be a sequence of step functions on an interval $I$ such that:
+\begin{enumerate}
+
+    \item There is a function $f$ such that $t_n \nearrow  f$ a.e. on $I$.
+    \item $\int_I t_n$ converges.
+\end{enumerate}
+Then for any step function $t$ such that $t(x) < f(x)$ a.e. on $I$, we have
+$$\int_I t \leq \lim_{n \to \infty }\int_I t_n.$$
+\end{Thm}
+\PP Define:
+$$s_n(x) =
+\begin{cases}
+t(x) - t_n(x) \text{ if } t(x) \leq t_n(x)\\
+0 \text{ if otherwise.}\\ 
+\end{cases}
+$$
+
+\begin{deff}
+A real-valued function $f$ defined on an interval $I$ is called an upper
+function on $I$, and we write $f \in U(I)$, if there exists an increasing sequence of step functions $\{s_n\}$ such that
+
+\begin{enumerate}
+    \item $s_n \nearrow f$ a.e on $I$,
+    \item $\int_I s_n$ is finite.
+    
+\end{enumerate}
+The sequence $\{s_n\}$ is said to generate $f$. The integral of $f$ over $I$ is defined by the
+    $$\int_I f = \lim_{n \to \infty} \int_I s_n.$$
+equation
+\end{deff}
+\begin{Thm}
+Assume $f,g \in U(I),$ then
+\begin{enumerate}
+    \item $f+g \in U(I)$ and we have
+    $$\int_I f+g = \int_I f + \int_I g$$
+    \item If $c \geq 0$, $cf \in U(I)$ and we have
+    $$\int_I cf = c \int_I f.$$
+    \item $\int_I f \leq \int_I g$ if $f(x) \leq g(x)$ a.e on $I$.
+\end{enumerate}
+\end{Thm}
+
+\begin{Thm}
+ Let $I$ be an interval which is the union of two subintervals, say
+$I = I_1 \cup I_2$, where $I_1$ and $I_2$ have no interior points in common. Then,
+\begin{enumerate}
+    \item If $f\in L(I)$, then $f \in L(I_1) and f \in L(I_2),$ and we have,
+    $$\int_I f = \int_{I_1} f + \int_{I_2} f$$
+    \item If $f_1 \in L(I_1)$, $f_2 \in L(I_2)$ and $f$ is defined as:
+    $$f(x) = \begin{cases}
+    f_1(x) \text{ if } x \in I_1 \\
+    f_2(x) \text{ if } x \in I - I_1 
+    \end{cases} $$
+    Then 
+    $$\int_I f = \int_{I_1} f_1 + \int_{I_2}f_2$$
+\end{enumerate}
+\end{Thm}
+
+\begin{Thm}
+Let $f$ be defined and bounded on a compact interval $[a, b]$, and
+assume that $f$ is continuous almost everywhere on $[a, b]$. Then $f \in U([a, b])$ and the
+integral of $f$, as a function in $U([a, b])$, is equal to the Riemann integral $f$ a $\int_a^b f(x) dx.$
+\end{Thm}
+
+\PP Although the number of discontinuities of $s_\infty$ could uncountable, they have measure $0$. In fact $s_n \to f$ at every point of continuity: Let $s_n = m_k(f)$ of a partition $P_{2^n}.$
+
+\begin{deff}
+
+\end{deff} We denote by $L(I)$ the set of all functions $f$ of the form $f = u - v$, where $u, v \in U(I)$. Each function $f$ in $L(I)$ is said to be \textbf{Lebesgue integrable on} $I$, and its integral is defined by the equation
+$$\int_I f = \int_I u - \int_I v.$$
+\begin{Thm}
+Assume $f \in L(I)$ and $g \in L(I)$. Then we have:
+\begin{enumerate}
+    \item $af + bg$ for every real $a$ and $b$, and we have
+    $$\int_I af + bg =  a\int_I f + b\int_Ig.$$
+    \item $\int_I f \leq \int_I g$ if $f(x) \leq g(x)$ a.e on $I$.
+\end{enumerate}
+\end{Thm}
+
+\begin{deff}
+If $f$ is a real-valued function, its positive part, denoted by $f^+$, and
+its negative part, denoted by $f^-$, are defined by the equations
+$$f^+ = \max(f,0) \And f^- = \max(-f,0)$$
+\end{deff}
+
+\begin{Thm}
+If $f$ and $g$ are in $L(I)$, then so are the functions $f^+, f^-, |f|,
+\max(f, g)$ and $\min(f, g)$. Moreover, we have
+        $\bigg|\int_I f\bigg| \leq \int_I |f|$
+\end{Thm}
+The next theorem describes the behavior of a Lebesgue integral when the inter. val of integration is translated, expanded or contracted, or reflected through the origin. We use the following notation, where c denotes any real number:
+$$I+c = \{x +c| x\in I\} \And cI = \{cx| x \in I\}$$
+\begin{Thm}
+Assume $f \in L(I),$ then we have:
+\begin{enumerate}
+    \item \textbf{Invariance under translation}. If $g(x) = f(x - c)$ for $x$ in $I + c$, then $g \in L(I + c)$, and
+    $$\int_{I+c} g = \int_I f$$
+    \item \textbf{Behavior under expansion and contraction}. If $g(x) = f(x/c)$ for $ x \in cI$, where $c>0$, then $g \in L(cI)$ and
+    $$\int_{cI}g = c\int_I f$$
+    \item \textbf{Invariance under reflection}. If $g(x) = f(-x)$ for $x \in -I$. The $g \in L(-I)$ and
+    $$\int_{-I} g = \int_{I}f$$
+\end{enumerate}
+\end{Thm}
+\PP (1) and (3) are trivial. (2) $\int g$ expands by $c$ because we are integrating $f$ over $c$ copies of $I$.
+\begin{Thm}
+Let $I$ be an interval which is the union of two subintervals, say
+$I = I_1 \cup I_2$, where $I_1$ and $I_2$ have no interior points in common. Then,
+\begin{enumerate}
+    \item If $f\in L(I)$ and if $f \geq 0$, then $f \in U(I_1) and f \in U(I_2),$ and we have,
+    $$\int_I f = \int_{I_1} f + \int_{I_2} f$$
+    \item If $f_1 \in U(I_1)$, $f_2 \in U(I_2)$ and $f$ is defined as:
+    $$f(x) = \begin{cases}
+    f_1(x) \text{ if } x \in I_1 \\
+    f_2(x) \text{ if } x \in I - I_1 
+    \end{cases} $$
+    Then 
+    $$\int_I f = \int_{I_1} f_1 + \int_{I_2}f_2$$
+\end{enumerate}
+\end{Thm}
+\begin{Thm}
+ Assume $f \in L(I)$ and let $\varepsilon > 0$ be given. Then,
+\begin{enumerate}
+    \item There exist functions $u$ and $v$ in $U(I)$ such that $f = u - v$, where $v$ is non-negative a.e. on $I$ and $\int_I v < \varepsilon$.
+    \item There exists a step function $s$ and a function $g$ in $L(I)$ such that $f = s + g$, where $\int_I |g|< \varepsilon$ .
+\end{enumerate}
+\end{Thm}
+\newcommand{\linf}[1][n]{\lim_{ #1 \to \infty}}
+\newcommand{\sinf}[2][n]{\sum_{#1 = #2}^\infty}
+
+\section*{Levi's monotone convergence theorems}
+\begin{Thm}
+Let $\{s_n\} $  be a sequence of step functions such that
+\begin{enumerate}
+    \item $\{s_n\}$ is increasing everywhere in the interval $I$. and
+    \item $\lim_{n \to \infty} \int_I s_n $ exists.
+\end{enumerate}
+Then $s_n$ converges almost everywhere on $I$ to a limit function $f$ in $U(I)$ and we have
+$$\int_I f = \linf \int_I s_n$$
+\end{Thm}
+\begin{Thm}
+Let $\{f_n\} $  be a sequence of upper functions defined on the interval $I$ such that
+\begin{enumerate}
+    \item $\{f_n\}$ is increasing everywhere in the interval $I$. and
+    \item $\lim_{n \to \infty} \int_I f_n $ exists.
+\end{enumerate}
+Then $f_n$ converges almost everywhere on $I$ to a limit function $f$ in $U(I)$ and we have
+$$\int_I f = \linf \int_I f_n$$
+\end{Thm}
+\begin{Thm}
+Let $\{g_n\} $  be a sequence of functions in $L(I)$ such that
+\begin{enumerate}
+    \item Each function $g_n$ is non-negative a.e  on $I$, and
+    \item $\sum_n^\infty \int_I g_n $ converges on $I$.
+\end{enumerate}
+Then $\sum_n g_n$ converges almost everywhere on $I$ to a sum function $g$ in $L(I)$ and we have
+$$\int_I g = \sinf{1}\int_I g_n = \int_I \sinf{1} g_n$$
+\end{Thm}
+
+\begin{Thm}
+[\textbf{The Lebesgue dominated convergence theorem}]
+Let $\{f_n\}$ be a sequence of function in $L(I)$ such that
+\begin{enumerate}
+    \item $\{f_n\}$ converges a.e. to a limit function $f$ and 
+    \item there is a  non-negative "dominator" function $g$, such that $|f_n(x)| \leq g(x) \in L(I)$ for all $n > 0$ a.e on $ I.$
+\end{enumerate}
+Then the limit function $f \in L(I)$, $\int_I f$ exists and
+$$\int_I f = \linf \int_I f_n$$
+\end{Thm}
+\PP The "dominator" function $g$, provides a bound for $\int_I f_n$.
+
+\begin{Thm}
+ Assume $f$ is Riemann-integrable on $[a, b]$ for every $b \geq a$, and
+assume there is a positive constant $M$ such that
+$$\int_a^b |f(x)| \ dx \leq M.$$
+for every $b \geq a.$ Then both $f$ and $|f|$ are Riemann-Integrable on $[a, \infty)$. Also, $f \in L([a,\infty))$
+\end{Thm}
+
+\noindent \textit{The Cauchy principal value} of the improper integral $\int_{-\infty}^\infty f(x) \ dx$ is given by 
+$$\linf[b] \int_{-b}^b f(x)\ dx.$$
+
+\begin{deff}
+A function $f$ defined on $I$, is called measurable on $I$,i.e, $f \in M(I)$, if there is a sequence of step functions $\{s_n\}$ on I such that
+$$\linf s_n(x) = f(x)$$
+a.e on $I$.
+\end{deff}
+\PP The function $f = 1$, is not $L(\mathbb{R})$ as for any $\{s_n\}: s_n \to f$ on $\mathbb{R}$ $\linf \int_{\mathbb{R}} s_n \to \infty$.
+\begin{Thm}
+Let $X$ and $Y$ be two sub-intervals of $\mathbb{R}$, and let $f$ be a function defined on $X \times Y$ satisfying the following conditions,
+\begin{enumerate}
+    \item For each fixed $y \in Y$, the function $f_y$ defined on $X$ by the equation
+    $$f_y(x) = f(x,y)$$
+    is measureable on $X$.
+    \item There exsists a function $g$ in $L(X)$ such that for each $y \in Y$
+    $$|f(x,y)| \leq g(x) $$
+    a.e on $X$.
+    \item For each fixed $y \in Y$,
+    $\lim_{t \to y}f(x,t) = f(x,y)$
+    a.e on $X.$
+\end{enumerate}
+Then the Lebesgue integral $\int_X f(x,y)$ exists for each $y \in Y$, and the function defined by
+$F(y) = \int_X f(x,y)\ dx$
+is continuous.
+\end{Thm}
+
+\begin{Thm}
+\renewcommand{\R}{\mathbb{R}}
+Let $X$ and $Y$ be two subintervals of $\R$, and let $f$ be a function defined
+on $X \times Y$ and satisfying the following conditions:
+\begin{enumerate}
+    \item For each fixed $y$ in $Y$, the function $f_y$ defined on $X$ by the equation $f_y(x) = f(x, y)$ is measurable on $X$, and $f_a \in L(X)$ for some $f_a$ in $Y$.
+    \item The partial derivative $D_2f(x, y)$ exists for each interior point $(x, y)$ of $X \times Y.$
+    \item There is a nonnegative function $G$ in $L(X)$ such that
+ $$|D_2 f(x, y)| \leq G(x) \text{ for all interior points of } X \times Y.$$
+\end{enumerate}
+Then the Lebesgue integral $\int_X f(x, y)\  dx$ exists for every $y$ in $Y$, and the function $F$ defined by
+$$F(y) = \int_X f(x,y)\ dx$$
+is differentiable at each interior point of $Y$. Moreover, its derivative is given by the formula
+$$F'(y) = \int_X D_2f(x,y)\ dx$$
+
+\end{Thm}
+
+\begin{deff}
+Given any non-empty subset $S$ of $\R$, the function $\chi_S$ defined by
+$$\chi_S(x) = \begin{cases}
+1  \hspace*{1cm} \text{if } x \in S\\
+0 \hspace*{1cm} \text{if } x \notin S
+\end{cases}$$
+is called the characterstic function of $S$.
+\end{deff}
+\begin{deff}
+A subset $S$ of $\R$ is called measurable if its characteristic function
+$\chi_S$ is measurable. If, in addition, $\chi_S$ is Lebesgue-integrable on $\R$, then the measure
+$\mu(S)$ of the set $S$ is defined by the equation
+$$\mu(S) = \int_{\R} \chi_S$$
+If $\chi_S$ is measurable but not Lebesgue-integrable on $\R$, we define $\mu(S) = +\infty$. The function $\mu$ so defined is called Lebesgue measure.
+\end{deff}
+\begin{Thm}
+If $\{A_1,A_2, \dots\}$ is a countable collection of disjoint sets, then
+$$\mu\bigg(\bigcup_{i=0}^\infty A_i\bigg) = \sinf[i]{0}\mu(A_i)$$
+\end{Thm}
+\begin{deff}
+Assume two real-valued functions $f$ and $g$ be Lebesgue integrable on $I$, whose product $f\dot g \in L(I)$. Then the integral
+$$(f,g) = \int_I f(x)g(x) \ dx$$
+is called the inner product of $f$ and $g$. If $f^2 \in L(I)$, then $\lVert f\rVert = (f,f)^{1/2}$ is called the $L^2$-norm of $f$.
+\end{deff}
+The integral resembles the sum $\sum x_ky_k$ which defines the dot product of two vectors $\mathbf{x} = (x_1, \dots, x_n)$ and $\marhbf{y} = (y_1, \dots,y_n)$ The function values $f(x)$ and $g(x)$ in play the role of the components $x_k$ and $y_k$, and integration takes the place of summation. The $L^2$-norm of $f$ is analogous to the length of a vector.
+\begin{deff}
+We denote the set of all measurable real-valued functions $f$ on $I$ such that $f^2 \in L(I)$ by $L^2(I)$. The functions in $L^2(I)$ are called \textit{square-integrable.}
+\end{deff}
+The set $L^2(I)$ along with the metric $d$ defined by
+$$d(f,g) = \bigg(\int_I |f-g|^2\bigg)^{1/2}$$
+is a \textbf{semimetric space} as it fails to satisfy $d(x,y \neq x) > 0$
+\begin{Thm}
+Let $\{g_n\}$ be a sequence of square-integrable functions such that
+$$  \sinf{1}\lVert g_n \rVert$$
+converges. Then the sum $\sinf{1} g_n$ converges a.e on $I$ to a function $g \in L^2(I)$ and we have
+$$\lVert g \rVert = \linf \bigg \lVert \sum_{k=1}^n g_k \bigg \rVert \leq \sinf[k]{1} \lVert g_k \rVert.$$
+\end{Thm}
+\PP The convergence of $\sum_n (\int_I g_n^2 )^{1/2} \geq \sum_n \int_I |g_n| \geq \int_I \sum_n g_n$ implies the convergence $\sum_n g_n$ to $g$ a.e. By triangle, inequality $\sum \lVert g_n \rVert \geq \lVert \sum_n g_n \rVert$. Thus $g \in L^2(I).$
+
+\begin{Thm}
+[\textbf{Riesz-Fischer}]
+Let $\{f_n\}$ be a Cauchy sequence of complex-valued function in $L^2(I)$. Then there exists a function $f$ in $L^2(I)$ such that
+$$\linf \lVert f_n - f\rVert = 0.$$
+\end{Thm}
+\chapter{Fourier Series and Fourier Integrals}
+\renewcommand{\phi}{\varphi}
+\begin{deff}
+Let $S = \{\phi_0, \phi_1, \dots \}$ be a collection of functions in $L^2(I)$ for any interval $I$. If
+$$(\phi_n, \phi_m) = 0 \hspace*{1cm} \text{whenever } m \neq m$$
+the collection $S$ is called an orthogonal system of functions on $I$.
+\end{deff}
+\begin{Thm}
+Let $\{\phi_0, \phi_1, \dots\}$ be an \textbf{orthonormal} system on $I$, and assume that $f \in L^2(I)$. Define two sequences of functions $\{s_n\}$ and $\{t_n\}$ as
+$$s_n(x) = \sum_{k = 0}^nc_k \phi_k(x) \And t_n(x) = \sum_{k = 0}^nb_k\phi_k(x)$$
+, where $c_k = (f,\phi_k)$ and $b_k$ are arbitrary for each $k = 1,2, \dots, n$. Then we have
+$$\lVert f-s_n\rVert \leq \lVert f -t_n \rVert \ \ \ \ \text{ for each } n.$$
+The equality holds iff $c_k = b_k$.
+
+\end{Thm}
+\PP $$\lVert f-t_n\rVert^2 = \lVert f \rVert^2 - \sum_{k=1}^n |c_k|^2 + \sum_{k=1}^n|b_k - c_k|^2.$$
+In other words, the area under $f-t_n$ equals the area under $f -$  $( \sum c_k b_k -$ area under $t_n$). When $c_k = b_k$ the latter term is minimized. 
+\begin{deff}
+Let $S  = \{\phi_0, \phi_1, \dots\}$ be an orthonormal system on $I$, and $f\in L^2(I)$. The notation 
+$$ f(x) \sim \sinf[n]0c_n\phi_n(x)$$
+means the the coeffecients $c_k$ are given by
+$$c_k = \int_I f(x)\overline{\phi_k(x)}\ dx .$$
+\end{deff}
+
+\begin{Thm}
+Let $c_k$ be the given coefficients defined above. Then we have
+$$\sinf[n]0 |c_n|^2 \leq \lVert f \rVert^2$$
+with equality holding if and only if
+$$\lim_{n \to \infty}\bigg \lVert f - \sum_{n= 0}^n c_n\phi_n \bigg \rVert = 0.$$
+\end{Thm}
+\PP \textit{\textbf{Parseval's formual}}
+$$\lVert f \rVert^2 = |c_0|^2 + |c_1|^2 + \dots $$
+is equivalent to
+$$\lVert \mathbf{x} \rVert^2 = |x_0|^2 + |x_1|^2 + \dots $$
+\begin{Thm}[\textbf{Riesz-Fischer}]
+Assume $\{\phi_0, \phi_1,\dots\}$ be an orthonormal system  on $I$. Let $\{c_k\}$ be any sequence of complex numbers such that $\sum |c_k|^2$ converges. Then there is a function $f$ in $L^2(I)$ such that
+\begin{itemize}
+    \item $c_k = (f, \phi_k).$
+    \item $\lVert f \rVert^2 = \sum_k |c_k|^2$
+\end{itemize}
+\end{Thm}
+\begin{Thm}[\textbf{Riemann-Lebesgue lemma}]
+Assume $f \in L(I)$. Then for every real $\beta$,
+$$\linf[\alpha] \int_I f(t)\sin(\alpha t + \beta)\ dt = 0$$
+\end{Thm}
+\PP As $\alpha \to \infty,$ $\sin(\alpha t + \beta)$ attain the small values.
+
+The integrals of the form
+$$\int_0^\delta g(t)\dfrac{\sin \alpha t}t\  dt$$
+are called Dirichlet Integrals. Consider the following two cases:
+\begin{enumerate}
+\item If $g$ is a constant function, the limit
+$$\linf[\alpha] \frac{2}\pi\int_0^\delta g(t) \dfrac{\sin \alpha t}t\  dt = g(0)$$ 
+\item For every $0 < \varepsilon < \delta$, by the Riemann-Lebesgue lemma, we have
+$$\linf[\alpha] \int_\varepsilon^\delta \dfrac{g(t)}t \sin \alpha t \ dt = 0.$$
+\end{enumerate}
+Thus, it is fair to have the following theorem:
+\begin{Thm}[Jordan]
+Let $g$ be a function of bounded variation on $[0, \delta]$. Then we have,
+$$\linf[\alpha] \int_0^\delta \dfrac{g(t)}t \sin \alpha t \ dt = g(0^+).$$
+\end{Thm}
+\begin{Thm}[Dini]
+Assume that $g(0+)$ exists and suppose that for some $\delta > 0$
+the Lebesgue integral
+$$\int_{0}^\delta \dfrac{g(t) -g(0+)}{t}dt$$
+exists. Then we have,
+$\linf[\alpha] \int_0^\delta \dfrac{g(t)}t \sin \alpha t \ dt = g(0^+).$
+\end{Thm}
+Dirichlet's Kernel is defined by the formula
+$$D_n(x) = \frac{1}2 + \sum_{k = 0}^n \cos kt$$
+
+\begin{Thm}
+Assume a $2\pi$-periodic function $f\in L([0,2\pi])$. Let $\{s_n\}$ denote the partial sums of the Fourier series generated by $f$.
+Then we have the integral representation 
+$$s_n(x) = \dfrac{2}\pi \int_{0}^\pi \dfrac{f(x-t) + f(x+t)}2D_n(t) \ dt$$
+\end{Thm}
+
+\begin{Thm}[Riemann's relocalization theorem]
+Assume $f$ is $2\pi$-periodic function in $L([0,2\pi])$. Then the Fourier series generated by $f$ converges at the point $x$, if and only if, the for some $\delta < \pi$, the limit
+
+$$\linf \int_{0}^\delta [f(x+t)+f(x-t)]\dfrac{\sin(n+ \frac{1}2)t}t \ dt$$ 
+exists, in which case the value of the limit is the sum of the Fourier series.
+\end{Thm}
+\PP By the Riemann-Lebesgue lemma, we have
+$$\linf \int_{0}^\delta \bigg(\dfrac{1}t -  \dfrac{1}{2\sin(t/2)}\bigg) \dfrac{f(x+t)+f(x-t)}2 \sin(n+ \frac{1}2)t\ dt = 0$$
+And we also have
+$$D_n(x) = \dfrac{\sin(n+ \frac{1}2)x}{\sin x/2}$$
+Combining these two with the previous theorem gives us the relocaliztion theorem. One can apply Jordan's test and Dini's test to check the existence of the above integral.
+
+
+\begin{Thm}[\textbf{Fejer}]
+Assume $f\in L([0,2\pi])$ and $f$ is $2\pi$-periodic. Define the function $s$ as
+$$s(x) = \lim_{t \to 0^t} \dfrac{f(x+t)+f(x-t)}{2}$$
+wherever it exists. Then for each $x$ where $s$ is defined, the Fourier series generated by $f$ is Cesaro summable and has $(C,1)$ sum $s(x)$. Furthermore, if $f$ is continuous on $[0,2\pi]$, $\sigma_n \to f$ uniformly.
+
+
+\end{Thm}
+\PP $\sigma_n(x)$ can be calculated as
+$$\dfrac{1}{n\pi}\int_{0}^\pi\dfrac{f(x+t)+f(x-t)}{2} \dfrac{\sin^2 \frac{1}{2} n t}{\sin^2 \frac{1}{2} t} dt$$
+\\
+Consequences of Fejer's theorem include ($f$ continuous):
+\begin{enumerate}
+    \item Mean-wise convergence of the Fourier series to $f$ on $[0,2\pi]$
+    \item Term by term integration
+    \item Convergence of the series to the value $f(x)$, not other.
+    \item Weierstrass Approximation theorem
+\end{enumerate}
+
+Now, the Fourier series does not represent a function all over $\R$, the \textit{Fourier integral} does:
+\begin{Thm}
+[\textbf{Fourier Integral}]
+Assume $f \in L(-\infty, \infty)$, and that there is a real number $x$ and a neighbourhood $ I = [x-\delta, x+\delta]$ such that one of the following is true:
+\begin{enumerate}
+    \item $f$ is of bounded variation on $I$, or
+    \item both the limits $f(x+)$ and $f(x-)$ exist and both the integrals
+    $$\int_0^\delta \dfrac{f(x+t- f(x+)}{t}dt \And \int_0^\delta \dfrac{f(x-t) - f(x-)}{t}dt$$
+    exist
+\end{enumerate}
+Then we have the formula,
+$$\dfrac{f(x+)+f(x-)}{2} = \dfrac{1}{\pi}\int_{0}^\infty \int_{-\infty}^\infty f(u) \cos v(u-x) du dv $$
+
+
+\end{Thm}
+For a continuous function we have,
+$$f(x) = \dfrac{1}{\pi}\int_{0}^\infty \int_{-\infty}^\infty f(u) \cos v(u-x) du dv  $$
+\begin{deff}
+Given two functions $f$ and $g$, both Lebesgue integrable on
+$(-\infty, \infty)$, let $S$ denote the set of $x$ for which the Lebesgue integral
+$$h(x) = \int_{\infty}^\infty f(t)g(x-t) dt$$
+exitsts.This integral defines a function $h$ on $S$ called the convolution of $f$ and $g$. We also write $h = f * g$ to denote this function.
+\end{deff}
+
+\begin{Thm}
+Let $f$ and $g$ be two Lebesgue integrable functions on $\R$. Assume, either $f$ or $g$ is bounded on $\R$. Then the the convolution $h = f*g$ exists at every point $x \in R$. In addition if the bounded function is continuous everywhere, $h$ is also continuous everywhere and $h \in L(\R).$
+\end{Thm}
+
+\begin{Thm}
+Let $f,g \in L^2(\R)$. Then the convolution $h = f*g$ exists and is bounded on $\R$.
+\end{Thm}
+\PP  If $f,g \in L(\R)$, then $f*g$ blows up only if neither $f$ nor $g$ is bounded.
+
+\begin{Thm}
+Assume $f, g \in L(\R)$. If one of these is bounded and continuous on $\R$, then
+$$\mathcal{F}(f*g) = \mathcal{F}(f)\cdot \mathcal{F}(g),$$
+where $$\mathcal{F}(f) = \int_{-\infty}^\infty f(t)e^{-ixt} dt$$
+\end{Thm}
+
+\renewcommand{\f}{\mathbf{f}}
+\renewcommand{\c}{\mathbf{c}}
+\renewcommand{\u}{\mathbf{u}}
+
+
+
+\chapter{Multivariable Differential Calculus}
+\begin{deff}
+The directional derivative of $\mathbf{f}$ at $\mathbf{c}$ in the direction $\mathbf{u}$, denoted by the symbol $\mathbf{f}$'$(\mathbf{c}; \mathbf{u})$, is defined by the equation
+
+$$\f'(\c;\u) = \lim_{h \to 0}\dfrac{\f(\c + h\u) - \f(\c)}{h}.$$
+\end{deff}
+\PP A Geometric intuition about this would be to think $F(t) = \f(\c+t\u)$ as a function from $\R$ to $\R^m$, particularly for $m=1$, it is the crossection of $\mathbf{f}$ by the hyper-plane parrallel to $\u$ and passes through $\c.$ Directional derivative along every direction doesn't guarantee continuity.
+
+\begin{deff}
+A function $\f: \R^n \to \R^m$ is said to be differentiable at $\c$, if there exists a \textbf{linear} function $\mathbf{T}_{\c}:\R^n \to \R^m$ such that
+$$\f(\c + \mathbf{v}) = \f(\c) + \mathbf{T}_{\c}(\mathbf{v}) + \lVert \mathbf{v}\rVert \mathbf{E}_{\c}(\mathbf{v})$$, 
+where $\mathbf{E}_{\c}(\mathbf{v}) \to 0$ as $\mathbf{v}\to 0.$ 
+\end{deff}
+\PP This is different from the directional derivative because we are considering any point $\mathbf{v}$ in some neighbourhood of $\c$, rather than a point along the direction $\u$. Rearranging gives us
+$$\dfrac{\mathbf{T}_{\c}(\mathbf{v})}{\lVert \mathbf{v}\rVert} = \dfrac{\f(\c + \mathbf{v}) - \f(\c)}{\lVert \mathbf{v}\rVert} - \mathbf{E}_{\c}(\mathbf{v}).$$
+Hence $\mathbf{T}_{\c}$ is called the total \textbf{derivative}. It guarantees continuity.\\
+
+\renewcommand{\T}{\mathbf{T}_{\c}}
+\renewcommand{\v}{\mathbf{v}}
+
+We have $\f'(\c; \u) = \T(\u).$ So the total derivative is in general, the `better' derivative because the linearity of $\T(\u) = \f'(\c; \u) $ with respect to $\u$ implies the `smoothness' of $\f$ along any given path in $\R^n$ 
+
+\begin{Thm}
+If $\v = (v_1, \dots, v_n)$, then 
+$$\T(\v) = \sum_{k = 1}^n v_k \dfrac{\partial \f(\c)}{\partial x_k}.$$
+If $m = 1,$
+$$\f(\c + \v) = \nabla \f(\c) \cdot \v.$$
+\end{Thm}
+\PP Jacobian Matrix:
+$$\T(\v) =\begin{bmatrix}
+ D_1f_1(\c) & D_2f_1(\c) & \dots & D_nf_1(\c)\\
+ D_1f_2(\c) & D_2f_2(\c) & \dots & D_nf_2(\c)\\
+ \vdots &  \vdots & \ddots & \vdots\\
+ D_1f_m(\c) & D_2f_m(\c) & \dots & D_nf_m(\c)
+
+\end{bmatrix}
+\begin{bmatrix}
+v_1\\
+v_2\\
+\vdots\\
+v_n
+\end{bmatrix}
+$$
+
+\begin{Thm}
+Assume that $\mathbf{g}$ is differentiable at $\mathbf{a}$, with total derivative $\mathbf{g}'(\mathbf{a})$. Let $\mathbf{b} = \mathbf{g}(\mathbf{a})$ and assume that $\f$ is differentiable at $\mathbf{b}$, with total derivative $\f'(\mathbf{b})$. Then the composite function $\mathbf{h} = \f \circ \mathbf{g}$ is differentiable at $\mathbf{a}$, and the total derivative $\mathbf{h}'(\mathbf{a})$ is given by
+$$\mathbf{h}'(\mathbf{a}) = \f'(\mathbf{b})\circ \mathbf{g}'(\mathbf{a}).$$
+\end{Thm}
+
+\renewcommand{\x}{\mathbf{x}}
+\renewcommand{\y}{\mathbf{y}}
+\renewcommand{\z}{\mathbf{z}}
+
+\renewcommand{\a}{\mathbf{a}}
+
+
+\begin{Thm}
+Let $S$(open) $\subseteq \R^n$ and $\f: S \to \R^m$ be a function differentiable in $S$. Let $\x$ and $\y$ be any two points in $S$, such that $L(\x,\y) = \{t\x + (1-t)\y: 0\leq t \leq 1\} \subseteq S.$ Then for every vector $\a \in \R^m$, there is a point in $L(\x, \y)$ such that
+$$\a \cdot [\f(\y) - \f(\x)] = \a\cdot [\f'(\z)(\y - \x)]$$
+\end{Thm}
+\PP One dimensional MVT on $F(t) = \a\cdot\f(\x + t\y).$
+
+\begin{Thm}
+Let one of the $n$ partial derivatives of $\f$ at $\c$, $D_i\f(\c)$ exist and let the rest $n-1$ partials exist and be continuous in some $n$-Ball $B(\c).$ Then $\f$ is differentiable at $\c$.
+\end{Thm}
+\PP $\f(\c + \v)-\f(\c)$ can be written as a sum $n$ terms which approximate $\nabla \f (\c)\cdot v.$
+\begin{Thm}
+If both two derivatives of $\f$ $D_r$ and $D_k$ exist in some $n$-ball, $B(\c;\delta)$, and if both are differentiable at $\c$, then $D_{r,k}\f = D_{k,r}\f.$
+\end{Thm}
+\PP Consider $f: \R^2 \to \R$ and let $S(h;\c,\x)$ be the square $\c$ and $\x = \c + ( h,h)$ as its opposite corners. As $\h \to 0$, $\f(S)/h^2 \to 1$. IOW, $f$ tends to be constant for which the symmetry stated in the theorem is natural and trivial.
+
+\begin{deff}
+$$f^{(k)}(\x;\u) = \sum_{(i_1, \dots,  i_k) \in [n]^3 } D_{i_1, \dots, i_k}f(\x)\prod_{i}t_i.$$
+\end{deff}
+
+
+
+\chapter{Multiple Integrals}
+\section*{Multiple Riemann Integrals}
+\begin{itemize}
+    \item The measure of an $n$-dimensional set $A = A_1 \times \dots \times A_n$ (or the $n$-measure $A$) is given by
+$$\mu(A) = \prod_{i=1}^{n}\mu(A_i).$$
+\item The Riemann integral over an $A$ is given by the limit of 
+$$S(P, f) = \sum_{k = 1}^m f(\mathbf{t}_k)\mu(I_k),$$
+where $\mathbf{t}_k \in I_k$ ($I_k $ is $n$ dimensional interval) as $P \in \R^n$ gets finer and finer.
+\item The upper and lower integrals are similarly defined since $f$ is real-valued.
+\item Let $f$ be defined and bounded on a compact interval $I$ in $\R^n$. Then $f \in \R$ on $I$ if, and only if, the set of discontinuities of $f$ in $I$ has $n$-measure zero.
+\begin{Thm}[\textbf{(Fuibini's Theorem}]
+    Let $f$ be defined and bounded on a rectangular interval $Q = [a,b]\times [c,d].$ The we have:
+    \begin{enumerate}
+        \item $\underline{\int}_Q \leq \underline{\int_a^b} \overline{\int_c^d} \leq \overline{\int_a^b} \overline{\int_c^d }\leq \overline{\int}_Q. $
+        \item (1) is true if $\overline{\int_c^d }$ is substituted by $\underline{\int_c^d }.$ 
+        \item $\underline{\int}_Q \leq \underline{\int_c^d} \overline{\int_a^b} \leq \overline{\int_c^d} \overline{\int_a^b }\leq \overline{\int}_Q.$
+                \item (3) is true if $\overline{\int_a^b }$ is substituted by $\underline{\int_a^b }.$ 
+        \item $\int_Q = \int_a^b [\overline{\int_c^d}] = \int_a^b [\underline{\int_c^d}]$.        
+
+    \end{enumerate}
+    
+\end{Thm}
+
+
+\PP It is obvious why the first two inequalities of (1) are true. To see why the third is true, consider a function like
+    $$f(x) = \begin{cases}
+    0 \text{ if } (x,y) \neq (0,0)\\
+    1 \text{ if } (x,y) = (0,0).
+    \end{cases}$$
+    Now the RHS compute the `upper' volume under $f$ by taking multiplying areas of small rectangles on the $xy$-plane with the maximal value of $f$ in the corresponding rectangle. Thus it's value is $> 0$ for $< \infty.$ The LHS works by first fixing $x$ and evaluating the upper integral w.r.t $y$ which is always $0$. Thus the LHS $= 0$.\\
+    (5) is true if $f \in R(Q)$ because it then satisfies Riemann's condition. The analogous theorem for $n$-fold integral is stated below.
+    
+    \begin{Thm}
+    Let $f$ be defined and bounded on 
+    $$Q:=[a_1,b_1]\times \cdots \times [a_n, b_n].$$
+    If $f \in R(Q)$, then we have
+    $$\int_Q f(\x) d \x = \int_{a_i}^{b_i} \bigg[\overline{\int_{Q_i}} f d (x_1, \dots, x_{i-1},x_{i+1}, \dots, x_n) \Bigg] dx_{i}.$$
+    \end{Thm}
+\begin{deff}
+Let $S$ be a subset of a compact interval $I \in \R^n.$ For every partition $P$ of $I$, define the number $\underline{J}(P,S)$ as the sum of the measures of those sub-intervals of $P$ that cover the interior points of $S$ but not the boundary-points. Similarly, define $\overline{J}(P,S)$ as the sum of the measures of the sub-intervals of $P$ that cover $S\cup \partial S$. The numbers
+$$\underline{c}(S) = \sup \{\underline{J}(P,S): P \in \mathcal{P}(I)\}$$
+$$\overline{c}(S) = \sup \{\overline{J}(P,S): P \in \mathcal{P}(I)\}$$
+are called Jordan's inner content and outer-content respectively. If $\underline{c}(S) = \overline{c}(S)$, we say $c(S) = \underline{c}(S) = \overline{c}(S)$ is the \textbf{(Jordan) content} of a Jordan-measurable set $S$.
+\end{deff}
+\PP The content of $S$, is essentially the `area' of $S$.
+\begin{Thm}
+Let $S$ be a bounded set in $\R^n$ and let $\partial S$ denote its boundary. Then we have
+$$\overline{c}(\partial S) = \overline{c}(S) - \underline{c}(S).$$
+\end{Thm}
+
+%\renewcommand{\text{  if  }}{\if}
+\renewcommand{\if}{\text{  if  }}
+\begin{deff}
+Let $f$ be a function defined in a Jordan-measurable set $S$ in $I \in \R^n$. Define $g$ as
+
+%$$g(\x) = 
+%\begin{cases}
+%f(\x) \if \x \in S \\
+%0 \if \x \in I - S
+%\end{cases}
+%$$
+
+Then we say $f$ is Riemann-Integrable on $S$ whenever the integral $\int_I g $ exists and we denote it's value as
+$$\int_S f(\x)\ d \x = \int_I g(\x)\ d \x.$$
+\end{deff}
+\PP This definition extends the definition of multiple integrals to all Jordan-measurable sets in $\R^n$  by making a connection between $\mu(S)$ and $c(S)$ that provides the most natural extension of the Lebesgue criterion from $I$ to $S$.
+
+
+
+
+\end{itemize}
+\section*{Multiple Lebesgue Integral}
+\begin{Thm}
+Every open set $S \in \R^n$ can be expressed as a union of countable collection of disjoint bounded cubes whose closure is contained in $S$.
+\end{Thm}
+\PP In the one dimensional case, it is trivial. By extension, this is true when the cubes are rectangular prisms. We can divide any rectangular prism into finite number of cubes. Thus the theorem is true.
+
+\begin{Thm}
+A set $S \in \R^n$ has an $n$-measure $0$ if and only of there is a countable collection of intervals $J_1, J_2, \dots $, whose $n$-measure is finite and each point in $S$ belong to an infinite $J_k$'s.
+\end{Thm}
+\PP The $n$-measure of each interval $< \varepsilon$ as $k \to \infty$, but the collection still covers $S$.
+\begin{Thm}
+    If $S$ is a set in $\R^2$ and has a $2$-measure 0, the sets $S^{y}$ and $S_x$ defined by
+    $$S^y := \{x: (x,y) \in S\}$$
+    $$S_x := \{y: (x,y) \in S\}$$
+    have $0 1$-measures for \textbf{almost all} $y$ and $x$ in $\R^1$ respectively.
+\end{Thm}
+\PP This can be  proved using (43) above.
+\begin{Thm}
+    Assume $f$ is lebesgue integrable in $\R^$. Then we have:
+\begin{enumerate}
+    \item There is a set $T\in \R^1$ with $1$-measure 0 such that the intergal $\int_{\R^1} f(x,y) dx$ exists for all $x$ in $\R^1 - T.$
+    \item The function 
+    $$G(y) = \begin{cases}
+    \int_{\R^1} f(x,y) dx \text{ if } x \in \R^1-T
+    0 \text{ if } x \in T,
+    \end{cases}$$
+    is Lebesgue-integrable in $\R^1$
+    \item $$\iint_{\R^2}f = \int_{\R^1} G(y) dy.$$
+\end{enumerate}
+\end{Thm}
+\begin{Thm}[Tonelli-Hobson]
+    Assume $f$ is measurable and at least one of the iterated integrals
+    $$\int_{\R^1}\int_{\R^1} |f(x,y)| dx dy, \ \  \ \ \ \  \int_{\R^1}\int_{\R^1} |f(x,y)| dy dx$$
+    exists. Then $f \in L(\R^2).$
+\end{Thm}
+\PP The existence of the iterated intergals provide the necessary bound for $\int f$ and $f$ is measureable.
+$$\int_{\alpha(T)} f(\x) d\x = \int_{T}f(\alpha(t)) |J_\alpha(t)| dt$$
+\renewcommand{\C}{\mathbb{C}}
+\chapter{Cauchy's Theorem and the Residue Calculus}
+\begin{deff}
+    For any $a \in \C$ and $r > 0$, the path $\gamma$ given by
+    $$\gamma(\theta) = a + re^{i\theta}, \ \ \ 0 \leq \theta \leq 2\pi$$
+    is called a \textbf{positively oriented} circle.
+\end{deff}
+\begin{deff}
+ Let $\gamma$ be a path in the complex plane with domain $[a, b]$, and let $f$ be a complex-valued function defined on the graph of $\gamma$. The contour integral of $f$ along $\gamma$, denoted by $\int_\gamma f$, is defined by the equation
+    $$\int_{\gamma} f  = \int_{\gamma(a)}^{\gamma(b)} f[\gamma(t)]d\gamma(t),$$
+whenever the Riemann-Stieltjes integral on the right exists.
+\end{deff}
+\begin{Thm}
+If $\gamma$ is rectifiable with path length $\Lambda$, and $f \in R(\gamma)$ where $|f| \leq M$ then 
+$$\bigg|\int_\gamma f \bigg| \leq M\lambda$$
+\end{Thm}
+\PP $|\int f d\gamma| \leq \int |f||\gamma'| \leq M\int |\gamma'| = M\Lambda$
+\\ 
+A path is called \textbf{piece-wise smooth} if it's derivative exists everywhere except for finitely many points. However, the left-hand side and right-hand side derivative need to exist.
+
+\begin{deff}
+Assume $\gamma_0$ and $\gamma_1$ are two paths that have a common domain $[a,b]$. Moreover assume that 
+\begin{enumerate}
+    \item $\gamma_0(a) = \gamma_1(a)$ and $\gamma_0(b) = \gamma_1(b)$ \textbf{OR}
+    \item $\gamma_0(a) = \gamma_0(b)$ and $\gamma_1(a) = \gamma_1(b).$
+
+
+
+\end{enumerate}
+Let $D$ be a subset of $\C$ that contains both paths. Then we say $\gamma_0$ and $\gamma_1$ are homotopic if there exists a continuous function $h$ defined in $[0,1] \times [a,b]$ with values in $D$ and $h(s, a) = \gamma_0(a)$ and $h(s,b) = \gamma_0(b)$
+\end{deff}
+\PP Two paths are homotopic if one can be transformed into the other without getting out of the domain $D$
+
+\begin{Thm}[The Polygonal Interpolation Theorem]
+Let $\gamma_0$ and $\gamma_1$ be two homotopic paths in an open set $D$. Then there exist a finite number of polygonal paths $\alpha_0, \dots, \alpha_n$ such that
+\begin{enumerate}
+    \item $\alpha_0 = \gamma_0$ and $\alpha_{n} = \gamma_1$
+    \item $\alpha_j$ is polygonal for $j = 1, 2 \dots, n-1$.
+    \item $\alpha_j$ is \textbf{linearly homotopic} in $D$ to $\alpha_{j+1}$ for all defined $j$.
+\end{enumerate}
+
+\end{Thm}
+\PP Two paths are linearly homotopic (in $D$) if the function
+$$h(s,t) = (1-s)\gamma_0(t) + s\gamma_1(t)$$
+is defined in $D$. In other words, the homotopy is linear \textbf{for a fixed $t$} there is a line segment in $D$ joining $\gamma(t)$. If $D$ is convex and \textbf{the} line segment joining $\gamma_0(t)$ and $\gamma_1(t)$ does not lie in $D$ then we can always construct \textit{`approximating'} polygonal paths that are linearly homotopic to their neighbouring paths.
+
+\begin{Thm}[\textbf{Cauchy's Theorem}]
+Assume $f$ is analytic on $D$ except at finitely many points where it is continuous. If $\gamma_{0,1}$ are piece-wise smooth and homotopic in $D$, then
+
+$$\int_{\gamma_0} f = \int_{\gamma_1} f$$
+\end{Thm}
+
+\begin{Thm}
+If $f$ is analytic on an open set $D \supset \gamma$, and $z$ is a point not on $\gamma$, then
+$$\int_\gamma \dfrac{f(w) dw}{w-z} = f(z)\int_\gamma \dfrac{dw}{w-z}.$$
+\end{Thm}
+\PP Define a function in $D$ as $g(w) =\frac{f(w) - f(z)}{w-z}$ $w \neq z $, $f'(z)$ if $w = z$.\\
+
+NOTE: Taking $\gamma(t)  = z + re^{2\pi it}$, 
+$$\dfrac{1}{2\pi}\int_0^{2\pi} f(z+ re^{2\pi i \theta} d\theta = f(z).$$
+
+This can be interpreted as a \textit{Mean- Value Theorem} expressing the value of $f$ at the center of a disk as an average of its values at the boundary of the disk. The function $f$ is assumed to be analytic on the closure of the disk, except possibly for a finite subset on which it is continuous.
+
+\begin{deff}
+Let $\gamma$ be a circuit in $\C$ and $z$ be a point not on $\gamma$. The integral
+$$n(\gamma, z) = \dfrac{1}{2\pi i}\int_\gamma \dfrac{dw}{w-z}$$
+is called the winding number of $\gamma$ around $z$.
+\end{deff}
+\PP $n$ is exactly the number of times $\gamma$ `winds' around $z$. 
+
+\begin{Thm}
+Let $\Gamma$ be a rectifiable path in $\C$ and $\varphi$ be a continuous function defined on the graph of $\Gamma$. Moreover, assume that $f$ is defined on $\C - \Gamma$ by the integral
+$$f(z) = \int_\Gamma \dfrac{\varphi(w)\ dw}{w-z}  \ \ \text{for} \ \ w \neq z $$
+Then 
+\begin{enumerate}
+    \item For every $a \in \C - \Gamma$, there is a power series expansion that represents $f(z)$ for $z$ in some neighbourhood of $a$ that is given by
+            $$f(z) = \sinf{0} c_n(z-a)^n,$$
+        where 
+            $$c_n = \int_{\Gamma} \dfrac{\varphi(w) \ dw}{(w-a)^{n+1}}.$$
+    \item The above series converges for a positive radius $\geq R$ where 
+    $$R = \inf \{|w - a|: w \in \Gamma\}$$
+
+\end{enumerate}
+\end{Thm}
+\PP 
+$$\dfrac{w-a}{w-z} = \sum_{n = 0}^k \bigg(\dfrac{z-a}{w-a}\bigg)^{n} + \bigg(\dfrac{z-a}{w-a}\bigg)^{k+1} \cdot \dfrac{w-a}{w-z}.$$
+Multiplying both sides with $\varphi(w)/(w - a)$ and integrating over $\Gamma$,
+$$f(z) = \sum_{n = 0}^k (z-a)^n \int_\Gamma \dfrac{\varphi(w) \ dw}{(w-a)^{n+1}} + \int_\Gamma \dfrac{\varphi(w) }{w-z} \bigg(\dfrac{z-a}{w-a}\bigg)^{k+1} dw$$
+The rightmost integrand vanishes as $k \to \infty$ because $|z-a| \leq |w-a|$
+\\
+Equating the above with the Taylor expansion formula,
+$$f^{n}(z) = n! \int_\Gamma \dfrac{\varphi(w)\ dw}{w - z}.$$
+
+\begin{Thm}{\textbf{(Liouville's Theorem)}}
+If $f$ is analytic and bounded on $\C$, then $f$ is constant.
+    
+\end{Thm}
+\begin{Thm}[Local Maximum modulus principle]
+    Assume $f$ is analytic and non-constant in an open region $S$. Then $|f|$ has no local maxima in $S$.
+\end{Thm}
+\PP Conside the inequality,
+$$|f(a)| \leq \dfrac{1}{2\pi}\int_0^{2\pi} f( r + re^{i\theta})\ d\theta$$
+If $a$ is a local maximum, then as $r \to 0$ $\sum |f(a + re^{i\theta})|$ gets closer and closer to $|f(a)$.
+\begin{Thm}[Open mapping theorem]
+If $f$ is analytic and non constant in an open region $n$, then $f$ maps open sets to open sets.
+\end{Thm}
+\PP If $f$ is not a constant, then $|df| \neq 0$ and the `amplitwist' is not the same every where since a non-open function has to amplitwist vectors pointing at the same point.
+
+\begin{Thm}
+If $f$ is analytic in an annulus centered at $a$, then $f$ has a Laurent expansion in the annulus in $\{c_n\}$, where
+$$c_n =  \dfrac{1}{2\pi i}\int_{\gamma}\dfrac{f(w)\ dw}{(w-a)^{n+1}}$$
+where $\gamma$ is any positively oriented circuit with center $a$ and radius $r'$ such that $r< r'< R.$
+\end{Thm}
+=
+\def\res{\mathop{\mathrm{Res}}}
+\begin{Thm}
+    Assume $f$ is analytic everywhere in an open set $S$ except for a finite number of points, $z_k$. If $\gamma$ is a circuit homotopic to a point in $S$ such that $z_k \notin  \gamma$, then we have
+    $$\int_{\gamma} f(z)\ dz = \sum_{k =1}^n n(\gamma, z_k) \res_{z = z_k} f(z).$$
+\end{Thm}
+\PP Without the principal parts of $f$ at $z_k$, $f_k$, $f$ is analytic everywhere in $S$, thus $\int f - \sum f_k = 0.$ Integrating over the laurent expansion of $f_k$ yields the RHS of the theorem.
+If $R$ is a rational function in two variables, then we have
+$$\int_0^{2\pi} R(\sin \theta, \cos \theta) \ d\theta = \int_\gamma \dfrac{1}{iz}R\bigg(\dfrac{z^2 - 1}{2iz}, \dfrac{z^2 + 1}{2z}\bigg)\ \  dz$$
+where $\gamma$ is positively oriented unit circle around $0$ that does not contain the poles of the integrand in the RHS. This can easily be shown using a substitution.
+
+
+\end{document}
+
+
