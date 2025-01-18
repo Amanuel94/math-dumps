@@ -19,7 +19,7 @@ The repository is organized by mathematical subject, with each top-level folder 
 
 My background combines **Enumerative Combinatorics** and **Computer Science**. I'm particularly drawn to the intersection of these two fields, exploring how computational methods can be applied to combinatorial problems.
 
-Currently, I have written a paper in algebraic combinatorics is getting reviewed by international journals.
+I have written a paper in algebraic combinatorics that is currently getting reviewed by international journals.
 
 ## My Interests
 
