@@ -1,0 +1,50 @@
+\documentclass{book}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{hyperref}
+\usepackage{times}
+
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{proposition}[theorem]{Proposition}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+
+\begin{document}
+
+\title{Notes on Serge Lang's Algebra}
+\author{Amanuel Tewodros}
+\maketitle
+
+\tableofcontents
+
+% commands
+
+\newcommand{\size}[1]{|#1|}
+\newcommand{\idx}[2]{[#1 : #2]}
+\newcommand{\gen}[1]{\langle #1 \rangle}
+\newcommand{\set}[1]{\{#1\}}
+\newcommand{\normal}{\trianglelefteq}
+\newcommand{\subgroup}{\leq}
+\newcommand{\normalizer}[1]{\text{N}_{#1}}
+\newcommand{\centerizer}{Z}
+\newcommand{\aut}{\text{Aut}}
+\newcommand{\inn}{\text{Inn}}
+\newcommand{\syl}{\text{Syl}}
+\newcommand{\sym}{\text{Sym}}
+\newcommand{\alt}{\text{Alt}}
+\newcommand{\id}{\text{id}}
+\newcommand{\im}{\text{im}}
+\newcommand{\orbit}[1]{\mathcal{O}_{#1}}
+
+
+\include{groups}
+
+\end{document}

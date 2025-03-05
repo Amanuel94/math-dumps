@@ -1,0 +1,23 @@
+\chapter{Groups}
+
+\begin{theorem}[Sylow Theorems]
+    Let $G$ be a finite group with $p$ divides $\size{G}$, where $p$ is a prime. Then
+    \begin{enumerate}
+        \item There exists a Sylow $p$-subgroup of $G$.
+        \item The number of Sylow $p$-subgroups of $G$ is congruent to $1$ modulo $p$ and divides $\size{G}$.
+        \item All Sylow $p$-subgroups of $G$ are conjugate.
+    \end{enumerate}
+\end{theorem}
+
+\begin{proof}
+    If $H \subgroup G$ with $\idx{G}{H}$ coprime with $p$, then by induction $H$ and therefore $G$ contains a Sylow $p$-group. Otherwise, by the class equation,
+    $$\size{G} = \size{\centerizer(G)} +  \sum_{x} \idx{G}{N_x(G)}, $$
+    it follows $\centerizer(G)$ is divisible by $p$ and thus $\gen{g} \subgroup \centerizer(G)$ for some $g \in \centerizer(G)$ with exponenet = $p$. Inducting on the order of $G$, $G/\gen{g}$ contains a Sylow $p$-subgroup, say $S/\gen{g}$ that is the image of $S \subgroup G$ that is a Sylow $p$-subgroup of $G$. 
+    
+    Let $P, Q \in \syl_p(G)$. $P$ does not normalize $Q$ because otherwise $PQ \subgroup G$ and $p^m = \size{PQ} > \size{P}$, a contradiction. Let $S = \set{P_1, \dots, P_k}$ be the conjugates of $P$ and let $\orbit{i}$ be the orbit of $P_i$ by the action $P$ on the  set $S$ by conjugation. Then $\size{\orbit{i}} = \idx{P}{N_P(P_i)} = \idx{P}{N_G(P_i) \cap P} = \idx{P}{P_i \cap P} \implies k = 1 \mod p.$
+
+    If $P, Q \in \syl_p(G)$ are not conjugates, then $Q$ is not conjugate with conjugates of $P$.
+    Consider the action of the elements of $Q$ on the set $\set{gPg^{-1} : g \in G} = \set{P_1, \dots, P_m}$. Then 
+    $$\size{\orbit{P_i}} = \idx{Q}{N_Q(P_i)} = \idx{Q}{P_i \cap Q}, $$
+    where the latter equality follows because $P_i(N_G(P_i) \cap Q)$ is a $p$-group that contains $P_i$ with order $\leq \size{P_i}$(a Sylow $p$-group) and thus $ N_G(P_i)\cap Q \leq P_i$. Since $Q$ is not a conjugate of $P$, $\idx{Q}{Q \cap P_i} = p^k, k > 0$ and $ \orbit{P_i}$ is divisible by $p$ and the number of conjugates of $P$ which is $\sum_i \size{\orbit{P_i}} = 0 \mod p$, a contradiction.
+    \end{proof}
