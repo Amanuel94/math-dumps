@@ -21,3 +21,12 @@
     $$\size{\orbit{P_i}} = \idx{Q}{N_Q(P_i)} = \idx{Q}{P_i \cap Q}, $$
     where the latter equality follows because $P_i(N_G(P_i) \cap Q)$ is a $p$-group that contains $P_i$ with order $\leq \size{P_i}$(a Sylow $p$-group) and thus $ N_G(P_i)\cap Q \leq P_i$. Since $Q$ is not a conjugate of $P$, $\idx{Q}{Q \cap P_i} = p^k, k > 0$ and $ \orbit{P_i}$ is divisible by $p$ and the number of conjugates of $P$ which is $\sum_i \size{\orbit{P_i}} = 0 \mod p$, a contradiction.
     \end{proof}
+
+
+    \begin{theorem}
+        If $\size{G}= pq$ for primes $p < q$, then $G = \ZZ/pq\ZZ$ if $p \nmid q - 1$ else $G = \C{pq}$ of $G =  \ZZ/q\ZZ \rtimes \C{p} $ for some non-trvial semi-direct product. 
+    \end{theorem}
+
+    \begin{proof}
+        If $q > p$, $n_q = 1$ and thus $Q \in \syl_q(G)$ is normal. $|\aut(\C{q})| = q - 1$, therefore, there is a nontrivial map $\phi: \C{p}\to \aut(\C{q})$ if $p \mid q - 1$  
+    \end{proof}

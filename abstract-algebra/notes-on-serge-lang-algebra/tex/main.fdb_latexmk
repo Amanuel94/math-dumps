@@ -1,7 +1,7 @@
 # Fdb version 3
-["pdflatex"] 1741165468 "/home/dirichletian/math/math-dumps/abstract-algebra/notes-on-serge-lang-algebra/tex/main.tex" "main.pdf" "main" 1741165469
+["pdflatex"] 1741200347 "/home/dirichletian/math/math-dumps/abstract-algebra/notes-on-serge-lang-algebra/tex/main.tex" "main.pdf" "main" 1741200348
   "/etc/texmf/web2c/texmf.cnf" 1688739976 475 c0e671620eb5563b2130f56340a5fde8 ""
-  "/home/dirichletian/math/math-dumps/abstract-algebra/notes-on-serge-lang-algebra/tex/main.tex" 1741162977 1125 8cfe391b9c1993231c170351fdef2483 ""
+  "/home/dirichletian/math/math-dumps/abstract-algebra/notes-on-serge-lang-algebra/tex/main.tex" 1741199984 1198 7a8f08cb3e091566d2354073b056c93c ""
   "/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc" 1165713224 4850 80dc9bab7f31fb78a000ccfed0e27cab ""
   "/usr/share/texlive/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/adobe/times/ptmb7t.tfm" 1136768653 2172 fd0c924230362ff848a33632ed45dc23 ""
@@ -38,6 +38,7 @@
   "/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb" 1248133631 32762 224316ccc9ad3ca0423a14971cfa7fc1 ""
   "/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb" 1248133631 32569 5e5ddc8df908dea60932f3c484a54c0d ""
   "/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb" 1248133631 32716 08e384dc442464e7285e891af9f45947 ""
+  "/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb" 1248133631 34694 ad62b13721ee8eda1dcc8993c8bd7041 ""
   "/usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmb8a.pfb" 1136849748 44729 811d6c62865936705a31c797a1d5dada ""
   "/usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb" 1136849748 46026 6dab18b61c907687b520c72847215a68 ""
   "/usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmri8a.pfb" 1136849748 45458 a3faba884469519614ca56ba5f6b1de1 ""
@@ -95,12 +96,12 @@
   "/usr/share/texmf/web2c/texmf.cnf" 1644012257 39432 7155514e09a3d69036fac785183a21c2 ""
   "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1739507623 165012 f177baa1c39a3ebd62c3096a43521a0d ""
   "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1739507634 1435927 77c8b60daa25d8d7d11fce629703648a ""
-  "groups.aux" 1741165469 832 2af75d6b600fbee5f7f15807fe7366f0 "pdflatex"
-  "groups.tex" 1741165468 2096 973af46d82d21e226e4b2a5b2c4dc0e5 ""
-  "main.aux" 1741165469 706 7778ef5a55f1b4f23773e2c2ddca98bf "pdflatex"
-  "main.out" 1741165469 73 8b256b6efa443e55acc9a1a839c2b7e8 "pdflatex"
-  "main.tex" 1741162977 1125 8cfe391b9c1993231c170351fdef2483 ""
-  "main.toc" 1741165469 62 0bbf6479aa716fbe9cd3261ab76add0d "pdflatex"
+  "groups.aux" 1741200348 832 34635ac5a2884a0eec2d840860740bb2 "pdflatex"
+  "groups.tex" 1741200347 2530 3b784109717556cc8a9addffd79a80c2 ""
+  "main.aux" 1741200348 706 1bb38128a484f9db286bf40905044b83 "pdflatex"
+  "main.out" 1741200348 73 8b256b6efa443e55acc9a1a839c2b7e8 "pdflatex"
+  "main.tex" 1741199984 1198 7a8f08cb3e091566d2354073b056c93c ""
+  "main.toc" 1741200348 62 0bbf6479aa716fbe9cd3261ab76add0d "pdflatex"
   (generated)
   "groups.aux"
   "main.aux"
