@@ -30,3 +30,23 @@
     \begin{proof}
         If $q > p$, $n_q = 1$ and thus $Q \in \syl_q(G)$ is normal. $|\aut(\C{q})| = q - 1$, therefore, there is a nontrivial map $\phi: \C{p}\to \aut(\C{q})$ if $p \mid q - 1$  
     \end{proof}
+    \begin{theorem}[Fundamental Theorem of Finitely Generated Abelian Groups]
+
+        Let $A$ be a finite abelian group and let $A(p)$ be the subgroup of all elements with order that is a power of $p$. Then 
+        $$\prod_{A(p) \neq \set{1}} A(p) = A.$$
+    
+    \end{theorem}
+
+    \begin{proof}
+        Clearly the map $\phi: \prod_p A(p) \to A$ defined by $\phi((x_p)) = \prod_p x_p $ is an endomorphism.  We show that $\phi$ is injective and surjective. Let $\phi((x_p)) = 1$ for some $x = (x_p) \in \prod_p A(p)$. Let $q$ be a prime with $A(q) \neq \{1\}$. Then 
+        $$x_q = \prod_{ p \neq q} x_p^{-1}.$$
+        Let $m$ be the least common multiple of the primes powers  on the right hand side, i.e. powers of $p \neq q$. Then $x^{m}_q = 1$. But, $x_q^{q^r} = 1$ too. Consequently, $x_q^{(m, q^r)} = x_q^{1} = x_q = 1$. Thus $\prod_p x_p = 1$ iff all $x_p = 1$ and $\ker \phi = \set{1}.$
+
+        To prove surjectivity, let $x \in A$ with $x^m = 1$ such that $m = \prod p_i^{r_i}$. By Euclidean algorithm,  $1= \sum_i u_i\prod_{j\neq i} p_j^{r_j}$ and thus $x = \prod_i x^{u_i\prod_{j\neq i} p_j^{r_j}}$ with 
+        $ x^{u_i \prod_{j\neq i} p_j^{r_j}} \in A(p_i).$
+    \end{proof}
+    
+   
+    \textbf{Why nilpotence and the existence of normal Sylow sub-groups are equivalent?}: If $P, Q \in \syl_p(G)$ then $N_P(Q) = P\cap Q < P, Q$ and thus $Z(G)$ is always $ < G$. Thus $P = Q \iff G$ nilpotent.  
+
+    \textbf{The number of ways $G$ acts on $H$}: $= \#$ of homomorphisms from $G$ to $\aut(H) = \#$ subgroups of order $|G|/|H^*|.$ 
