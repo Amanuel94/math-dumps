@@ -1,5 +1,5 @@
 # Fdb version 3
-["pdflatex"] 1741523704 "/home/dirichletian/math/math-dumps/abstract-algebra/notes-on-serge-lang-algebra/tex/main.tex" "main.pdf" "main" 1741523705
+["pdflatex"] 1741542970 "/home/dirichletian/math/math-dumps/abstract-algebra/notes-on-serge-lang-algebra/tex/main.tex" "main.pdf" "main" 1741542970
   "/etc/texmf/web2c/texmf.cnf" 1688739976 475 c0e671620eb5563b2130f56340a5fde8 ""
   "/home/dirichletian/math/math-dumps/abstract-algebra/notes-on-serge-lang-algebra/tex/main.tex" 1741262045 1221 0cbf1358980abe89d3ed93921cc5081b ""
   "/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc" 1165713224 4850 80dc9bab7f31fb78a000ccfed0e27cab ""
@@ -41,6 +41,7 @@
   "/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb" 1248133631 32915 7bf7720c61a5b3a7ff25b0964421c9b6 ""
   "/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb" 1248133631 32716 08e384dc442464e7285e891af9f45947 ""
   "/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex7.pfb" 1248133631 30457 bc0868ebece724ed7c3d37e3d9bff7bd ""
+  "/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb" 1248133631 31764 459c573c03a4949a528c2cc7f557e217 ""
   "/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb" 1248133631 34694 ad62b13721ee8eda1dcc8993c8bd7041 ""
   "/usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmb8a.pfb" 1136849748 44729 811d6c62865936705a31c797a1d5dada ""
   "/usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb" 1136849748 46026 6dab18b61c907687b520c72847215a68 ""
@@ -99,12 +100,12 @@
   "/usr/share/texmf/web2c/texmf.cnf" 1644012257 39432 7155514e09a3d69036fac785183a21c2 ""
   "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1739507623 165012 f177baa1c39a3ebd62c3096a43521a0d ""
   "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1739507634 1435927 77c8b60daa25d8d7d11fce629703648a ""
-  "groups.aux" 1741523705 832 c02e958c7dc143f101dc227e9cd35925 "pdflatex"
-  "groups.tex" 1741523704 4080 508ccd7c655045d70739f6776a922fa9 ""
-  "main.aux" 1741523705 706 1bb38128a484f9db286bf40905044b83 "pdflatex"
-  "main.out" 1741523705 73 8b256b6efa443e55acc9a1a839c2b7e8 "pdflatex"
+  "groups.aux" 1741542970 832 c5009f3cb22d0f090524e658259f62dd "pdflatex"
+  "groups.tex" 1741542970 5698 91887d08e3f93308991ddddeba33def6 ""
+  "main.aux" 1741542970 706 d6395a2c4544bc1060b6d34f6ba9a38b "pdflatex"
+  "main.out" 1741542970 73 8b256b6efa443e55acc9a1a839c2b7e8 "pdflatex"
   "main.tex" 1741262045 1221 0cbf1358980abe89d3ed93921cc5081b ""
-  "main.toc" 1741523705 62 0bbf6479aa716fbe9cd3261ab76add0d "pdflatex"
+  "main.toc" 1741542970 62 0bbf6479aa716fbe9cd3261ab76add0d "pdflatex"
   (generated)
   "groups.aux"
   "main.aux"
