@@ -4,6 +4,7 @@
 \usepackage{amssymb}
 \usepackage{amsthm}
 \usepackage{hyperref}
+\usepackage{tikz-cd}
 \usepackage{times}
 
 
@@ -16,6 +17,13 @@
 \newtheorem{example}[theorem]{Example}
 \theoremstyle{remark}
 \newtheorem{remark}[theorem]{Remark}
+
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    urlcolor=cyan,
+    citecolor=red
+}
 
 \begin{document}
 
@@ -46,6 +54,17 @@
 \newcommand{\ZZ}{\mathbb{Z}}
 \newcommand{\C}[1]{\mathbb{Z}/#1\mathbb{Z}}
 \newcommand{\iso}{\cong}
+\newcommand{\dihedral}[1]{D_{#1}}
+\newcommand{\dicyc}{\text{DiC}}
+\newcommand{\hol}{\text{Hol}}
+\newcommand{\I}[1]{\mathfrak{#1}} 
+\newcommand{\Map}{\mathrm{Map}}
+\newcommand{\nequiv}{\not \equiv}
+\newcommand{\cat}[1]{\mathcal{#1}}
+\newcommand{\Cat}{\mathcal{C}}
+\newcommand{\Mor}{\text{Mor}}
+\newcommand{\Ob}{\text{Ob}}
 \include{groups}
+\include{rings}
 
 \end{document}

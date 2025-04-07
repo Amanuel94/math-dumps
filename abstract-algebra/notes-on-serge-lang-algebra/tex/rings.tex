@@ -1,0 +1,109 @@
+\chapter{Rings}
+
+\begin{proposition}
+    For two ideals $\I a, \I b$ of a ring $A$, if $\I a + \I b = A$, then $\I a \cap \I b = \I a \I b.$
+\end{proposition}
+\begin{proof}
+    Clearly, $\I a\I b \subseteq \I a \cap \I b$. Thus, it suffices to prove the contra-positive relation. Since $1 = a + b$ for some $a \in \I a, b \in \I b$,  $c = c\cdot a + c \cdot b$ for all $c \in A$. Of course, if $c \in \I a  \cap \I b$, $c\cdot a + c\cdot b \in \I a \I b$.
+\end{proof}
+
+Let $A$ be a ring and let $\lambda: \ZZ \to A$ given by
+$$ \lambda(n) = \underset{n \text{ times}}{\underbrace{1_A + \cdots + 1_A}}.$$
+
+Then $\ker \lambda = \gen{n}$ for some $n \geq 0$. If $\gen{n}$ is a prime ideal, then we say $A$ has  characteristic $n$. 
+
+\begin{proposition}
+    If $S$ is a set with more than two elements and $A$ is a ring with $1_A \neq 0_A$, then $\Map(S, A)$ is not an integral domain.
+\end{proposition}
+
+\begin{proof}
+    Let $\set{} \neq T \subset S$
+    $$f(x) = \begin{cases}
+    1_A \text{ if } x \in  T \\
+    0_A \text { if } x \in S - T       
+    \end{cases} \text{ and } g(x) = 1_A - f(x).$$
+$fg = 0_{\Map(S, A)}.$
+\end{proof}
+
+If $\I p$ is a prime ideal in a ring $A$, then it means
+\begin{enumerate}
+    \item $A/\I p$ is an integral domain.
+    \item $xy \in \I p \implies x \in \I p$ or $y \in \I p.$
+\end{enumerate}
+
+% \noindent \textit{Every maximal ideal $\I m$  is prime}.
+% \begin{proof}
+%     $\I m + \gen{x}, x\notin  \I m$ is an ideal containg $\I m$ and thus contains $1$.  
+% \end{proof}
+
+\noindent \textit{The ideal $\set{0_A}$ is a prime ideal of $A$ iff $A$ is an integral domain.}
+\begin{proof}
+    $(\implies )$ $A/\set{0_A} \iso A$, thus $A$ should be an integral domain.
+
+    $(\impliedby)$. If $A$ is an integral domain, then $xy \in  \set{0_A} \implies x = \set{0_A}$ or $y \in \set{0_A}.$
+\end{proof}
+
+\begin{theorem}[Chinese Remainder Theorem]
+    Let $\I a_1, \dots \I a_n$ be ideals of a ring $A$ such that $\I a_i + \I a_j  = A$ for any $i \neq j$.  Let $x_i$ be elements of $A$. Then there is an element $x \in A$ such that $x \equiv x_i \mod \I a_i.$ 
+\end{theorem}
+
+\begin{proof}
+    If $n = 2$,  $A = \I a_1 + \I a_2$, and thus $1_A = a_1 + a_2$ for some $a_i \in \I a_i.$ Then $x = x_1 a_1 + x_2a_2$ satisfies the statement.
+
+    If $n > 2$, then $a_i + b_i = 1_A$ for some $a_i \in \I a_1$ and $b_i \in \I a_{j > 1}$. Thus the product $\prod_i (a_i + b_i) = 1_A.$ In other words, 
+
+    $$A = \I a_1 + \prod_{i = 2}^n \I a_i.$$
+    By the case for $n=2$,  there is an element $y_1$ such that, 
+    $$y_1 \equiv 1_A \mod \I a_1 \text{ and } y_1 \equiv 0_A \mod \big(\prod_{i = 2}^n \I a_i\big)$$
+    Since $\prod_{i = 2}^n \I a_i \subseteq \bigcap_{i=2}^n \I a_i$, it follows that $y_1 \in \I a_i$ for all $i > 1$ and therefore, $y \equiv 0_A \mod \I a_i$ for $i > 1$. Carrying out the same procedure in similar fashion to obtain $y_2, \dots, y_n$ such that
+    $$y_i \equiv 1_A \mod \I a_i \text{ and } y_i \equiv 0_A \mod \I a_j, j \neq i, $$ 
+    we see that $x = \sum_{i = 1}^n x_iy_i$ satisfies the statement of the theorem. 
+\end{proof}
+
+\noindent \textit{A non-zero polynomial $f$ of degree $d$ over a commutitive ring $A$  is homogenous iff for every set of $n+1$ algebraically independent elements $u, t_1, \dots, t_n$} over $A$, 
+$$f(ut_1, \dots, ut_n) = u^df(t_1, \dots, t_n).$$
+
+\begin{proof}
+    Let $f(X) = \sum_{(v)}a_{(v)}X_1^{v_1} \cdots X_n^{v_n}.$ If $f$ is homogenous of degree $d$, $v_1 + \cdots + v_n = d$ for all $a_{(v)} \neq 0$. $f(ut_1, \dots, ut_n) = \sum_{(v)} a_{(v)} (ut_1)^{v_1} \cdots (ut_n)^{v_n}$. Since $A$ is commutitive, this is equal to 
+    $\sum_{(v)} a_{(v)} u^{v_1 + \dots + v_n}t_1^{v_1} \cdots t_n^{v_n}$.
+
+    On the other hand, if $f(ut_1, \dots, ut_n) = u^df(t_1, \dots, t_n)$m, then $\sum_{(v)} a_{(v)}u^{v_1 + \cdots + v_n}  = f(u1_A, \dots, u1_A) = u^df(1_A, \dots, 1_A) = u^d\sum_{(v)} a_{(v)}.$ This is a polynomial in $u$ over $A$ and equality is assured iff $u^d = u^{v_1 + \cdots v_n}$. 
+
+
+\end{proof}
+
+Let $G$ be a \href{https://en.wikipedia.org/wiki/Monoid}{monid} and let $A[G]$ be the set of all mappings $\alpha: G \to A $ such that $\alpha(x) = 0$ for almost all $x \in G$. Addition is defined ordinarily and multiplication is defined as 
+$$\alpha \beta (z) = \sum_{xy = z} \alpha(x) \beta(y).$$
+Then $A[G]$ is a ring. A more convenient notation can be acheived if we define $a \cdot x$ as 
+$$
+    a \cdot x(z) = \begin{cases}
+        a \text{ if } z = x\\
+        0 \text{ if otherwise.}
+\end{cases}$$
+
+This way we can define, 
+$\alpha = \sum_{x \in G} \alpha(x) \cdot x$, and 
+$$\bigg(\sum_{x \in G} a_x \cdot x \bigg) \bigg(\sum_{y \in G} b_y \cdot y \bigg) = \bigg(\sum_{x, y} a_xb_y \cdot xy \bigg)$$
+
+$$\bigg(\sum_{x \in G} a_x \cdot x \bigg) + \bigg(\sum_{x \in G} b_x \cdot y \bigg) = \bigg(\sum_{x\in G} (a_x + b_x) \cdot x \bigg), $$
+where $\set{a_z}_{z \in G}$, $\set{b_z}_{z \in G}$ are the elements of $A$, most of them equal to $0$. 
+
+The injective homomorphisms $x \mapsto 1_A \cdot x$ and $a \mapsto a \cdot e$ show that $G$ and $A$ are embedded in $A[G]$. \\ 
+% 1.(xy) = (1.x)(1.y    )   
+
+
+\noindent \textit{Let $A$ be a communtative ring and $S$ be a multiplicative subset \footnote{A subset containting $1_A$ and closed under multiplication}.  For $a, a' \in A$ and $s, s' \in S$, we say}
+$$(a, s) \sim (a', s')$$
+\textit{if there is $s_1 \in S$ such that}
+$$s_1(as' - sa') = 0.$$
+\textit{$\sim$ is an equivalance relation.}
+\begin{proof}
+    Symmetry and Reflexitvness are trivial. Transitivity can be verified as follows. Let $(a, b) \sim (c, d)$ and $(c, d) \sim (e, f)$. Then for some $s_1, s_2 \in S$, we have
+    $$s_1ad  = s_1bc$$
+    $$s_2de = s_2cf$$
+Multiplying both sides of first and the second equation by $s_2f$ and $s_1b$, it follows that $(s_1s_2d)(af - be) = 0.$
+\end{proof}
+\noindent This construction of ring is called \textbf{ring of fraction of $A$ by $S$, $S^{-1}A$}. The homomorphism $A \mapsto S^{-1}A$ defined by $a \mapsto a/1_A$ is a universal object (See \Ref{universal_object}). If $A$ is an integral domain, then $S^{-1}A$ is the field of fractions.
+\\
+
+If $A$ has a unique maximal ideal, it is called \textbf{a local ring.} An intersting example is $A_{\I p} = S^{-1}A$,where $S$ is the multiplicative subset $A - \I p.$

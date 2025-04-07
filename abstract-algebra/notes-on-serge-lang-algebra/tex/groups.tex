@@ -70,3 +70,56 @@
 
     Therefore, $\sigma = (ijk)(rs) \theta$ where $\theta$ is possible identity permutation. By similar argumenta as above picking $\tau' = (rsk)$, $\sigma$ can not be the element of $N$ with maximal fixed points unless it contains all of $A_n$.  
     \end{proof} 
+
+    \subsection*{Properties of Common Non-Abelian Groups}
+    \begin{itemize}
+        \item \textit{Dihedral Group}: $\dihedral{2n}$
+        \begin{itemize}
+            \item  $\iso \C{n} \rtimes \C2$ acting by inversion
+            \item $=\set{a, b | a^n, b^2, baba}$
+        \end{itemize}
+
+        \item \textit{Binary Dihedral Group/ Dicyclic Group}: $\dicyc(4n)$
+        \begin{itemize}
+            \item  $\iso \C{n} \rtimes \C4$ acting by inversion
+            \item $=\set{a, b | a^n, b^4, baba}$
+        \end{itemize}
+
+        \item \textit{Generalized Quaternions}: $Q_{2^{n+2}}$
+        \begin{itemize}
+            \item  $\iso \C{2^n} \rtimes \C4$ acting by inversion
+            \item $=\set{a, b | a^{2^n}, b^4, baba}$
+        \end{itemize}
+
+        \item \textit{Holomorph Group}: $\hol(G)$
+        \begin{itemize}
+            \item  $\iso G \rtimes \aut(G)$ 
+            \item if $G$ is $\C{p}$, $p$ prime, $\hol(G)$ is isomorphic to the \textit{generalized affine group} 
+        \end{itemize}
+    \end{itemize}
+
+    \subsection*{Notes on Category Theory}
+    \begin{itemize}
+        \item A category $\cat{C}$ is a collection of \textbf{objects} $\Ob(\cat{C})$, along with a set of maps, called \textbf{morphisms} between any two objects $A,B \in \Ob(\Cat)$ denoted by $\Mor(A, B)$.
+        \item Morphisms follow the law of composition.
+        \item Three axioms
+        \begin{enumerate}
+            \item \textbf{CAT 1} $\Mor(A, B)$ and $\Mor(A', B')$ are disjoint unless $(A, B) = (A', B')$, in which case they are equal.
+            \item \textbf{CAT 2} For every $A \in \Ob(\Cat)$, there exists a morphism, $\id_A$ in $\Mor(A, A)$ that acts as a left and right identity for the elements of $\Mor(A, B)$ and $\Mor(B, A)$ resp. for all $B$.
+            \item \textbf{CAT 3} The law of composition of morphisms is associative.
+        \end{enumerate}
+        \item The \textbf{operation} of a group $G$ on an object $A \in \Ob(\Cat)$ is a homomorphism from $G$ to $\aut(A).$ It is also called a \textbf{representation.}
+        \item Given a category $\Cat$, we can construct a new category $\cat{D}$ where the objects are the morphisms of $\Cat$ and the morphisms between two objects $f, f'$ are  defined by a pair of momorphism $(\phi, \psi)$  that make the following diagram commute:
+ 
+\[\begin{tikzcd}
+	A && B \\
+	{A'} && {B'}
+	\arrow["f", from=1-1, to=1-3]
+	\arrow["\phi"', from=1-1, to=2-1]
+	\arrow["\psi", from=1-3, to=2-3]
+	\arrow["{f'}"', from=2-1, to=2-3]
+\end{tikzcd}\]
+
+\label{universal_object}\item An object $P$ of a category $\Cat$ is called \textbf{universally attracting} (resp. \textbf{universally repelling}) if there is exists a \textit{unique} morphism from (resp. to) every object to(resp. from) $P$. If it is both, it is called \textbf{universal object}.
+
+\end{itemize}    
