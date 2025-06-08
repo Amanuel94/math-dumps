@@ -1,0 +1,224 @@
+\chapter{Modules}
+
+The concept of rings is motivated by the properties of a set of \textit{endomorphims} on an (additive) abelian group. Left $R$-modules are the abelian groups $M$ such thaat there is a ring homomorphism $R \to \End(M)$.\\
+
+\noindent \textit{Example:} If $J$ is an ideal of a ring $A$, then we can define an operation of an element $a, b \in A$ on $A/J$ as $a \cdot (x + J) \mapsto ax + J.$ This mapping is an endomorphim of $A/J$ because $a \cdot (x + y + J) = a \cdot (x + J) + a\cdot (y + J)$. We can define the a ring homomorphism from $A \to \End(A/J)$ trivially.  Therefore, $A$ defines a module structure over $A/J$.\\
+
+To show a group $M$ is $A$-module, it suffieces to show that for $a, b \in A$, $x, y \in M$ 
+$$a(x + y) = ax + ay \text{ and } (a + b)x = ax + by,$$
+These conditions are equivalent to showing there is a ring homomorphism from the actions of elements of $A$ on $M$ to $\End(M)$.\\
+\noindent\rule{\textwidth}{1pt}    
+    \noindent Some basic constructions from the companion. Let $M$ be an $A$-module.
+    \begin{enumerate}
+        \item For $N \subseteqq M$, $\set{r \in A : rN = 0}$ forms an left ideal in $A$.
+        \item For $N \leqq M$, $\set{r \in A: rM \subseteqq N}$ forms a right ideal of $A$.
+        \item For $N \leqq M$, $\set{r \in A: rN \subseteqq N}$ forms a subring.
+        \item If $N$ is a submodule, then the ideals in 1 and 2 are $2$-sided. Here, it is important to point out that when $N$ is a submodule, then closure of the actions of $A$ on $N$ is maintained.
+    \end{enumerate}
+    If $x \in M$, then $Rx \iso R/I$, where $I$ is the annhilator ideal of $\{x\}$ as in 1. \\
+    
+    \noindent \textit{Every ideal (left, right and 2-sided) and subring of $A$ can be constructed in the above way}\\
+
+    \noindent  
+    \noindent\rule{\textwidth}{1pt}
+
+    \begin{definition}
+        A \textbf{module-homomorphism} is an additive group homomorphism $f: M \to M'$ from modules $M$ to module $M'$ and such that $f(ax) = af(x).$  
+    \end{definition}
+
+    \noindent \textit{If $f$ is module-homomorphism from $M$ to $M'$ then the kernel and the image of $f$ are submodules of $M$ and $M'$ respectively.}
+    \begin{proof}
+        Clearly, $\ker f \leqq M$ because $f$ is a group homomorphism. Let $a \in A$ and $x \in \ker f$. $f(ax) = af(x) = 0$. Hence, the kernel of $f$ is a submodule of $M$.
+
+        Again, $\Img f \leqq M'$. $af(x) = f(ax) \in \Img f.$
+
+     
+    \end{proof}
+
+    \horline\\
+    $M'/f(M)$ is a universal(inital) among the modules $N$ with homomorphism $g:M' \to N$ such that $g\circ f = 0.$ That is the following diagram commutes and $\hat g$ is unique:
+    \\
+    \begin{center}
+        
+        \begin{tikzcd}[cramped]
+            M && {M'} && N \\
+            && {} \\
+            && {M'/f(M)}
+            \arrow["f"{description}, from=1-1, to=1-3]
+            \arrow["g"{description}, from=1-3, to=1-5]
+            \arrow["c"{description}, from=1-3, to=3-3]
+            \arrow["{\hat{g}}"{description}, from=3-3, to=1-5]
+        \end{tikzcd}
+    \end{center}
+
+    This is dual with the kernel of $f$ which is a terminal object among modules $N$ with homomorphism $g: N \to M$ such that $f \circ g = 0.$ Thus, it is called the \textbf{cokernel} of $f$.    
+    \horline
+
+    
+    \begin{definition}
+        A \textbf{monomorphism} is a module-homomorphism $u: N \to M$ characterized by the exact sequence $0 \to N \overset{u}{\to} M.$ Similarly, an \textbf{epimorphism} is characterized by dual exact sequence $N \overset{u}{\to} M \to 0.$ 
+    \end{definition}
+
+    These definitions concide with the definitions of one-to-one homomorphisms and surjective homomorphism in the category of modules over a ring $R$.
+
+    \begin{definition}
+        For a commutitive\footnote{the concept of algebras does not make much sense with non-commutative rings} ring $A$, we say $K$ is an $A$-algebra, if $K$ is a module with $E$ a \textbf{\href{https://en.wikipedia.org/wiki/Bilinear_map}{$A$-bilinear map}} $g:E \times E \to E.$ 
+    \end{definition}
+
+    \horline
+
+    \noindent In the companion, the following remark is left.\\
+
+    \textit{Let $A$ be a commutative ring. Then 
+        $$\text{associative, unital }A\text{-algebra}\ R \equiv \text{Ring $R$ with a homomorphism $f:A \to Z(R).$}$$
+    }
+    \noindent $f$ is a way of endcoding the bilinear operator, and why it's into the center of $R$ is mainly because we require $a\cdot xy = (a\cdot x)y = x(a \cdot y) :=  f(a)xy = (f(a)x)y = xf(a)y $\\
+
+    Another intersting remark is that algebras are abstractions of the natural structure of $A$-module-endomorphims of a module $M$, $\End_A(M)$, just like rings abstract the endomorphims of an abelian group.  \\
+    \horline
+
+    A sequence $\cdots \to A \overset{f}\to B \overset{g}\to C \to \cdots $ is called exact if $\Img f  = \ker g.$ We denote the group of of $A$-homomorphisms from $A$-module $X$ to $Y$ by $\Hom_A(X, Y).$
+    \begin{proposition}
+        Let $X, X', X''$ and $Y$ be $A$-modules. Then the short sequence
+        $$X' \fto{\lambda} X \fto{\mu} X'' \to 0$$
+        is exact if and only if 
+
+        $$ \Hom_A(X', Y) \overset{\lambda'}\from \Hom_A(X, Y) \overset{\mu'}\from \Hom_A(X'', Y) \from 0$$
+        is exact for all $Y$.
+    \end{proposition}
+    \begin{remark}
+        This proposition is analogous to the duality of linear maps in vector spaces. 
+    \end{remark}
+
+    
+    \begin{proof}
+    Suppose the first sequence is exact. Then the following statements hold:
+    \begin{enumerate}[(i)]
+        \item $\Img \lambda = \ker \mu$ \label{item:1}
+        \item $\Img \mu = X''$.\label{item:2}
+    \end{enumerate}
+    Let $g \mapsto g \circ \lambda = 0$. Since $\Img \lambda \subseteqq  \ker g,$ $g$ factors through $X/\Img \lambda.$ By \Ref{item:1} and \Ref{item:2}, $X/\Img \lambda \iso \Img \mu =  X''$ which implies $g = f \circ \mu$ for some $f \in \Hom (X'', Y)$. This shows $\ker \lambda' \subseteqq \Img \mu'.$ Similarly, let  $h \circ \mu \in \Img \mu'.$ By \Ref{item:1}, the composition of this with $\lambda$, $h \circ \mu \circ \lambda = 0$, implying $\Img \mu' \subseteqq \ker \lambda'$ (thus $\Img \mu' = \ker \lambda'$).
+    The first implication of the proposition follows from the fact that if $f \mapsto f \circ \mu = 0$ for some $f: X'' \to Y$, then $f = 0$  by \Ref{item:2}.
+    \\
+
+    The proof of the converse is an easy application of the following common technique: \textbf{To study the consequences of a condition holding for all morphisms of a given sort, consider a universal example.}
+
+    Suppose the second sequence is exact, i.e.,
+    \begin{enumerate}[(i)]
+        \item $\ker \lambda'  =  \Img \mu'$ \label{item:3}
+        \item $\ker \mu' = 0$. \label{item:4}
+    \end{enumerate}
+
+    By \Ref{item:3},  $\ker \lambda' \supseteqq  \Img \mu'.$ That is,  for every $Y$ and $f:X'' \to Y$ $f \circ \mu \circ \lambda = 0.$ Now, consider the universal example for all $f$s, i.e.,  the category of morphisms from $X''$ which is $\id$, the identity morphisms. $\id \circ \mu \circ \lambda  = \mu \circ \lambda = 0$ implies $\ker \mu \supseteqq \Img \lambda.$ 
+
+    Similarly, the condition $\ker \lambda' \subseteqq \Img \mu' $ implies for every $Y$, a map $g: X \to Y$ such that $g \circ \lambda  = 0$  can be factored  through $X''.$ The universal object of all morphisms from $X \to Y$ which are $0$ at $\Img \lambda$ is the canonical homomorphism $q: X \to X/\Img \lambda.$ Hence $q = f \circ \mu$ which is obviously $0$ on $\Img \lambda$ and thus $\ker q = \Img \lambda \supseteqq \ker \mu.$
+       
+    Finally, the universal object of morphisms from $X'' \to Y$  annihilated by $\Img \mu$ is the canonical morphism $p:X'' \to X''/\Img \mu.$ However, \Ref{item:4} implies $p = 0$ and $X'' \iso \Img \mu$ which completes the proof.
+    \end{proof}
+
+    Let $\set{M}_{i \in I}$ be a family of submodules of $M$. Then we have the induced homomorphism 
+    $$\lambda_*: \bigoplus_{i \in I} M_i \to M$$
+    defind by $\lambda_*((x_i)) = \sum  x_i$. If $\lambda_*$ is isomporphism, then we call the family $\set{M}_{i \in I}$, \textbf{direct sum decomposition} of $M$ as we have
+
+    $$\bigoplus M_i = M.$$
+    Otherwise, if $\lambda_*$ is only surjective, we can write
+    $$M = \sum M_i$$
+    \begin{remark}
+        This notion is analogous to linear independece and direct sums in linear algebra.
+    \end{remark}
+
+
+    Let $M_1, M_2, N$ be modules. Then we have the following isomorphism of abelian groups
+
+    $$\Hom(M_1 \oplus M_2, N) \iso \Hom(M_1, N) \times \Hom(M_2, N)$$
+    $$\Hom(N, M_1 \times M_2) \iso \Hom(N, M_1) \times \Hom(N, M_2)$$
+
+    The first isomorphism follows from the association $f \mapsto (f_1, f_2)$ where $f$ is an element of the LHS group and $f_i: M_i \to N$ are the homomorphisms defined by $f_i = f \circ I_i$. The second one follows with similar associations.
+
+
+    \begin{proposition}
+        Let the following sequence of modules be exact:
+        $$0 \to M' \fto{f} M \fto{g} M'' \to 0$$
+        The following conditions are equivalent
+        \begin{enumerate}
+            \item There is a homomorphism $\varphi: M'' \to M$ such that $\id = g \circ \varphi.$
+            \item There is a homomorphism $\psi: M \to M'$ such that $\id = \psi \circ f.$
+        \end{enumerate}
+        If these conditions are satisfied, then we have the following isomporphisms:
+        $$M = \ker g \oplus \Img \varphi = \ker \psi \oplus \Img f \iso M' \oplus M''.$$
+    \end{proposition}
+
+    The general idea is the exactness of the sequence makes $M$ factorize into $M' \times M/M'$ in group theory terms.
+    \begin{proof}
+        Let $x \in M$. Then $x - \varphi(g(x)) \in \ker g$ by definition. Thus $x = (x - \varphi(g(x))) + \varphi(g(x)) \in \ker g + \Img \varphi$. This sum is direct because $\ker g \cap \Img \varphi = 0.$ The others isomorphisms follow immediately.
+    \end{proof}
+
+
+    \begin{definition}
+        A \textbf{free module} is an $A$-module that admits a basis. 
+    \end{definition}
+
+    \begin{proposition}
+        Let $M$ be a free module with basis $\set{x_i}_{i \in I}$ and let $\I a$ be a two-sided ideal of $A$. Then 
+        \begin{enumerate} 
+        \item $\I a M$ is also a submodule of $M$ that is also $\I a$-module.
+        \item Each $\I a x_i$ a submodule of $Ax_i$.
+        \item We have the module isomorphism 
+        $$M/\I a  M \iso  \bigoplus_{i \in I} Ax_i/\I a x_i.$$
+        \item $Ax_i/\I ax_i$ is isomorphic to $A/\I a$ as $A$-module
+        \item Suppose $A$ is commutative. Then $A/\I a$ is a ring. Furthermore $M/\I aM$ is a free over $A/\I a$ and $Ax_i/\I ax_i$ is a free over $A/\I a$. If $\overline{x_i}$ is the image of $x_i$ under the canonical homomorphism $Ax_i \to Ax_i/\I a x_i$, then $\overline{x_i}$ is the basis of $Ax_i/\I ax_i$.
+    \end{enumerate}
+    \end{proposition}
+    \begin{proof}
+        We go through the statements one by one:
+        \begin{enumerate}
+            \item Let $x \in M$. Then $x = \sum_{i \in I} a_ix_i$ uniquely for $\set{a_i}_{i\in I} \subseteqq A$. By definition, $\I a M = \set{\sum yx : y \in \I a, x  \in M}$. But $yx = \sum_i ya_ix_i = \sum_i y_ix_i \in M$ where $y_i \in \I a$ because $\I a$ is two-sided ideal.
+            
+            \item Clearly, $\I a x_i \subseteqq Ax_i$. Let $a', b' \in \I a$ and $a, b, c \in A$.  $Ax_i$ is a $A$-module because $(a + b)cx_i = (ac + bc)x_i = acx_i + bcx_i$ and $c(a'x_i + b'x_i) = c(a + b)x_i = (ca + cb)x_i = cax_i + cbx_i.$ The statement follows from $A\I a x_i \subseteqq \I a x_i$
+            
+            \item By definition, $M = \bigoplus_{i \in I} Ax_i$. Consider the isomprohism 
+            $$\sum_{i \in I} a_ix_i \mapsto (a_ix_i)_{i \in I}$$
+            which induces the isomorphism
+            $$\sum_{i \in I} a_ix_i + \I a M \mapsto  (a_ix_i + \I aM)_{i \in I}.$$
+            Since $\I aM$ is a $\I a$-module and  $a_ix_i+ \I  aM = a_ix_i + \I a x_i$, and $Ax_i/\I a x_i$ is an $A/\I a$-module, the statement is true.
+
+            \item Consider the isomoprhism $1_A \mapsto  x_i.$
+            \item $A/\I a$ is a ring of cosets of $\I a$.  $M/\I  aM$ is free as the basis $\set{x_i}_{i \in I}$,  serves as a basis for $M/\I aM$ over $A/\I a$.                
+        \end{enumerate}
+    \end{proof}
+
+     We say an exact sequence of abelian groups
+    $$0 \to A \to B \to C \to 0$$
+    splits if $B \iso A \oplus C.$
+
+    \noindent \textit{For Example: } The sequence
+    $$0 \to \C{2} \fto{x \mapsto x} \C{2} \times \C{2} \fto{-1} \C{2} \to 0 $$
+    splits but
+    $$0  \to \C{2} \fto{x \mapsto 2x} \C{4} \fto{\mod 2} \C{2} \to 0$$
+    does not split.
+
+    \begin{proposition}
+        Every surjective module-homomorphism from a $A$-module, $M$ to a \textbf{free} a $A$-module $F$ splits.  
+    \end{proposition}
+    \begin{proof}
+        Let $\phi: M \to F$ be a surjective homomorphism. By the first isomorphism theorem, $F \iso M/\ker \phi$. Let $\set{x_i + \ker \phi}_{i \in I}$ form the basis of $M/\ker \phi$. Define $\psi: M/\ker \phi \to M$ as
+        $$\psi\bigg(\sum_{i \in I} a_i x_i + \ker \phi \bigg)= \sum_{i \in I} a_ix_i.$$ 
+        Clearly $\phi \circ \psi = \id$
+    \end{proof}
+    % \noindent \textit{There is a unique homomorphism from the basis of a module $M$ to any subset of another module $N$.}
+    % ker + F
+    % A/ker f is free  x ... x + ker f, A = u + x ... x  ker + A
+    % a = ker f + \sum xi
+    % Z/4 , Z/4/Z/2 Z/2
+    % 
+% \noindent The reason why $f$ is into the center of $R$ in particular is closly tied to the identity $a \cdot x = (a \cdot 1_R)x$.
+
+% A/a xi iso Axi / axi....   Axi -> (A/a)xi  f(aixi) = (ai mod a) xi   
+    % ra in I
+    % M = A
+    % N = {r in A such that gr = 0 for all g in S} if I = <S>
+    % N = <S> rm
+    % r.m = sum gi.ai 
+    % N  = {r in A such that }
+    
+    

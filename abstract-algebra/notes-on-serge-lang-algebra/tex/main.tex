@@ -4,9 +4,19 @@
 \usepackage{amssymb}
 \usepackage{amsthm}
 \usepackage{hyperref}
-\usepackage{times}
-\usepackage{tikz-cd}
+\usepackage{bookmark}
+% \usepackage{fbb}
+% \usepackage{newpx}
+% \usepackage{libertine}
+% \usepackage{crimson}
+% \usepackage{bm}
+\usepackage{cochineal}
 
+% \usepackage{eulervm} % math
+\usepackage{mathpazo} % math
+
+\usepackage{tikz-cd}
+\usepackage{enumerate}
 
 \newtheorem{theorem}{Theorem}
 \newtheorem{lemma}[theorem]{Lemma}
@@ -64,7 +74,13 @@
 \newcommand{\Cat}{\mathcal{C}}
 \newcommand{\Mor}{\text{Mor}}
 \newcommand{\Ob}{\text{Ob}}
+\newcommand{\End}{\text{End}}
+\newcommand{\horline}{\noindent\rule{\textwidth}{1pt}}
+\newcommand{\Img}{\mathrm{Im}\ }
+\newcommand{\Hom}{\mathrm{Hom}}
+\newcommand{\fto}[1]{\overset{#1}{\to}}
+\newcommand{\from}{\leftarrow}
 \include{groups}
 \include{rings}
-
+\include{modules}
 \end{document}
