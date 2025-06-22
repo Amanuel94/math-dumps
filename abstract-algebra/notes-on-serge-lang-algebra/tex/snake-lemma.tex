@@ -1,0 +1,160 @@
+\documentclass{article}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{hyperref}
+\usepackage{bookmark}
+% \usepackage{fbb}
+% \usepackage{newpx}
+% \usepackage{libertine}
+% \usepackage{crimson}
+% \usepackage{bm}
+\usepackage{cochineal}
+
+% \usepackage{eulervm} % math
+\usepackage{mathpazo} % math
+
+\usepackage{tikz-cd}
+\usepackage{enumerate}
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{proposition}[theorem]{Proposition}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    urlcolor=cyan,
+    citecolor=red
+}
+
+\begin{document}
+
+\title{The Snake Lemma}
+% \author{Amanuel Tewodros}
+\maketitle
+
+
+% commands
+
+\newcommand{\size}[1]{|#1|}
+\newcommand{\idx}[2]{[#1 : #2]}
+\newcommand{\gen}[1]{\langle #1 \rangle}
+\newcommand{\set}[1]{\{#1\}}
+\newcommand{\normal}{\trianglelefteq}
+\newcommand{\subgroup}{\leq}
+\newcommand{\normalizer}[1]{\text{N}_{#1}}
+\newcommand{\centerizer}{Z}
+\newcommand{\aut}{\text{Aut}}
+\newcommand{\inn}{\text{Inn}}
+\newcommand{\syl}{\text{Syl}}
+\newcommand{\sym}{\text{Sym}}
+\newcommand{\alt}{\text{Alt}}
+\newcommand{\id}{\text{id}}
+\newcommand{\im}{\text{im}}
+\newcommand{\orbit}[1]{\mathcal{O}_{#1}}
+\newcommand{\ZZ}{\mathbb{Z}}
+\newcommand{\C}[1]{\mathbb{Z}/#1\mathbb{Z}}
+\newcommand{\iso}{\cong}
+\newcommand{\dihedral}[1]{D_{#1}}
+\newcommand{\dicyc}{\text{DiC}}
+\newcommand{\hol}{\text{Hol}}
+\newcommand{\I}[1]{\mathfrak{#1}} 
+\newcommand{\Map}{\mathrm{Map}}
+\newcommand{\nequiv}{\not \equiv}
+\newcommand{\cat}[1]{\mathcal{#1}}
+\newcommand{\Cat}{\mathcal{C}}
+\newcommand{\Mor}{\text{Mor}}
+\newcommand{\Ob}{\text{Ob}}
+\newcommand{\End}{\text{End}}
+\newcommand{\horline}{\noindent\rule{\textwidth}{1pt} \newline}
+\newcommand{\Img}{\mathrm{Im}\ }
+\newcommand{\Hom}{\mathrm{Hom}}
+\newcommand{\fto}[1]{\overset{#1}{\to}}
+\newcommand{\from}{\leftarrow}
+\newcommand{\m}[1]{\mathfrak{#1}}
+\newcommand{\dual}[1]{#1^{\vee}}
+\newcommand{\ddual}[1]{#1^{\vee \vee}}
+\newcommand{\rank}{\mathrm{rank}}
+\newcommand{\tor}[1]{#1_{\mathrm{tor}}}
+\newcommand{\cok}{\mathrm{Coker \ }}
+
+
+\begin{lemma}
+    Let $A, B, C, A', B', C'$ be $R$-modules that satisfy the following commutative and exact diagram.
+    \begin{center}
+    \begin{tikzcd}[cramped]
+	& {\ker a} & {\ker b} & {\ker c} \\
+	& A & B & C & 0 \\
+	0 & {A'} & {B'} & {C'} \\
+	& {\mathrm{Coker}\ a} & {\mathrm{Coker}\ b} & {\mathrm{Coker}\ c}
+	\arrow[from=1-2, to=1-3]
+	\arrow[from=1-2, to=2-2]
+	\arrow[from=1-3, to=1-4]
+	\arrow[from=1-3, to=2-3]
+	\arrow[from=1-4, to=2-4]
+	\arrow[from=2-2, to=2-3]
+	\arrow["a"', from=2-2, to=3-2]
+	\arrow[from=2-3, to=2-4]
+	\arrow["b"', from=2-3, to=3-3]
+	\arrow[from=2-4, to=2-5]
+	\arrow["c"', from=2-4, to=3-4]
+	\arrow[from=3-1, to=3-2]
+	\arrow[from=3-2, to=3-3]
+	\arrow[from=3-2, to=4-2]
+	\arrow[from=3-3, to=3-4]
+	\arrow[from=3-3, to=4-3]
+	\arrow[from=3-4, to=4-4]
+	\arrow[from=4-2, to=4-3]
+	\arrow[from=4-3, to=4-4]
+
+\end{tikzcd}
+\end{center}
+where the the maps associated with the kernels and the cokernels are the natural homomorphisms. Then there is exists a homomorphism $\theta: \ker c \to \cok a$ and 
+the sequence 
+$$\ker a \fto{f^*} \ker b \fto{g^*} \ker c \fto{\theta} \cok a \fto{\hat{f}} \cok b \fto{\hat{g}} \cok c$$
+is exact.
+
+\end{lemma}
+
+\begin{proof}
+    First, we name the homomorphisms for convenience of the proof. Let $f, g, f', g'$ be the homomorphisms $A \to B$, $B \to C$, $A' \to B'$ and $B' \to C'$ resp.
+
+    We next show the existence and well-definition of $\theta$. In fact, $\theta$ can be defined as $f'^{-1} \circ d \circ g^{-1}$. To show that $\theta$ is well-defined, it suffices to show that for any $z \in \ker c$, we can determine the output of $\theta$, $x \in \cok a$ regardless of the inverse images. Suppose $z \in \ker c$ and let $y \in B$ such that $g(y) = z$ (by surjectivness of $g$). Regardless of this choice, we know that $g'(b(y)) = c(g(z)) = 0$ (by communtitivity) and thus $b(y) \in \ker g' = \Img f'$ by exactness. But $f'$ is injective, therefore  there is a unique inverse of $b(z)$, $x' \in A'$
+
+    For two representatives $y_1, y_2 \in B$ such that $g(y_1), g(y_2) \in \ker c$, we note that $g(y_1  - y_2) = 0$ thus $y_1 - y_2 \in \ker g.$ By exactness, $y_1 - y_2 \in \Img f$. Threfore, $b(y_1 - y_2) = b(y_1) - b(y_2) = f'(a(x))$ for some $x$. If $f'(x'_i) = b(y_i)$,  then we have $f'(x'_1) = f'(x'_2 + a(x))$, proving $x'_1 \equiv x'_2 \mod \Img a$ by injectivity of $f'$. This proves the well-definedness of $\theta$. Clearly, $\theta$ is a homomorphisms.
+
+    It remains to show the given sequence is exact. We prove it from letf to right.
+
+     $\Img f^* \subseteqq \ker g^*$: Let $a(x) = 0$. By exactness of the top sequence $g(f(x)) = 0$, hence $\Img f|_{\ker a} = \Img f^* \subseteqq \ker g^*.$
+
+     $\ker g^* \subseteqq \Img f^*$: $g(y) = 0 \implies y = f(x)$ by exactness. By definition of $f^*$, the $x$ shall be in $\ker a$. 
+
+     $\Img g^* \subseteqq \ker \theta$: Let $z = g(y)$, for $y \in \ker b$ and let $x' + \Img a = \theta(z).$ By definition, $y$ is a represenative of $z$ and by communtitivity of the diagram and exactness of the top sequence, there exsists $x \in \ker a$ such that $b(y) =  f'(a(x))$, this implies $x' = a(x) + \Img a$ and thus $x' = 0 \mod \Img a$. 
+
+     $\ker \theta \subseteqq \Img g^*$: Let $x' = a(x)$ and let $g(y) = z$ (by surjectivity of $g$). Then $b(y) = f'(a(x)) = b(f(x)) \implies b(y - f(x)) = 0$. But $g(y - f(x)) = g(y) =  z$ by exactness of the top sequence. Hence $y - f(x)\in \ker g^* = \ker g|_{\ker b}.$
+    
+     Next we consider the induced homomorphisms
+     $$\hat{f}(x + \Img a) = f'(x) + \Img b$$
+     $$\hat{g}(y + \Img b) = g'(y) + \Img c$$
+     $\Img \theta \subseteqq \ker \hat{f}$: $x' + \Img a = \theta(z)$. By exactness, $g(y) = z$ and $f(x) = y$ for some $x, y$. By commutitivity, $b(y) = b(f(x)) = f'(a(x))$. By exactness, $x' = a(x)$  and thus $z \in \ker \theta.$ 
+    
+     $\ker \hat{f} \subseteqq \Img \theta$: Let $\hat{f}(x' + \Img a) = y' + \Img b = 0$ $y' \in \Img b$. Then, $f'(x') = y'$ By definition, $y' = b(y)$. $c(g(y)) = g(b(y)) = g(f(x')) =0$ and $g(y) \in \ker c$.
+
+     $\ker \hat{g} \subseteqq \Img \hat{f}$: Let $\hat{g}(y' + \Img b) = 0 + \Img c$. Then $g'(y') = c(z)$ for some $z \in C$. Since $g$ is on-to, there  is a $y$ such that $g(y) = z \implies g'(y') = c(g(y))$. By commutitivity, $g'(y') = g'(b(y)).$ But then $y' - b(y) \in \ker g' = \Img f'$ (by exactness). Thus $y' \in \Img \hat{f}$. 
+
+     $\Img \hat{f} \subseteqq \ker \hat{g}$: Let $y' = f'(x') + b(y)$ for some $y$. Since $g' \circ f' = 0$ by exactness, $g'(y') = g'(b(y)) = c(g(y))$ (by commutitivity) $\in \Img c$. 
+    % f'(ax) = b(fx)
+    % f(x + ax) = f(x) + bf(x) 
+\end{proof}
+
+
+
+\end{document}

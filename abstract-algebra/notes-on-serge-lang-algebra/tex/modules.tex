@@ -205,6 +205,172 @@ These conditions are equivalent to showing there is a ring homomorphism from the
         $$\psi\bigg(\sum_{i \in I} a_i x_i + \ker \phi \bigg)= \sum_{i \in I} a_ix_i.$$ 
         Clearly $\phi \circ \psi = \id$
     \end{proof}
+
+    $F$ need not be a free module for $A \to F$ to split. Modules that admit splitting like the above are called \textbf{projective}. Here are four equivalent conditions that are satisfied by a projective module $P$:
+
+    \begin{enumerate}
+        \item Given a homomorphism $f: P \to M$ and a subjective homomorphism $g: M' \to M$, there exists a homomorphism $h: P \to M'$ that makes the following diagram commute:\\
+        % https://q.uiver.app/#q=WzAsNCxbMSwwLCJQIl0sWzAsMSwiTSciXSxbMSwxLCJNIl0sWzIsMSwiMCJdLFswLDIsImYiXSxbMCwxLCJoIiwyXSxbMSwyLCJnIiwyXSxbMiwzXV0=
+       \begin{center}
+         \begin{tikzcd}[cramped]
+            & P \\
+            {M'} & M & 0
+            \arrow["h"', from=1-2, to=2-1]
+            \arrow["f", from=1-2, to=2-2]
+            \arrow["g"', from=2-1, to=2-2]
+            \arrow[from=2-2, to=2-3]
+        \end{tikzcd}
+       \end{center}
+        \item The exact sequence $0 \to M' \to M \to P \to 0 $ splits
+        \item There exists a module $M$ such that $P \oplus M$ is free.
+        \item The functor $M \mapsto \Hom_A(P, M)$ is exact.
+    \end{enumerate}
+
+    \begin{proof}
+        We only leave the proof of $(4) \implies (1)$ as the rest is found in the book. Consider (4) is true, i.e, if $0 \to M'' \to M' \fto{g} M \to 0$ is exact, $0 \to \Hom_A(P, M'') \to \Hom_A(P, M') \fto{\lambda} \Hom_A(P, M) \to 0$ is also exact. Since $\lambda$ is surjective,  for any $f \in \Hom_A(P, M)$, we can find $h \in \Hom_A(P, M')$ such that $\lambda(h) = g \circ h = f$.  
+    \end{proof}
+
+    \begin{proposition}
+        Let $V$ be a vector space. Let $\Gamma$ be the set of generators of $V$ and $S$ be a set of any linearly independent elements. Then, there is a basis $\m B$ such that $S \subseteqq \m B \subseteqq \Gamma$.  
+    \end{proposition}
+
+    \begin{proof}
+        Let $\m I$ be the sets $T \supseteqq S$ that are linearly independent. Assuming $V \neq \set{0}$, $\m I$ is non-empty. Clearly $\m I$ is a poset by ascending inclusion. Since if $T_i \subseteqq T_{i+1} \in \m I$ then $T_i \cup T_{i+1}$ is linearly independent making $\m I$ an inductively orderd set. By zorns lemma, there is a maximal element of $\m I$. Let's call that $\m B$ and let $\gen{B} = W$. If $W \neq V$, then there is $x \in V$ such that $x \neq \sum_{y \in \m B} a_y y$ making $\m B \cup x$ linearly independent and contradictng maximality of $\m B.$ Thus $V = W.$    
+    \end{proof}
+
+
+    \begin{proposition}
+        Let $V, U$ be  vector spaces over field $K$ and let $V \fto{f} U $ be homomorphism. Then we have
+        $$\dim_K V = \dim_K \ker f + \dim_K \Img f.$$ 
+    \end{proposition}
+
+    \begin{proof}
+        Let $\set{w_i}_{i \in I}$ and $\set{u_i}_{i \in I}$ be the basis of $\ker f$ and $\Img f$ resp. Let $\set{v_i}_{i \in I}$ be a family of elements such that $f(v_i) = u_i.$  Let $x \in V$. Then we have,
+        $$f(x) = \sum_{i \in I} a_i u_i,$$
+        where $\set{a_i}_{i \in I}$ is a family in $K$ such that all except finit of them are $0$. This implies, 
+        $$y = x - \sum_{i \in I} a_iv_i \in \ker f.$$
+        However, $\ker f$ is a vector field and $y = \sum_i b_iw_i.$ This implies 
+        $$x = \sum_{i \in I} a_i v_i + \sum_{j \in I} b_j w_j.$$
+        Proving $\set{v_i, w_i}_{i \in I }$ generates $V$. It remains to show that this generator is linearly indepenendent.
+
+        Let $0 = \sum_{i \in I} a_i v_i + \sum_{j \in I} b_j w_j.$ Then $f(\sum_{i \in I} a_i v_i + \sum_{j \in I} b_j w_j) = 0 + \sum_{i \in I} a_i f(v_i) + 0 = \sum_{i \in I} a_i u_i = 0 \implies a_i = 0 \implies b_j = 0.$
+    \end{proof}
+
+    \horline  
+
+    \noindent An important insight from the companion:
+    \textit{A free left $R$-module with rank $n$ is isomorphic to a standard\footnote{By standard, we mean where the action of $R$ is trivial as in linear algebra} module $R^n.$} This helps us derive the following facts about modules over non-field ring:
+
+    \begin{itemize}
+        \item \textit{If $R \fto{f} S$ is a homomorphism and $m, n$ are positive integers such that $R^m \iso R^n$, then $S^m \iso S^n$.}\\
+        If $\mathcal{M}$ is a (isomorphic) transformation from $R^m \to R^n$, then is $f(\mathcal{M})$ is too from $S^m \to S^n$.
+
+        \item \textit{If there is a homomorphism onto a  field (division ring), then all left $R$-modules have a fixed number of elements in their basis.}
+    
+        
+        This follows by taking $f = R \mapsto R/I$ where $I$ is a maximal ideal.
+        
+        
+    \end{itemize}
+
+    \textbf{Warning:} Modules over non-commutative  rings do not  necessarily have unique ranks. 
+
+    \subsection*{Dual Space and Dual Module}
+    Let $E$ be a free module over a commutitive ring $A$. We denote the \textbf{dual module}, $\Hom_A(E, A)$, of $E$ by $\dual{E}$ and we call the elements of $\dual{E}$ as \textbf{functionals.}
+
+    If $x \in E$, then $x$ induces a map $\gen{x, -}$ from $\dual{E}$ to itself defined by $\gen{x, f} = f(x).$ 
+
+    \horline
+    The map $\theta: E \to \ddual{E}$ is not surjective for the following reason. In infinite-dimensional modules over a field $A$, $\ddual{E}$ is also infinite dimensional. However, $x$ can be expressed as a linear combination of the basis of $E$ and so is $\theta(x).$\\
+    \horline
+
+    \begin{proposition}
+        If $E$ is free, so is $\dual{E}.$ Moreover, $\rank E = \rank \dual{E}$
+    \end{proposition}
+
+    \begin{theorem}
+        Let $E$ be finite dimensional. The map $x \fto{\phi} (f \mapsto \gen{x, f})$ is an isomorphism from $E$ to $\ddual{E}.$
+    \end{theorem}
+
+    \begin{theorem}
+
+        Let $U, V, W$ be finite-dimensional free modules over commutative ring $A$. If the sequence
+        $$0 \to W \to V \to U \to 0$$
+        is exact, then so is
+        $$ 0 \to \dual{U} \to \dual{V} \to \dual{W}.$$
+    \end{theorem}
+
+    \horline
+    \noindent \textit{Why it is called a sequence splits?}
+    A short sequence
+    $$0 \to C \to C \oplus B \fto{g} B \to  A$$
+    is \textbf{splits} into
+
+    $$0 \to C \to C \to 0 \to 0$$
+    $$0 \to 0 \to B \to B \to 0$$
+
+    We require a right inverse map $g'$,i.e., that satisfies $\id = g \circ g': B \to C \oplus B$, to say so, the action of this map on $C$ would be $0$ and the action on $B$ would be $g^{-1}$ \\
+    \horline
+
+    \subsection*{Modules over Principal Ideal Domains}
+    \begin{theorem}
+        Let $R$ be a principal ideal domain and let $F$ be a free $R$-module. If $M$ is a submodule of $F$, then $M$ is free with rank less than or equal to $\rank F$. 
+    \end{theorem}
+    \begin{proof}[sketch]
+        Let $M_i$ be the submodule of $M$ generated by the basis subset $\{x_1, \dots ,x_i\}$. Let $\I a_{i+1}$ denote the set of coffecients of $x_{i+1}$ in $M - M_i.$ If $\I a_{i + 1} = 0$, we are done. If not, observe that $RM_i \subseteqq M_i$ and $\I a_{i+1} = \gen{a_{i+1}}$ for some $a_{i+1} \in  R.$ Let $w := \sum_{j \leqq i} b_jx_j + a_{i+1}x_{i+1}$. Then $M_{i+1} = M_i + Rw.$
+    \end{proof}
+    \begin{remark}
+        The PID nature of $R$ permits the constructions of  \textit{generators} $w_i$ of $M$ corresponsing   to the generators $x_i$
+    \end{remark}
+
+    \noindent \textbf{NB:} Finitely generated modules are factor modules of a free module.
+
+    \begin{definition}
+        An $R$-module $M$ is called a \textbf{torsion} module if for some $x \in M$, there is an element $a \in R$ such that $ax = 0$. We denote the module that contain all torsion elements by $\tor M.$
+    \end{definition}
+
+    \begin{theorem}
+        Let $E$ be finitely generated. The factor module $E/\tor E$ is free and there is a free submodule $F$ of $E$ such that 
+        $$E = \tor E \oplus F.$$
+    \end{theorem}   
+
+    Modules ove PID exhibit similar characterstics as abelian groups. For example, the cyclic $p$-groups are analogous to a moule generated by an element $x$ modulo a prime ideal, i.e $Rx/(p)x$. We call a module of type $(r_1, \dots, r_k)$ if is a product of modules isomorphic to $R/(p^{r_i}).$ The following two theorems support the similarity even more by stating the equivalent statements to the fundamental theorem of abelian groups.
+    
+    \begin{theorem}
+        Let $R$ be a princial ideal domain and let $E$ be a finitely generated torsion 
+        module over $R$. Let $E(p)$ denote all elements of $E$ with exponent\footnote{An exponent of a module $M$ (an element of a module $x$ resp.) is an element $m$ of $R$ such that $mE$ (resp. $mx$) is 0.} that is a power of a prime element $p \in R$. Then $E$ has the decomposition
+
+        $$E = \bigoplus_p E(p), $$
+        where the direct sum is over $p$ such that $E(p) \neq 0.$ Moreover, for each $p$, we have
+        
+        $$E(p) = R/(p^{v_1}) \oplus \cdots \oplus R/(p^{v_r})$$
+        with $1 \leqq v_1  \leqq \cdots \leqq v_r$ that are determined uniquely.
+    \end{theorem}
+    \noindent $E_m := $ the kernel of the map $x \mapsto mx$ in $E$.
+    \begin{proof}
+        Let $a$ be an exponent of $E$. Consider the map $x \mapsto ax.$ Let $a = bc$ with $(b,c) = (1)$. Let $xb + yc = 1$. Then $v = vxb + vyc$ where $vxb \in E_c$ and $vyc \in E_b$. Moreover, $E_b \cap E_c = 0.$ Thus $E_a = E_b \oplus E_c.$ By induction, the stated decomposition of $E$ follows. 
+
+        Next, we show that $E(p)$ is a direct sum as stated. 
+        \\\horline The intuition for such decomposition of $E(p)$ comes from boxing all elements of $E(p)$ with the same period\footnote{A period $T$ of an element $x$ is an element of $R$ such that the kernel of the mao $a \mapsto ax $ equals $\gen{T}$} into a direct summand.\\
+        \horline
+        We will use induction. Consider the canonical map from $E(p) \to E(p)/(x)$ where $x$ is an element of $E(p)$ with maximal period, $p^r$. Suppose $\set{\overline{y_1}, \dots, \overline{y_m}}$ are independent\footnote{We call a family of elements $\set{y_i}$ of a module $M$ independent if $\sum_i a_iy_i = 0 \iff a_iy_i = 0\ \forall i$} elements of $E(p)/(x)$ with representatives $\set{y_1,  \dots, y_m}$ in $E(p)$. If $p^{n_i}$ is the period of $\overline{y_i}$, then $p^{n_i}y_i = p^scx$ for some $c \in R$, $p \nmid c.$ By assumption, $r \geqq s$, thus $p^{n_i - s  + r} = 0 \implies n_i - s + r \leqq r \implies n_i \leqq s.$ Therefore the element $y_i - p^{s - n}cx$ is well-defined and has period equal to that of $\overline{y_i}.$
+
+        Moreover the set $\set{x, y_1, \dots, y_m}$ is independent because if $bx + \sum_ia_iy_i  = 0$, then $\sum_i a_i\overline{y_i} = 0$ which can not happen unless $a_i\overline{y_i} = 0$ for all $i$. But by previous part of the proof, this implies all period $c_i \mid a_i \implies a_iy_i = 0$ and $bx = 0.$  
+        
+        Thus, $E(p)$ has $m+1$ independent elements $x, y_1 \dots, y_m$. It is clear that $(x, y_1, \dots, y_m) = (x)\oplus(y_1)\oplus\cdots\oplus(y_m)$ by independece. Note that if $w \in E$ has period $t$, then $(w) \iso R/\gen{t}.$ This proves the existence of such decomposition.
+
+        Uniquness of the decomposition follows as following. Let $(s_1, \dots, s_m)$ and $(r_1, \dots, r_n)$ be two types of $E(p)$ with $s_i \leqq s_{i+1}$ and $r_i \leqq r_{i+1}$. WLOG, let $s_i < r_i$ be the first different entries. Clearly, there is an element $x \in E(p)$ with period $p^{s_i}$. However, no such element exist in $R/(p^{r_{i}}) \oplus \cdots \oplus R/(p^{r_n}).$ Thus $s_i = r_i$.   
+    \end{proof}
+
+
+    \begin{remark}
+        The proof of theorem 7.8 on the book utilizes a trick to select a basis set with particular property. The trick relies (generally speaking) on the fact that functionals capture the properties of basis.
+
+        \noindent \textit{For example}: The dimenstion of a free module $M$ is equal to $\max_{\lambda \in \dual{M}} \dim \lambda(M).$
+    \end{remark}
+
+ 
+
     % \noindent \textit{There is a unique homomorphism from the basis of a module $M$ to any subset of another module $N$.}
     % ker + F
     % A/ker f is free  x ... x + ker f, A = u + x ... x  ker + A
