@@ -1,0 +1,152 @@
+\documentclass{article}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{hyperref}
+\usepackage{bookmark}
+% \usepackage{fbb}
+% \usepackage{newpx}
+% \usepackage{libertine}
+% \usepackage{crimson}
+% \usepackage{bm}
+\usepackage{cochineal}
+
+% \usepackage{eulervm} % math
+\usepackage{mathpazo} % math
+
+\usepackage{tikz-cd}
+\usepackage{enumerate}
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{proposition}[theorem]{Proposition}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    urlcolor=cyan,
+    citecolor=red
+}
+
+\begin{document}
+
+% \title{Notes on Serge Lang's Algebra}
+% \author{Amanuel Tewodros}
+
+
+% commands
+
+\newcommand{\size}[1]{|#1|}
+\newcommand{\idx}[2]{[#1 : #2]}
+\newcommand{\gen}[1]{\langle #1 \rangle}
+\newcommand{\set}[1]{\{#1\}}
+\newcommand{\normal}{\trianglelefteq}
+\newcommand{\subgroup}{\leq}
+\newcommand{\normalizer}[1]{\text{N}_{#1}}
+\newcommand{\centerizer}{Z}
+\newcommand{\aut}{\text{Aut}}
+\newcommand{\inn}{\text{Inn}}
+\newcommand{\syl}{\text{Syl}}
+\newcommand{\sym}{\text{Sym}}
+\newcommand{\alt}{\text{Alt}}
+\newcommand{\id}{\text{id}}
+\newcommand{\im}{\text{im}}
+\newcommand{\orbit}[1]{\mathcal{O}_{#1}}
+\newcommand{\ZZ}{\mathbb{Z}}
+\newcommand{\C}[1]{\mathbb{Z}/#1\mathbb{Z}}
+\newcommand{\iso}{\cong}
+\newcommand{\dihedral}[1]{D_{#1}}
+\newcommand{\dicyc}{\text{DiC}}
+\newcommand{\hol}{\text{Hol}}
+\newcommand{\I}[1]{\mathfrak{#1}} 
+\newcommand{\Map}{\mathrm{Map}}
+\newcommand{\nequiv}{\not \equiv}
+\newcommand{\cat}[1]{\mathcal{#1}}
+\newcommand{\Cat}{\mathcal{C}}
+\newcommand{\Mor}{\text{Mor}}
+\newcommand{\Ob}{\text{Ob}}
+\newcommand{\End}{\text{End}}
+\newcommand{\horline}{\noindent\rule{\textwidth}{1pt} \newline}
+\newcommand{\Img}{\mathrm{Im}\ }
+\newcommand{\Hom}{\mathrm{Hom}}
+\newcommand{\fto}[1]{\overset{#1}{\to}}
+\newcommand{\from}{\leftarrow}
+\newcommand{\m}[1]{\mathfrak{#1}}
+\newcommand{\dual}[1]{#1^{\vee}}
+\newcommand{\ddual}[1]{#1^{\vee \vee}}
+\newcommand{\rank}{\mathrm{rank}}
+\newcommand{\tor}[1]{#1_{\mathrm{tor}}}
+\newcommand{\dirlim}{\underrightarrow{\lim}}
+
+The next four exercises develop the concept of \textit{direct limits} and the ``dual'' notion of \textit{inverse limits}. In these exercises $I$ is a nonempty index set with a partial order $\le$ (cf. Appendix I). For each $i \in I$, let $A_i$ be an additive abelian group. In Exercise 8 assume also that $I$ is a \textit{directed set}: for every $i, j \in I$ there is some $k \in I$ with $i \le k$ and $j \le k$.
+
+\bigskip
+
+\noindent \textbf{8.} Suppose for every pair of indices $i, j$ with $i \le j$ there is a map $\rho_{ij} : A_i \to A_j$ such that the following hold:
+\begin{enumerate}
+    \item[(i)] $\rho_{ik} = \rho_{jk} \circ \rho_{ij}$ whenever $i \le j \le k$, and
+    \item[(ii)] $\rho_{ii} = 1$ for all $i \in I$.
+\end{enumerate}
+
+Let $B$ be the disjoint union of all the $A_i$. Define a relation $\sim$ on $B$ by
+\[
+a \sim b \quad \text{if and only if there exists } k \text{ with } i, j \le k \text{ and } \rho_{ik}(a) = \rho_{jk}(b),
+\]
+for $a \in A_i$ and $b \in A_j$.
+
+\begin{enumerate}
+    \item[(a)] Show that $\sim$ is an equivalence relation on $B$. (The set of equivalence classes is called the \textit{direct} or \textit{inductive limit} of the directed system $\{A_i\}$, and is denoted $\varinjlim A_i$. In the remaining parts of this exercise let $A = \varinjlim A_i$.)
+    
+    \item[(b)] Let $\bar{x}$ denote the class of $x$ in $A$ and define $\rho_i : A_i \to A$ by $\rho_i(a) = \bar{a}$. Show that if each $\rho_{ij}$ is injective, then so is $\rho_i$ for all $i$ (so we may then identify each $A_i$ as a subset of $A$).
+    
+    \item[(c)] Assume all $\rho_{ij}$ are group homomorphisms. For $a \in A_i$, $b \in A_j$ show that the operation
+    \[
+    \bar{a} + \bar{b} =\overline{\rho_{ik}(a) + \rho_{jk}(b)}
+    \]
+    where $k$ is any index with $i, j \le k$, is well defined and makes $A$ into an abelian group. Deduce that the maps $\rho_i$ in (b) are group homomorphisms from $A_i$ to $A$.
+    
+    \item[(d)] Show that if all $A_i$ are commutative rings with $1$ and all $\rho_{ij}$ are ring homomorphisms that send $1$ to $1$, then $A$ may likewise be given the structure of a commutative ring with $1$ such that all $\rho_i$ are ring homomorphisms.
+    
+    \item[(e)] Under the hypotheses in (c) prove that the direct limit has the following \textit{universal property}: if $C$ is any abelian group such that for each $i \in I$ there is a homomorphism $\varphi_i : A_i \to C$ with $\varphi_i = \varphi_j \circ \rho_{ij}$ whenever $i \le j$, then there is a unique homomorphism $\varphi : A \to C$ such that $\varphi \circ \rho_i = \varphi_i$ for all $i$.
+\end{enumerate}
+
+\textit{ Sol. }
+\begin{enumerate}[(a)]
+    \item Let $x \in B$. Then there is $s$ such that $x \in A_s$. Choosing $i = j = k = s$, we  see that $\sim$ is \textit{relfexive}.  By symmetry  of $=$, the symmetry of $\sim$ follows directly. Let $a \sim b$ and $b \sim c$. Let $\rho_{ik}(a) = \rho_{jk}(b)$ and let $\rho_{jt}(b) = \rho_{st}(c)$. WLOG, let $k \leq t$. Then $\rho_{it}(a) = \rho_{kt}\circ\rho_{ik}(a) = \rho_{kt}\circ \rho_{jk}(b) = \rho_{jt}(b) = \rho_{st}(c).$ Thus $\sim$ is transitive.
+    
+    \item Let $a, b \in A_i$ with $a \neq b.$ By injectivity, $\rho_{ik}(b) \neq \rho_{ik}(b)$ for all $k \geq i, j$. Thus, $a \nsim b$.
+    
+    \item For the addition to be well-defined, it should have the same value regardless of the choice of $a$ and $b$ as long as  they are picked for their respective equivalence classes. Let $x \sim a$ and $y \sim b.$ Let $\rho_{it}(a) = \rho_{st}(x)$ and $\rho_{je}(b) = \rho_{de}(y).$ WLOG, let $t \geq e.$ If $k \geq t$, we are done. Otherwise,  $\rho_{kt}(\rho_{ik}(a) + \rho_{jk}(b)) = \rho_{it}(a) + \rho_{jt}(b) = \rho_{st}(x) + \rho_{dt}(y) = \rho_{et}(\rho_{se}(x) + \rho_{de}(y)).$ Thus $+$ is well-defined.
+    
+    $A$ is then an abelian group because if $\bar{a}, \bar{b} \in A$, then $\bar{a} -  \bar{b} \in A$ and $\bar{0} \supseteq \set{0_{A_i}}_{i \in I} \in A.$ It follows that $\rho_i$ are group homomorphisms because  $\rho_i(a + b) = \overline{a + b} = \bar{a} + \bar{b}$ (taking $k = i$) $ = \rho_i(a) + \rho_i(b).$
+
+    \item $A$ is still an additive abelian group but now commutitive multiplicative structure is built upon it. The multiplication given by 
+        $$\bar{a} \cdot \bar{b} = \overline{\rho_{ik}(a) \cdot \rho_{jk}(b)}$$
+    for all $k \geq i, j$ is well defined and the proof is similar to the one given in (c) as $\rho_{ij}$ are ring homomorphisms.  Furthermore, $\bar{a}\cdot(\bar{b} + \bar{c}) = \overline{\rho_{ik}(a) \cdot (\rho_{mk}(b) + \rho_{nk}(c)})$ for $k \geq i, m,n$. The distributive property of $(\cdot)$ in $A$ follows from the distributive property $(\cdot)$ in $A_i$ once we note that $a \sim \rho_{ik}(a)$ for all $k \geq  i$.
+
+    \item We define $\varphi: A \to C$ as follows,
+    
+        $$\varphi(\bar{x}) = \varphi_i(x),\quad x \in A_i.$$
+    
+    We first show that this definition is independent of the choice of the representative $x$. Let $x \sim y$, i.e., $\rho_{ik}(x) = \rho_{jk}(y)$. 
+
+    \begin{eqnarray*}
+        \varphi(\bar{x}) & = & \varphi_i(x)\\
+        & = & \varphi_k(\rho_{ik}(x)) \\
+        & = & \varphi_k(\rho_{jk}(y))\\
+        & = & \varphi_j(y).
+    \end{eqnarray*}
+
+    Thus, $\varphi$ is well defined. Since $A$ is a disjoint union of $A_i$ modulo $\sim$, $\varphi$ is defined everywhere in $A$ and uniquness follows from definition.
+\end{enumerate}
+
+
+
+\end{document}
