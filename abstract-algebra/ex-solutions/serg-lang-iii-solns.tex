@@ -1,0 +1,136 @@
+\documentclass{article}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{hyperref}
+\usepackage{bookmark}
+% \usepackage{fbb}
+% \usepackage{newpx}
+% \usepackage{libertine}
+% \usepackage{crimson}
+% \usepackage{bm}
+\usepackage{cochineal}
+
+% \usepackage{eulervm} % math
+\usepackage{mathpazo} % math
+
+\usepackage{tikz-cd}
+\usepackage{enumerate}
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{proposition}[theorem]{Proposition}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    urlcolor=cyan,
+    citecolor=red
+}
+
+\begin{document}
+
+\title{Lang's Algebra Chapter 3 Solutions}
+\author{Amanuel Tewodros}
+\maketitle
+
+% \tableofcontents
+
+% commands
+
+\newcommand{\size}[1]{|#1|}
+\newcommand{\idx}[2]{[#1 : #2]}
+\newcommand{\gen}[1]{\langle #1 \rangle}
+\newcommand{\set}[1]{\{#1\}}
+\newcommand{\normal}{\trianglelefteq}
+\newcommand{\subgroup}{\leq}
+\newcommand{\normalizer}[1]{\text{N}_{#1}}
+\newcommand{\centerizer}{Z}
+\newcommand{\aut}{\text{Aut}}
+\newcommand{\inn}{\text{Inn}}
+\newcommand{\syl}{\text{Syl}}
+\newcommand{\sym}{\text{Sym}}
+\newcommand{\alt}{\text{Alt}}
+\newcommand{\id}{\text{id}}
+\newcommand{\im}{\text{im}}
+\newcommand{\orbit}[1]{\mathcal{O}_{#1}}
+\newcommand{\ZZ}{\mathbb{Z}}
+\newcommand{\C}[1]{\mathbb{Z}/#1\mathbb{Z}}
+\newcommand{\iso}{\cong}
+\newcommand{\dihedral}[1]{D_{#1}}
+\newcommand{\dicyc}{\text{DiC}}
+\newcommand{\hol}{\text{Hol}}
+\newcommand{\I}[1]{\mathfrak{#1}} 
+\newcommand{\Map}{\mathrm{Map}}
+\newcommand{\nequiv}{\not \equiv}
+\newcommand{\cat}[1]{\mathcal{#1}}
+\newcommand{\Cat}{\mathcal{C}}
+\newcommand{\Mor}{\text{Mor}}
+\newcommand{\Ob}{\text{Ob}}
+\newcommand{\End}{\text{End}}
+\newcommand{\horline}{\noindent\rule{\textwidth}{1pt} \newline}
+\newcommand{\Img}{\mathrm{Im}\ }
+\newcommand{\Hom}{\mathrm{Hom}}
+\newcommand{\fto}[1]{\overset{#1}{\to}}
+\newcommand{\from}{\leftarrow}
+\newcommand{\m}[1]{\mathfrak{#1}}
+\newcommand{\dual}[1]{#1^{\vee}}
+\newcommand{\ddual}[1]{#1^{\vee \vee}}
+\newcommand{\rank}{\mathrm{rank}}
+\newcommand{\tor}[1]{#1_{\mathrm{tor}}}
+\newcommand{\dirlim}{\underrightarrow{\lim}}
+% \newcommand{\rank}[1]{def}
+
+\begin{enumerate}[(1)]
+	\item By the second isomorphism theorem,  we have 
+    $$\dfrac{U}{U \cap W} \iso \dfrac{U + W}{W}.$$
+    For two vector spaces, $X \supseteqq Y$ over a field $K$, we have $\dim X/Y = \dim X - \dim Y$. Thus $\dim U - \dim U \cap W = \dim U + W  - \dim W.$
+
+    \item Let $M$ be a module over a commutative ring $R$. Let $I$ be a maximal ideal of $R$. We first show that for any proper ideal $\I a$ of $R$ and basis set $\set{x_1, x_2, \dots},$ of $M$,
+    \begin{lemma}
+        $$\frac{M}{\I aM} \iso \bigoplus_{i}\frac{A}{\I a}(x_i + \I ax_i).$$
+    \end{lemma}
+    \begin{proof}
+        $\I aM$ is submodule of $M$ because $\I a M \subseteqq M$ by $R$-closure property of $\I a.$ It immedietly follows that $\I aM = \bigoplus_i \I a x_i.$ By linear independence of $x_i$, $\big(\sum_i r_ix_i\big) \mod \I ax_j = (r_j \mod \I a)x_j + \sum_{i \neq j} r_ix_i.$ Therefore, $M/\I a M = \bigoplus_i Ax_i/\I ax_i.$ By the isomorphism $x_i \mapsto 1_A \mapsto (x_i + \I  ax_i)$,  $Ax_i/\I ax_i \iso A/\I a \iso A/\I a ( x_i + \I ax_i).$
+    \end{proof}
+
+    Taking $\I a$ as a maximal ideal of $R$ in the above lemma, we see that $M/\I aM$ is a direct product of vector spaces over the field $A/\I a$ and thus admit a basis of the same cardinality  as that of $M$. Because the dimension of a vector space is independent of the basis choice, $M$ also has a fixed dimension.
+
+    \item Let $\set{x_1, \dots, x_m}$ form the basis set of $R$ over $k$ and let $1_R = k_1x_1 + \dots k_mx_m$ for $k_i \in k.$ For any element $a \in R$, define the sequences $\set{y_1, \dots, y_m} \subseteqq k$, $\set{f_1, f_2, \dots, f_m} \subseteqq R$ as: 
+        $$f_1 = a, \quad y_1 = w_{1,1}^{-1}k_1 $$
+        $$f_{i+1} = f_iy_i - k_ix_i, \quad  y_{i} = k_iw_{i, i}^{-1},$$
+
+    ,where $f_i = \sum_j w_{i, j}x_j.$ By construction, $a^{-1} = \sum_i y_ix_i.$ Thus $R$ is a field.
+
+   
+    \item  \textbf{Direct Sums}
+    \begin{enumerate}[(a)]
+        \item  First, we show the equivalence of the two statements of the theorem. Suppose there is $\varphi$ such that $g \circ \varphi = \id.$ By the injectivness of the composition,  $\Img \varphi \cap \ker g  = \set{0}.$ But by exactness, $\ker g = \Img f$. We can unambiguously define $\psi(u)$ to be the inverse image of $f^{-1}(u')$ where $u' \equiv u \mod \Img \varphi$ and $u' = f(x)$ for some $x \in M'$ because if $f(x) = f(y) \mod \Img \varphi$, $f(x - y) \in \Img \varphi$ and by injectivity of $f$, $x = y$.Since $M/\Img f \iso M'' =  \Img \varphi, \psi$ is defined in all of $M$. Similarly, if the second statement is true, $\ker \psi \cap \Img f = \set{0}$ because $\psi\circ f$ is injective. By exactness, $\Img f = \ker g$. We can then define $\varphi(u) = u'$ where $u' = y \mod \ker \psi$ and $g(y) = u$ for some $y$. $\varphi$ is well-defined because if $g(y_1) = g(y_2)$ for $y_1 \neq y_2$, then $y_1 \neq y_2 \mod \ker \varphi$.\\
+        
+        Now suppose $x \in M$. $x - \varphi(u) \in \Img f$ for exactly one $u$ by the argument mentioned previously. Thus we can express $x = r + s$ where $r = \varphi(u) \in \Img \varphi$ and $s = x - \varphi(u) \in \Img f$. This implies $M = \Img f \oplus \Img \varphi$. By bijectivness of $g \circ \varphi$, $\Img \varphi \iso M''$. By contrast, if $M = \Img f \oplus N$ for some $N$, with isomorphism $t: N \to M''.$ We can define $g: M \to M''$ as $g(u) = u'$ such that there is $u = y \mod N$ and $t^{-1}(u') = y$. This definition is unambiguous because $N \cap \Img f = \set{0}$. Since $g \circ t^{-1} = \id$, the sequence splits.\\
+
+
+
+        Finally, we complete the details of proposition 3.2. We have just shown $M = \Img f \circ \Img \varphi.$ By exactness, $\Img f = \ker g$. Also, $\Img f \iso M'$ and $\Img \varphi \iso M''$ by injectivness of $f$ and $\varphi$ resp. This proves $M \iso M' \oplus M''.$ We can write $x \in M$ as $f(u) + x - f(u)$ where $x - f(u) \in \ker \psi$. $u$ is then uniquely determined by $x$ as $\ker \psi \cap \Img f = \set{0}$ by bijectivness of $\psi \circ f.$ This shows $M = \Img f \oplus \ker \psi.$
+
+        \renewcommand{\phi}{\varphi}
+        \item First, we note that $\phi_i$ is injective because othewise the composition $\psi_i \circ \phi_i$ wouldn't be injectice, a contradiction. This implies, for every valid $i$, there is a submodule $E'_i = \Img \phi_i$ of $E$ that is isomorphic to $E_i.$ Moreover, if $c \in \Img \phi_i \cap \Img \phi_j$ for $i\neq j$, then $\psi_i(c) = \psi_j(c) = 0$, forcing $c$ to be $0$. These statements prove
+        
+        $$\bigoplus_{i=1}^n E'_i \subseteqq E.$$
+        The inverse inclusion follows as follows. Let $x \in E$, then $x = \sum_{i=1}^n \phi_i(\psi_i(x))$, but $\phi_i(\psi_i(x)) \in E_i'$. Therefore $x \in \bigoplus_i E_i'.$
+
+        Let $x = x_1 +\cdots + x_m$ where $x_i \in E_i'$. The map definied by $x \mapsto (\psi x_i)_{1 \leq i \leq m}$ is therefore an isomorphism and the inverse map is given by $(\psi x_i)_i \mapsto \sum_i x_i.$
+    \end{enumerate}
+\item  Let $v_m' = a_1v_1 + \cdots + a_{m}v_{m}$. Since $a_m \neq 0$, $v_m'$, and by the assumption that $\set{v_i}$ is linearly independent over $\mathbb{R}$, the set $\set{v_1, \dots, v_{m-1}, v'_{m}}$ is linearly indepenedent over $\ZZ$. We also note that, $v_m' -  \sum_{i = 1}^{m-1} a_iv_i \in A$, thus we can safely assume $a_1 = \cdots = a_{m-1}= 0.$
+
+To show, the set spans $A$, we consider  $A/A_0.$  Suppose, there is $av_m \in A/A_0$ such that $av_m \neq  nv'_m$ for all $ n \in \ZZ$. Let $r, s$ be two integers such that $|ra_m + sa| < a_m$.  Since contradicts minimality of $a_m$, it must be the case that $a_m \mid a.$. Therfore $A/A_0 = \ZZ v'_m.$ 
+\end{enumerate}
+
+\end{document}

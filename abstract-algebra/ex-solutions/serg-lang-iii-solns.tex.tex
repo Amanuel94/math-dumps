@@ -1,19 +1,47 @@
-\documentclass{book}
+% Created 2025-07-07 Mon 17:21
+% Intended LaTeX compiler: pdflatex
+\documentclass[11pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{graphicx}
+\usepackage{longtable}
+\usepackage{wrapfig}
+\usepackage{rotating}
+\usepackage[normalem]{ulem}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{capt-of}
+\usepackage{hyperref}
+\author{dirichletian}
+\date{\today}
+\title{}
+\hypersetup{
+ pdfauthor={dirichletian},
+ pdftitle={},
+ pdfkeywords={},
+ pdfsubject={},
+ pdfcreator={Emacs 30.1 (Org mode 9.7.31)}, 
+ pdflang={English}}
+\begin{document}
+
+\tableofcontents
+
+\documentclass{artikel1}
 
 \usepackage{amsmath}
 \usepackage{amssymb}
 \usepackage{amsthm}
 \usepackage{hyperref}
 \usepackage{bookmark}
-% \usepackage{fbb}
-% \usepackage{newpx}
-% \usepackage{libertine}
-% \usepackage{crimson}
-% \usepackage{bm}
+\% \usepackage{fbb}
+\% \usepackage{newpx}
+\% \usepackage{libertine}
+\% \usepackage{crimson}
+\% \usepackage{bm}
 \usepackage{cochineal}
 
-% \usepackage{eulervm} % math
-\usepackage{mathpazo} % math
+\% \usepackage{eulervm} \% math
+\usepackage{mathpazo} \% math
 
 \usepackage{tikz-cd}
 \usepackage{enumerate}
@@ -28,20 +56,20 @@
 \theoremstyle{remark}
 \newtheorem{remark}[theorem]{Remark}
 
-\hypersetup{
+\hypersetup\{
     colorlinks=true,
     linkcolor=blue,
     urlcolor=cyan,
     citecolor=red
-}
+\}
 
 \begin{document}
 
-\title{Notes on Serge Lang's Algebra}
-\author{Amanuel Tewodros}
+\title{Serge Lang's Algebra Chapter III Solutions}
+% \author{Amanuel Tewodros}
 \maketitle
 
-\tableofcontents
+% \tableofcontents
 
 % commands
 
@@ -86,8 +114,17 @@
 \newcommand{\rank}{\mathrm{rank}}
 \newcommand{\tor}[1]{#1_{\mathrm{tor}}}
 \newcommand{\dirlim}{\underrightarrow{\lim}}
-% \newcommand{\rank}[1]{def}
-\include{groups}
-\include{rings}
-\include{modules}
+
+\begin{enumerate}[(1)]
+    \item By the second isomorphism theorem,  we have 
+    $$\dfrac{U}{U \cap W} \iso \dfrac{U + W}{W}.$$
+    For two vector spaces, $X \supseteqq Y$ over a field $K$, we have $\dim X/Y = \dim X - \dim Y$. Thus $\dim U - \dim U \cap W = \dim U + W  - \dim W.$
+
+    \item Let $M$ be a module over a commutative ring $R$. Let $I$ be a maximal ideal of $R$. We first assume $M$ is finite-dimensional.
+    
+    Suppose $\{v_1, \dots, v_m\}$ and $\set{w_1, \dots, w_n}$ be two distinct basis sets of $M$.
+
+\end{enumerate}
+
+\end{document}
 \end{document}

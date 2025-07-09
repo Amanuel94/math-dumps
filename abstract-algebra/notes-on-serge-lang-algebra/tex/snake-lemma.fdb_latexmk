@@ -1,7 +1,7 @@
 # Fdb version 3
-["pdflatex"] 1750605982 "/home/dirichletian/math/math-dumps/abstract-algebra/notes-on-serge-lang-algebra/tex/snake-lemma.tex" "snake-lemma.pdf" "snake-lemma" 1750605983
+["pdflatex"] 1750671922 "/home/dirichletian/math/math-dumps/abstract-algebra/notes-on-serge-lang-algebra/tex/snake-lemma.tex" "snake-lemma.pdf" "snake-lemma" 1750671924
   "/etc/texmf/web2c/texmf.cnf" 1688739976 475 c0e671620eb5563b2130f56340a5fde8 ""
-  "/home/dirichletian/math/math-dumps/abstract-algebra/notes-on-serge-lang-algebra/tex/snake-lemma.tex" 1750605981 6901 bc3929c9b139a06b4f5ae93470dc070f ""
+  "/home/dirichletian/math/math-dumps/abstract-algebra/notes-on-serge-lang-algebra/tex/snake-lemma.tex" 1750671921 6905 bf5eba07ddbe10b8304ac7d77727e5d0 ""
   "/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc" 1165713224 4850 80dc9bab7f31fb78a000ccfed0e27cab ""
   "/usr/share/texlive/texmf-dist/fonts/enc/dvips/cochineal/coch_cuw7wa.enc" 1643752856 3223 f66ceb1176684f291f714528dd4fa59f ""
   "/usr/share/texlive/texmf-dist/fonts/enc/dvips/cochineal/coch_otkq6i.enc" 1643752856 3221 cc9b5e78ae03083539da6a9fd7e128bb ""
@@ -193,8 +193,8 @@
   "/usr/share/texmf/web2c/texmf.cnf" 1644012257 39432 7155514e09a3d69036fac785183a21c2 ""
   "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1749379155 4073523 69d02b604f499b6c3e514fed509437ab ""
   "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1749376831 1435933 edcacb64c94cfcadbbfc3e650ea4a7f2 ""
-  "snake-lemma.aux" 1750605983 717 5a450f137a78ee56acd863d9a3fd8b26 "pdflatex"
-  "snake-lemma.tex" 1750605981 6901 bc3929c9b139a06b4f5ae93470dc070f ""
+  "snake-lemma.aux" 1750671924 717 5a450f137a78ee56acd863d9a3fd8b26 "pdflatex"
+  "snake-lemma.tex" 1750671921 6905 bf5eba07ddbe10b8304ac7d77727e5d0 ""
   (generated)
   "snake-lemma.aux"
   "snake-lemma.log"

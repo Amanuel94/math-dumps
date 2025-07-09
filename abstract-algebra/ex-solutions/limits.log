@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2025.6.8)  25 JUN 2025 14:32
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2025.6.8)  25 JUN 2025 23:25
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -593,20 +593,29 @@ LaTeX Font Info:    Font shape `T1/Cochineal-TLF/m/n' will be
 (Font)              scaled to size 6.0pt on input line 100.
  [1
 
-{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] [2] (./limits.aux) ) 
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] [2]
+LaTeX Font Info:    Trying to load font information for U+fplmbb on input line 179.
+ (/usr/share/texlive/texmf-dist/tex/latex/psnfss/ufplmbb.fd
+File: ufplmbb.fd 2003/10/30 Fontinst v1.914 font definitions for U/fplmbb.
+) [3]
+Overfull \hbox (9.76816pt too wide) in paragraph at lines 210--212
+\OT1/zplm/m/n/10 (\OT1/ppl/m/n/10 0, [] \OT1/zplm/m/n/10 ) \OMS/zplm/m/n/10 2 \OML/zplm/m/it/10 P$ \T1/Cochineal-TLF/m/n/10 and $\OT1/zplm/m/n/10 (\OT1/ppl/m/n/10 0, [] \OT1/zplm/m/n/10 ) + (\OML/zplm/m/it/10 a[]\OT1/zplm/m/n/10 )[] = (\OML/zplm/m/it/10 a[] \OT1/zplm/m/n/10 + \OT1/ppl/m/n/10 0\OT1/zplm/m/n/10 )$\T1/Cochineal-TLF/m/n/10 , $\OML/zplm/m/it/10 P$ \T1/Cochineal-TLF/m/n/10 con-tains the iden-tity. Let $\OT1/zplm/m/n/10 (\OML/zplm/m/it/10 a[]\OT1/zplm/m/n/10 )\OT1/ppl/m/n/10 , \OT1/zplm/m/n/10 (\OML/zplm/m/it/10 b[]\OT1/zplm/m/n/10 ) \OMS/zplm/m/n/10 2
+ []
+
+[4] [5] (./limits.aux) ) 
 Here is how much of TeX's memory you used:
- 22829 strings out of 480171
- 433545 string characters out of 5894490
+ 22858 strings out of 480171
+ 433907 string characters out of 5894490
  695040 words of memory out of 5000000
- 40349 multiletter control sequences out of 15000+600000
- 555703 words of font info for 75 fonts, out of 8000000 for 9000
+ 40357 multiletter control sequences out of 15000+600000
+ 557479 words of font info for 83 fonts, out of 8000000 for 9000
  59 hyphenation exceptions out of 8191
- 114i,15n,118p,614b,455s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/usr/share/texlive/texmf-dist/fonts/enc/dvips/cochineal/coch_otkq6i.enc}{/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}{/usr/share/texlive/texmf-dist/fonts/enc/dvips/cochineal/coch_cuw7wa.enc}</usr/share/texlive/texmf-dist/fonts/type1/public/cochineal/Cochineal-Bold.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/cochineal/Cochineal-Italic.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/cochineal/Cochineal-Roman.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/mathpazo/fplmri.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/palatino/uplr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/palatino/uplri8a.pfb>
-Output written on limits.pdf (2 pages, 131741 bytes).
+ 114i,15n,118p,742b,455s stack positions out of 5000i,500n,10000p,200000b,80000s
+{/usr/share/texlive/texmf-dist/fonts/enc/dvips/cochineal/coch_otkq6i.enc}{/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}{/usr/share/texlive/texmf-dist/fonts/enc/dvips/cochineal/coch_cuw7wa.enc}</usr/share/texlive/texmf-dist/fonts/type1/public/cochineal/Cochineal-Bold.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/cochineal/Cochineal-Italic.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/cochineal/Cochineal-Roman.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/mathpazo/fplmbb.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/mathpazo/fplmr.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/mathpazo/fplmri.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/palatino/uplr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/palatino/uplri8a.pfb>
+Output written on limits.pdf (5 pages, 170812 bytes).
 PDF statistics:
- 75 PDF objects out of 1000 (max. 8388607)
- 52 compressed objects within 1 object stream
- 8 named destinations out of 1000 (max. 500000)
+ 113 PDF objects out of 1000 (max. 8388607)
+ 81 compressed objects within 1 object stream
+ 20 named destinations out of 1000 (max. 500000)
  13 words of extra memory for PDF output out of 10000 (max. 10000000)
 

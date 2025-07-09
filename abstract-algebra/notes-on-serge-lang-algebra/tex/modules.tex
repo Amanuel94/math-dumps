@@ -369,7 +369,27 @@ These conditions are equivalent to showing there is a ring homomorphism from the
         \noindent \textit{For example}: The dimenstion of a free module $M$ is equal to $\max_{\lambda \in \dual{M}} \dim \lambda(M).$
     \end{remark}
 
- 
+
+      \subsection*{Direct and Inverse Limits}
+    Let $I$ be a \href{https://en.wikipedia.org/wiki/Directed_set}{directed set}. 
+    Let $\set{A_i}_{i \in I}$ be a family of $A$-modules and let$\set{f_{i,j}:A_i \to A_j}$ be a family of $A$-homomorphism satisfying
+    $$
+        f_{i, i} = \id$$
+        $$f_{i, k} = f_{j, k} \circ f_{i, j} \text{ if } i < j. 
+    $$
+    We call this family of morphisms, \textbf{a directed family of morphisms}. When we have a family like $\set{A_i}$, we want to study their properties together. The \textbf{direct limit} has the required algebraic properties to do so and it's defined as follows.
+
+    Consturct a category $\mathcal{C}$ by defining $\Ob(\mathcal{C})$ as the pair $(A, f_i)$ with $A$ in the family of modules and $f_i: A_i \to A$ that makes the following diagram commute
+
+    \begin{center}
+    \begin{tikzcd}
+    A_i \arrow[dr, "f_{i,j}"'] \arrow[rr, "f_i"] & & A \\
+    & A_j \arrow[ur, "f_j"'] &
+    \end{tikzcd}
+    \end{center}
+
+    where the morphisms are $f_i$ themselves. The direct limit $(B = \dirlim A_i, h_i)$ is the universal object of this category, i.e., for every $(C, g_i)$ in this cateory there is a unique homomorphism $t$ that makes the following diagram commute
+
 
     % \noindent \textit{There is a unique homomorphism from the basis of a module $M$ to any subset of another module $N$.}
     % ker + F

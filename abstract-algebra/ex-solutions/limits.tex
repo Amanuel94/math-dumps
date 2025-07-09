@@ -144,9 +144,103 @@ for $a \in A_i$ and $b \in A_j$.
         & = & \varphi_j(y).
     \end{eqnarray*}
 
-    Thus, $\varphi$ is well defined. Since $A$ is a disjoint union of $A_i$ modulo $\sim$, $\varphi$ is defined everywhere in $A$ and uniquness follows from definition.
+    Thus, $\varphi$ is well defined. Since $A$ is a disjoint union of $A_i$ modulo $\sim$, $\varphi$ is defined everywhere in $A$ and uniquness follows from definition. \qed
+\end{enumerate} 
+\noindent
+\textbf{9.} Let $I$ be the collection of open intervals $U = (a, b)$ on the real line containing a fixed real number $p$. Order these by reverse inclusion: $U \leq V$ if $V \subseteq U$ (note that $I$ is a directed set). For each $U$ let $A_U$ be the ring of continuous real valued functions on $U$. For $V \subseteq U$ define the \emph{restriction maps} 
+\[
+\rho_{UV} : A_U \to A_V \quad \text{by} \quad f \mapsto f|_V,
+\]
+the usual restriction of a function on $U$ to a function on the subset $V$ (which is easily seen to be a ring homomorphism). Let
+\[
+A = \varinjlim A_U
+\]
+be the direct limit. In the notation of the preceding exercise, show that the maps $\rho_U : A_U \to A$ are \emph{not} injective but are all surjective ($A$ is called the ring of \emph{germs of continuous functions at} $p$).
+
+\textit{ Sol. } First, we need to describe $A$. $A$ consists of equivalence classes that contain real-valued continuous functions that agree on some open interval containing $p$. That is, $f \sim g$ iff $f|_X = g|_X$ for some open interval $X$ containg $p$.
+
+To show that $\rho_U$ is not injective, consider an interval $U = (a, b)$ and let $X = (a, \frac{b + p}{2})$. Define the funtions $f, g \in A_U$ as follows
+
+$$
+f(x) = \begin{cases}
+    0 \quad \quad \quad \quad \text{ if } x \in X \\
+    x - \frac{b + p}2 \quad \text{ otherwise }
+\end{cases}
+\quad 
+\text{ and }
+\quad
+g(x) = \begin{cases}
+    0 \quad \quad \quad \quad \quad \ \  \text{ if } x \in X \\
+    2\big(x - \frac{b + p}2\big) \quad \text{ otherwise }
+\end{cases}
+$$
+Both $f$ and $g$ are continuous and $f \sim g$ because $f|_X = g|_X.$ Thus $\rho_U$ is not injective (alternatively, one can show the kernel of the this map contains all elements of $A_U$ that agree with the zero function in some open interval $X$ containing $p$).
+
+Next, we show surjectivity. Let $F \in A$. Since $F$ is an equivalence class, pick some $f: (a, b) \to \mathbb R \in F$. Let $U = (a', b')$. Then define the $f': U \to  \mathbb{R}$ as 
+$$
+f'(x) = \begin{cases}
+    f(x) \quad \text{ if } x \in U \cap \big(\frac{a+p}{2}, \frac{b+p}{2}\big) \\
+    f\big(\frac{a + p}{2}\big) \quad \text{ if } x \in U \cap (-\infty, (a + p)/2] \\
+    f\big(\frac{b + p}2\big) \quad \text{ if } x \in U \cap [(b+p)/2, \infty) 
+\end{cases}$$
+It follows that $f'\in A_U$ and $\rho_U(f') = F.$  \qed
+
+We now develop the notion of inverse limits. Continue to assume $I$ is a partially ordered set (but not necessarily directed), and $A$ is a group for all $i \in I$.
+
+\noindent
+\textbf{10.} Suppose for every pair of indices $i, j$ with $i \leq j$ there is a map $\mu_{ji} : A_j \to A_i$ such that the following hold:
+\begin{enumerate}
+    \item[(i)] $\mu_{ji} \circ \mu_{kj} = \mu_{ki}$ whenever $i \leq j \leq k$, and
+    \item[(ii)] $\mu_{ii} = 1$ for all $i \in I$.
+\end{enumerate}
+Let $P$ be the subset of elements $(a_i)_{i \in I}$ in the direct product $\prod_{i \in I} A_i$ such that $\mu_{ji}(a_j) = a_i$ whenever $i \leq j$ (here $a_i$ and $a_j$ are the $i^{\text{th}}$ and $j^{\text{th}}$ components respectively of the element in the direct product). The set $P$ is called the \textit{inverse} or \textit{projective limit} of the system $\{A_i\}$, and is denoted $\varprojlim A_i$.
+
+\begin{enumerate}
+    \item[(a)] Assume all $\mu_{ji}$ are group homomorphisms. Show that $P$ is a subgroup of the direct product group (cf. Exercise 15, Section 5.1).
+    
+    \item[(b)] Assume the hypotheses in (a), and let $I = \mathbb{Z}^+$ (usual ordering). For each $i \in I$ let $\mu_i : P \to A_i$ be the projection of $P$ onto its $i^{\text{th}}$ component. Show that if each $\mu_{ji}$ is surjective, then so is $\mu_i$ for all $i$ (so each $A_i$ is a quotient group of $P$).
+    
+    \item[(c)] Show that if all $A_i$ are commutative rings with $1$ and all $\mu_{ji}$ are ring homomorphisms that send $1$ to $1$, then $A$ may likewise be given the structure of a commutative ring with $1$ such that all $\mu_i$ are ring homomorphisms.
+    
+    \item[(d)] Under the hypotheses in (a) prove that the inverse limit has the following \textit{universal property}: If $D$ is any group such that for each $i \in I$ there is a homomorphism $\pi_i : D \to A_i$ with $\pi_i = \mu_{ji} \circ \pi_j$ whenever $i \leq j$, then there is a unique homomorphism $\pi : D \to P$ such that $\mu_i \circ \pi = \pi_i$ for all $i$.
+\end{enumerate}
+
+\textit{ Sol. }
+\begin{enumerate}[(a)]
+    \item Since $P \subseteq \prod_i A_i$, it suffieces to prove that $P$ is a group. Let $(a_i) \in P$. Since $(0, \dots) \in P$ and $(0, \dots) + (a_i)_{i\in I} = (a_i + 0)$, $P$ contains the identity. Let 
+    $(a_i), (b_i) \in P$. Then $(a_i) - (b_i) = (a_i - b_i) \in P$ because $\mu_{ij}$ are additive.
+
+    \item If $\mu_{ij}$ is surjective, for every element $a_i \in A_i$ there is an element $a_{i+1} \in A_{i+1}$ such that $\mu_{i+1, i}(a_{i+1}) = a_i$. Inducting on $i$, it follows that for every $a_i \in A_i$, there is an element $a \in P$ such that $a$ has $a_i$ at the $i$-th component. It immediately follows the projection $\mu_i$ is onto the $A_i$.
+    
+    \item If $(*)$ is a commutative binary operator such that  $\mu_{ij}$ is linear in $(*)$, then for two elements $a, b \in P$ $a*b \in P$ and is well defined if $(*)$ is well defined in $A_i$. To show that consider the expression between $a = (a_i)$ and $b = (b_i)$. If we define $a*b$ as $(a_i * b_i)_{i \in I}$. Since, by assumption,  $\mu_{ij}$ linear in $(*)$, this product is well-defined. This shows that $(+)$ and $(\cdot)$ are well-defined in $A$. (For multiplication, the assumption that $\mu_{ij}(1) = 1$ is important to ensure the consisency of the relation $1 + 1 = 2 \cdot 1$ in $A_i$). Distributive property follows immediately.
+    
+    \item We show that $\pi: D \to A$ defined $\pi(d) = (\pi_i(d))_{i \in I}$ satisfies the universal property. The $\pi$ is clearly homomorphism because each $\pi_i$ is homomorphism and addtion (and multiplication) are defined component-wise. Let $\pi_i = \mu_i \circ \pi = \mu_i \circ \pi'.$ It follows $0 = \mu_i \circ(\pi - \pi')$. This can only happen $\pi  = \pi'$, hence uniquness. \qed
 \end{enumerate}
 
 
+\noindent \textbf{11.} Let $p$ be a prime let $I=\mathbb{Z}^{+}$, let $A_{i}=\mathbb{Z}/p^{i}\mathbb{Z}$ and let $\mu_{ji}$ be the natural projection maps
+
+\[
+\mu_{ji}:a\ (\mathrm{mod}\ p^{j})\longmapsto a(\mathrm{mod}\ p^{i}).
+\]
+
+The inverse limit $\varprojlim\mathbb{Z}/p^{i}\mathbb{Z}$ is called the ring of \textit{$p$-adic integers}, and is denoted by $\mathbb{Z}_{p}$.
+
+\begin{enumerate}[(a)]
+    \item Show that every element of $\mathbb{Z}_{p}$ may be written uniquely as an infinite formal sum $b_{0}+b_{1}p+b_{2}p^{2}+b_{3}p^{3}+\cdots$ with each $b_{i}\in\{0,\,1,\ldots,\,p-1\}$. Describe the rules for adding and multiplying such formal sums corresponding to addition and multiplication in the ring $\mathbb{Z}_{p}$. [Write a least residue in each $\mathbb{Z}/p^{i}\mathbb{Z}$ in its base $p$ expansion and then describe the maps $\mu_{ji}$.] (Note in particular that $\mathbb{Z}_{p}$ is uncountable.)
+
+    \item Prove that $\mathbb{Z}_{p}$ is an integral domain that contains a copy of the integers.
+
+    \item Prove that $b_{0}+b_{1}p+b_{2}p^{2}+b_{3}p^{3}+\cdots$ as in (a) is a unit in $\mathbb{Z}_{p}$ if and only if $b_{0}\neq 0$.
+
+    \item Prove that $p\mathbb{Z}_{p}$ is the unique maximal ideal of $\mathbb{Z}_{p}$ and $\mathbb{Z}_{p}/p\mathbb{Z}_{p}\cong\mathbb{Z}/p\mathbb{Z}$ (where $p=0+1p+0p^{2}+0p^{3}+\cdots$). Prove that every ideal of $\mathbb{Z}_{p}$ is of the form $p^{n}\mathbb{Z}_{p}$ for some integer $n\geq 0$.
+
+    \item Show that if $a_{1}\not\equiv 0\pmod{p}$ then there is an element $a=(a_{i})$ in the direct limit $\mathbb{Z}_{p}$ satisfying $a_{j}^{P}\equiv 1\pmod{p^{j}}$ and $\mu_{j\,1}(a_{j})=a_{1}$ for all $j$. Deduce that $\mathbb{Z}_{p}$ contains $p-1$ distinct $(p-1)^{st}$ roots of $1$.
+\end{enumerate}
+
+\textit{ Sol. }
+\begin{enumerate}
+    \item 
+\end{enumerate}
 
 \end{document}
