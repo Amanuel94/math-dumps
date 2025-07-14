@@ -131,6 +131,36 @@
 \item  Let $v_m' = a_1v_1 + \cdots + a_{m}v_{m}$. Since $a_m \neq 0$, $v_m'$, and by the assumption that $\set{v_i}$ is linearly independent over $\mathbb{R}$, the set $\set{v_1, \dots, v_{m-1}, v'_{m}}$ is linearly indepenedent over $\ZZ$. We also note that, $v_m' -  \sum_{i = 1}^{m-1} a_iv_i \in A$, thus we can safely assume $a_1 = \cdots = a_{m-1}= 0.$
 
 To show, the set spans $A$, we consider  $A/A_0.$  Suppose, there is $av_m \in A/A_0$ such that $av_m \neq  nv'_m$ for all $ n \in \ZZ$. Let $r, s$ be two integers such that $|ra_m + sa| < a_m$.  Since contradicts minimality of $a_m$, it must be the case that $a_m \mid a.$. Therfore $A/A_0 = \ZZ v'_m.$ 
+
+  \newcommand{\zmono}[1]{\ZZ\gen{#1}}
+  \item We induct on the size of $S.$
+
+        First assume that $S = \set{ w }$. Then $\zmono{S} = \set{n[w] : n \in \ZZ}$. If $M$ is a subgroup of $\zmono{S}$, then $M = \zmono{a[w]}$ for some $a \in \ZZ$. Here we pick $y_w = a[w]$ which is $G$-linear.
+
+        For the induction step, suppose the statement is true for $S$, $0 \leq |S| \leq m - 1.$ We shall prove the statement is true for $S$ with $m$ elements. Fix on element $w \in S$, and consider projection map $\pi: \zmono S \to \zmono{G \cdot w}$. By correspondence, $\pi(M)$ is a subgroup of $\zmono{G \cdot w}$ with basis $\set{\bar y_{gw}}_{w \in G}$  which satisfy the property for $\sigma \in G$, $\sigma \bar y_{gw} = \bar y_{\sigma g w}$. We then lift the basis of $\zmono{\pi(M)}$ to $\zmono{S}$ by picking a representatives $\I R = \set{y_w}$ in $M$ for $\bar y_w$. The $y_w$ are linearly indepndenent thus form part of the basis for $M$. Again by hypothesis, $M \cap \zmono{S - G\cdot w}$ has basis $\I B = \set{y_w}_{w \in S - G \cdot w}$ that satisfy the given property. We finally combine $\I R$ and $\I B$ to get the basis of rank $m$ for $M$.
+
+  \item
+        For convenience, we identify the properties of a semi-norm as follows
+        \begin{enumerate}[SN-1]
+          \item $|v| \geq 0$ \label{sn1}
+          \item $|nv| = |n||v|$ \label{sn2}
+          \item $|u + v| \leq |u| + |v|$ \label{sn3}
+        \end{enumerate}
+
+
+        \begin{enumerate}[(a)]
+          \item Let $a, b \in M_0$.  Then by SN-2 and SN-3, $|u - b| \leq |a| + |b| = 0$. By SN-1, we have $|a - b| \geq 0$, this $a - b \in M_0$. By SN-2, $|0| = |2 \cdot 0| = 2|0|.$ This implies $0 \in M_0.$ Hence $M_0$ is a subgroup of $M$.
+
+          \item If $M_0 \neq \set 0$,  we can make the transformation $x \mapsto x + M_0$ without loss of generality as such map preserves the linear independence of $\set{v_i}$. Thus, we can assume $M_0 = \set 0.$
+
+          Let $N = \gen{v_1, \dots, v_r}$. Since $M$ has rank $r$, the exponent $e$ of $M/N$ is finite and thus $eM$ is a subgroup of $N$. Moreover, $N/eM$ is torsion group with finite number of elements. Therefore, we can pick the smallest positive integers $n_{i, j}$ such that
+                $$\sum_{j = 1}^i n_{i, j}v_j = dw_i \quad \text{for some }  w_i \in M$$
+
+                The linear independence follows immediately. Picking $n_{j, k}$ in the range $[0, d - 1]$,
+                $$d |w_i| = |dw_i| \leq \sum_{j = 1}^i n_{i, j}|v_j| \leq d\sum_{j = 1}^i |v_j| .$$
+        \end{enumerate}
+
+
 \end{enumerate}
 
 \end{document}

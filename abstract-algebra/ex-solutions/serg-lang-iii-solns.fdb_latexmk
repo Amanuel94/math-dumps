@@ -1,7 +1,6 @@
 # Fdb version 3
-["pdflatex"] 1752097923 "/home/dirichletian/math/math-dumps/abstract-algebra/ex-solutions/serg-lang-iii-solns.tex" "serg-lang-iii-solns.pdf" "serg-lang-iii-solns" 1752097924
+["pdflatex"] 1752425040 "serg-lang-iii-solns.tex" "serg-lang-iii-solns.pdf" "serg-lang-iii-solns" 1752425040
   "/etc/texmf/web2c/texmf.cnf" 1688739976 475 c0e671620eb5563b2130f56340a5fde8 ""
-  "/home/dirichletian/math/math-dumps/abstract-algebra/ex-solutions/serg-lang-iii-solns.tex" 1752097922 8004 ab40aaee7213f6dbea5fd89ca5944c31 ""
   "/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc" 1165713224 4850 80dc9bab7f31fb78a000ccfed0e27cab ""
   "/usr/share/texlive/texmf-dist/fonts/enc/dvips/cochineal/coch_cuw7wa.enc" 1643752856 3223 f66ceb1176684f291f714528dd4fa59f ""
   "/usr/share/texlive/texmf-dist/fonts/enc/dvips/cochineal/coch_otkq6i.enc" 1643752856 3221 cc9b5e78ae03083539da6a9fd7e128bb ""
@@ -204,8 +203,8 @@
   "/usr/share/texmf/web2c/texmf.cnf" 1644012257 39432 7155514e09a3d69036fac785183a21c2 ""
   "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1749379155 4073523 69d02b604f499b6c3e514fed509437ab ""
   "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1749376831 1435933 edcacb64c94cfcadbbfc3e650ea4a7f2 ""
-  "serg-lang-iii-solns.aux" 1752097923 717 5a450f137a78ee56acd863d9a3fd8b26 "pdflatex"
-  "serg-lang-iii-solns.tex" 1752097922 8004 ab40aaee7213f6dbea5fd89ca5944c31 ""
+  "serg-lang-iii-solns.aux" 1752424953 717 67a525f205b85181e4e9a305315ae66d "pdflatex"
+  "serg-lang-iii-solns.tex" 1752425040 9446 fd7af9c739ca37208d0b5ca07b0e1f95 ""
   (generated)
   "serg-lang-iii-solns.aux"
   "serg-lang-iii-solns.log"
