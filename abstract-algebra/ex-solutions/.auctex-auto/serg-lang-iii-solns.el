@@ -29,6 +29,7 @@
     "enumerate")
    (TeX-add-symbols
     '("zmono" 1)
+    '("localize" 2)
     '("tor" 1)
     '("ddual" 1)
     '("dual" 1)
@@ -69,7 +70,8 @@
     "Hom"
     "from"
     "rank"
-    "dirlim")
+    "dirlim"
+    "QQ")
    (LaTeX-add-labels
     "sn1"
     "sn2"
