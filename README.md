@@ -19,14 +19,11 @@ The repository is organized by mathematical subject, with each top-level folder 
 
 My background combines **Enumerative Combinatorics** and **Computer Science**. I'm particularly drawn to the intersection of these two fields, exploring how computational methods can be applied to combinatorial problems.
 
-I have written a paper in algebraic combinatorics that is currently getting reviewed by international journals.
+I have written a manusctipt in combinatorics that is currently getting reviewed by international journals.
 
-## My Interests
-
-My primary interests lie in **Mathematical Research** and **Computer Assisted Proofs**. I'm fascinated by the potential of using computers to aid in mathematical discovery and verification. I dream of the day research mathematics becomes as collaborative as software development is today.
 
 ## Profile
 
 If you have similar interests, I would love to connect. Email me: amanueltewodros94@gmail.com
 
-This repository is a work in progress. I plan to continue adding and refining its contents as I progress in my mathematical studies. Contributions and suggestions are welcome!
+This repository will always be a work in progress. I plan to continue adding and refining its contents as I progress in my mathematical studies. Contributions and suggestions are welcome!
