@@ -219,6 +219,33 @@ To show, the set spans $A$, we consider  $A/A_0.$  Suppose, there is $av_m \in A
                 Finally, let $x/s \in \localize SM''.$ Since $x \in M''$, $x = f''(y)$ for some $y \in M$ by exactness of the first sequence. But then $x/s = f''(y)/s = g''(y/s)$ making $g''$ surjective.
         \end{enumerate}
 
+        \item
+        \begin{enumerate}[(a)]
+          \item The natural map under consideration is the map
+                $$f =  x \mapsto \big(x/1, \dots \big).$$
+
+                \newcommand{\Ann}{\mathrm{Ann}}
+                If $x/s' \sim 0/1$, for some $s' \in A -\I p$ and $x \in M$,  then it means $sx = 0$ for some $s \in A - \I p.$ Therefore, the kernel of $f$ is the set $\set{x : sx = 0, \text{for some }s \in A - \I p \text{ for all maximal ideals } \I p}.$ If $x \in \ker f$, then $\Ann(x)$ is not contained in any maximal ideal $\I p$, implying $\Ann(x) = A \implies x = 0$.
+
+
+
+                \newcommand{\p}{\I p}
+                \newcommand{\h}[1]{\hat{#1}}
+          \item Let $f: M'' \to M$ and $\h f: M''_\p \to M_\p$. Define $g$ and $\h g$ similarly for the second halves of the sequences.
+
+                \begin{itemize}
+                  \item[($\implies$)] This directly follows from part (b) of exercise 9.
+                  \item[($\impliedby$)] Suppose $0 \to M'_p \to M_\p \to M''_\p$ is exact sequence for all primes $\p$.
+
+                        Let $f(x) = 0$, then  $\h f(x/s) = f(x)/s = 0/1$ for all $s \in \p$. By exactness, $\h f$ is injective. thus $x/s = 0$. By similar reasoning as part (a) of this problem $x = 0$. Hence $f$ is injective.
+
+                        Now let $gf(x) = n$. By definition, $\h g \h f(x/s) = n/s$. By exactness, the left-hand side is $0$. Thus $s'n = 0$ for $s' \in \p$ for all prime $\p$. Again, by similar reasoning as part (a), $n$ has to be $0$ and $\Img f \subseteqq \ker g$. To see the converse, suppose $g(y) = 0$. Consequently, $\h g(y/s) =  g(y)/s = 0$ for all $s \in \p$ and  by exactness,  $y/1 = \h f(x/t_\p) = f(x)/t_\p$ for some $t_\p$ depending on $\p$. This implies $s_\p(f(x) - t_\p y) = 0$ or equivalently $f(s_\p x) = r_\p y$ for some $x \in M'_\p$ and $r_\p = s_\p t_\p$ implying $r_\p y \in \Img f$ for all prime $\p$. Since $M/\Img f$ is also an $A$-module, it implies $r_\p(x + \Img f) = 0$ for all $\p$ implying $x + \Img f = 0 + \Img f$ or in other words, $x \in \Img f$. This proves $\Img f  = \ker g.$
+
+                        Finally, suppose $y \in M''$. By surjectivity of $\h g$, $y/1 = \h g(x/s) = g(x)/s$ for some $x \in M$. By definition, $s_\p(g(x) - t_\p y) = 0.$ By similar argument as above, $y \in \Img g$, proving the exactness of the first sequence.
+
+                \end{itemize}
+                \item Let $\phi: M \to M_\p$ be the natural map in question. Then $\phi(x) = x/1$. If $\phi(x) = 0$, then $sx = 0$ for some $s \in A - \p$. This contradicts the assumption $M$ is torsion-free and since $0 \notin A - \p$, $x = 0$.
+        \end{enumerate}
 \end{enumerate}
 
 \end{document}

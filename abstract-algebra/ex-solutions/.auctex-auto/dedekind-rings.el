@@ -1,18 +1,18 @@
 ;; -*- lexical-binding: t; -*-
 
 (TeX-add-style-hook
- "serg-lang-iii-solns"
+ "dedekind-rings"
  (lambda ()
    (TeX-add-to-alist 'LaTeX-provided-class-options
                      '(("article" "")))
    (TeX-add-to-alist 'LaTeX-provided-package-options
-                     '(("amsmath" "") ("amssymb" "") ("amsthm" "") ("hyperref" "") ("bookmark" "") ("cochineal" "") ("mathpazo" "") ("tikz-cd" "") ("enumerate" "")))
-   (add-to-list 'LaTeX-verbatim-macros-with-braces-local "path")
-   (add-to-list 'LaTeX-verbatim-macros-with-braces-local "url")
-   (add-to-list 'LaTeX-verbatim-macros-with-braces-local "nolinkurl")
-   (add-to-list 'LaTeX-verbatim-macros-with-braces-local "hyperbaseurl")
-   (add-to-list 'LaTeX-verbatim-macros-with-braces-local "hyperimage")
+                     '(("amsmath" "") ("amssymb" "") ("amsthm" "") ("hyperref" "") ("bookmark" "") ("fbb" "") ("eulervm" "") ("tikz-cd" "") ("enumerate" "")))
    (add-to-list 'LaTeX-verbatim-macros-with-braces-local "href")
+   (add-to-list 'LaTeX-verbatim-macros-with-braces-local "hyperimage")
+   (add-to-list 'LaTeX-verbatim-macros-with-braces-local "hyperbaseurl")
+   (add-to-list 'LaTeX-verbatim-macros-with-braces-local "nolinkurl")
+   (add-to-list 'LaTeX-verbatim-macros-with-braces-local "url")
+   (add-to-list 'LaTeX-verbatim-macros-with-braces-local "path")
    (add-to-list 'LaTeX-verbatim-macros-with-delims-local "path")
    (TeX-run-style-hooks
     "latex2e"
@@ -23,13 +23,13 @@
     "amsthm"
     "hyperref"
     "bookmark"
-    "cochineal"
-    "mathpazo"
+    "fbb"
+    "eulervm"
     "tikz-cd"
     "enumerate")
    (TeX-add-symbols
-    '("h" 1)
-    '("zmono" 1)
+    '("ploc" 1)
+    '("inv" 1)
     '("localize" 2)
     '("tor" 1)
     '("ddual" 1)
@@ -72,13 +72,12 @@
     "from"
     "rank"
     "dirlim"
-    "QQ"
-    "Ann"
-    "p")
-   (LaTeX-add-labels
-    "sn1"
-    "sn2"
-    "sn3")
+    "io"
+    "ia"
+    "ib"
+    "ic"
+    "ip"
+    "iq")
    (LaTeX-add-amsthm-newtheorems
     "theorem"
     "lemma"
