@@ -6,13 +6,13 @@
    (TeX-add-to-alist 'LaTeX-provided-class-options
                      '(("article" "")))
    (TeX-add-to-alist 'LaTeX-provided-package-options
-                     '(("amsmath" "") ("amssymb" "") ("amsthm" "") ("hyperref" "") ("bookmark" "") ("cochineal" "") ("mathpazo" "") ("tikz-cd" "") ("enumerate" "")))
-   (add-to-list 'LaTeX-verbatim-macros-with-braces-local "path")
-   (add-to-list 'LaTeX-verbatim-macros-with-braces-local "url")
-   (add-to-list 'LaTeX-verbatim-macros-with-braces-local "nolinkurl")
-   (add-to-list 'LaTeX-verbatim-macros-with-braces-local "hyperbaseurl")
-   (add-to-list 'LaTeX-verbatim-macros-with-braces-local "hyperimage")
+                     '(("amsmath" "") ("amssymb" "") ("amsthm" "") ("hyperref" "") ("bookmark" "") ("cochineal" "") ("geometry" "a4paper" "margin=1in") ("mathpazo" "") ("tikz-cd" "") ("enumerate" "")))
    (add-to-list 'LaTeX-verbatim-macros-with-braces-local "href")
+   (add-to-list 'LaTeX-verbatim-macros-with-braces-local "hyperimage")
+   (add-to-list 'LaTeX-verbatim-macros-with-braces-local "hyperbaseurl")
+   (add-to-list 'LaTeX-verbatim-macros-with-braces-local "nolinkurl")
+   (add-to-list 'LaTeX-verbatim-macros-with-braces-local "url")
+   (add-to-list 'LaTeX-verbatim-macros-with-braces-local "path")
    (add-to-list 'LaTeX-verbatim-macros-with-delims-local "path")
    (TeX-run-style-hooks
     "latex2e"
@@ -24,6 +24,7 @@
     "hyperref"
     "bookmark"
     "cochineal"
+    "geometry"
     "mathpazo"
     "tikz-cd"
     "enumerate")
@@ -74,7 +75,12 @@
     "dirlim"
     "QQ"
     "Ann"
-    "p")
+    "p"
+    "ip"
+    "io"
+    "ia"
+    "ib"
+    "ic")
    (LaTeX-add-labels
     "sn1"
     "sn2"

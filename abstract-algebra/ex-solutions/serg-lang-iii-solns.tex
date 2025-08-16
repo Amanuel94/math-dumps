@@ -11,6 +11,7 @@
 % \usepackage{crimson}
 % \usepackage{bm}
 \usepackage{cochineal}
+\usepackage[a4paper, margin=1in]{geometry}
 
 % \usepackage{eulervm} % math
 \usepackage{mathpazo} % math
@@ -244,8 +245,89 @@ To show, the set spans $A$, we consider  $A/A_0.$  Suppose, there is $av_m \in A
                         Finally, suppose $y \in M''$. By surjectivity of $\h g$, $y/1 = \h g(x/s) = g(x)/s$ for some $x \in M$. By definition, $s_\p(g(x) - t_\p y) = 0.$ By similar argument as above, $y \in \Img g$, proving the exactness of the first sequence.
 
                 \end{itemize}
+
                 \item Let $\phi: M \to M_\p$ be the natural map in question. Then $\phi(x) = x/1$. If $\phi(x) = 0$, then $sx = 0$ for some $s \in A - \p$. This contradicts the assumption $M$ is torsion-free and since $0 \notin A - \p$, $x = 0$.
         \end{enumerate}
+
+        \newcommand{\ip}{\I p}
+        \newcommand{\io}{\I o}
+        \textbf{Projective modules over Dedekind rings}
+  \item
+            Let $\mathfrak{o}$ be a Dedekind domain, and let $M$ be a finitely generated torsion-free $\mathfrak{o}$-module.
+            For each prime ideal $\mathfrak{p}$, consider the localization $\mathfrak{o}_{\mathfrak{p}}$ and the localized module $M_{\mathfrak{p}}$.
+
+            Since $\mathfrak{o}_{\mathfrak{p}}$ is a Dedekind domain with only one prime ideal $S^{-1}\mathfrak{p}$, by the result from the previous chapter it is a PID.
+            Finite generation and torsion-freeness of $M_{\mathfrak{p}}$ follow from the corresponding properties of $M$, and Theorem~7.3 then implies that $M_{\mathfrak{p}}$ is a free $\mathfrak{o}_{\mathfrak{p}}$-module (and hence projective).
+
+            Now let $F$ be a free $\mathfrak{o}$-module, and suppose there is a surjective homomorphism
+            \[
+            f: F \twoheadrightarrow M.
+            \]
+            Localizing at $\mathfrak{p}$, we obtain a surjective map
+            \[
+            f_{\mathfrak{p}}: F_{\mathfrak{p}} \twoheadrightarrow M_{\mathfrak{p}}.
+            \]
+            Since $M_{\mathfrak{p}}$ is projective, there exists a homomorphism
+            \[
+            g_{\mathfrak{p}}: M_{\mathfrak{p}} \to F_{\mathfrak{p}}
+            \]
+            such that
+            \[
+            f_{\mathfrak{p}} \circ g_{\mathfrak{p}} = \mathrm{id}_{M_{\mathfrak{p}}}.
+            \]
+
+            Because $M$ is finitely generated, say by $m_1,\dots,m_r$, each $g_{\mathfrak{p}}(m_i/1) \in F_{\mathfrak{p}}$ can be written with a denominator not in $\mathfrak{p}$.
+            Let $c_{\mathfrak{p}} \in \mathfrak{o} \setminus \mathfrak{p}$ be the product of all these denominators for $i=1,\dots,r$.
+            Then
+            \[
+            c_{\mathfrak{p}}\, g_{\mathfrak{p}}\big(l_{\mathfrak{p}}(M)\big) \subseteq F,
+            \]
+            where $l_{\mathfrak{p}}: M \to M_{\mathfrak{p}}$ is the localization map.
+
+            We claim that the set $\{c_{\mathfrak{p}} : \mathfrak{p} \ \text{prime}\}$ generates the unit ideal $(1)$.
+            Indeed, if this ideal were proper, it would be contained in some maximal ideal $\mathfrak{m}$; but then $c_{\mathfrak{m}} \in \mathfrak{m}$, contradicting $c_{\mathfrak{m}} \notin \mathfrak{m}$.
+            Thus there exist primes $\mathfrak{p}_1, \dots, \mathfrak{p}_n$ and elements $x_1,\dots,x_n \in \mathfrak{o}$ such that
+            \[
+            \sum_{i=1}^n x_i\, c_{\mathfrak{p}_i} = 1.
+            \]
+
+            Define
+            \[
+            g := \sum_{i=1}^n x_i\, c_{\mathfrak{p}_i} \cdot g_{\mathfrak{p}_i} \circ l_{\mathfrak{p}_i} : M \to F.
+            \]
+            This is well-defined since each $c_{\mathfrak{p}_i} g_{\mathfrak{p}_i}(l_{\mathfrak{p}_i}(M)) \subseteq F$.
+
+            For $m \in M$, we have
+            \[
+            f(g(m))
+            = \sum_{i=1}^n x_i\, c_{\mathfrak{p}_i} \, f(g_{\mathfrak{p}_i}(m/1))
+            = \sum_{i=1}^n x_i\, c_{\mathfrak{p}_i} \, (m/1)
+            = \left(\sum_{i=1}^n x_i\, c_{\mathfrak{p}_i}\right) m
+            = 1 \cdot m
+            = m.
+            \]
+        Thus $f \circ g = \mathrm{id}_M$, showing that $M$ is a direct summand of $F$ and hence projective.
+
+
+  \item
+
+        \newcommand{\ia}{\I a}
+        \newcommand{\ib}{\I b}
+        \newcommand{\ic}{\I c}
+        \begin{enumerate}[(a)]
+          \item Define a map $\ia \oplus \ib \to \io$ as
+
+                $$ (a, b) \mapsto ca + b,$$
+
+                where $c$ is as defined in question 19 of chapter II. Since $c\ia$ and $\ib$ are coprime the image of this map is $\io$. The kernel of this map which is given by $c\ia \cap \ib \supseteq c\ia\ib$ also satisfies the reverse inclustion because for $d \in c\ia \cap \ib$, we can write $d = d(ca + b) = ca\cdot d + d\cdot a \in c\ia \ib$. Therefore, kernel is $c\ia \ib.$ Since the map $\ia ib \to c\ia\ib$ is bijective, and $\io$ is fintely generated and torsion-free (thus free), it follows that
+
+                $$\ia \oplus \ib \iso \io \oplus \ia \ib$$
+
+          \item
+
+        \end{enumerate}
+
+
 \end{enumerate}
 
 \end{document}

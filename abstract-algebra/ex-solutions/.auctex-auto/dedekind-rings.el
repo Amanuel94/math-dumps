@@ -77,7 +77,8 @@
     "ib"
     "ic"
     "ip"
-    "iq")
+    "iq"
+    "iz")
    (LaTeX-add-amsthm-newtheorems
     "theorem"
     "lemma"

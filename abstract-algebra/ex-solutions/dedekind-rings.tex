@@ -6,15 +6,7 @@
 \usepackage{hyperref}
 \usepackage{bookmark}
 \usepackage{fbb}
-% \usepackage{newpx}
-% \usepackage{libertine}
-% \usepackage{crimson}
-% \usepackage{bm}
-% \usepackage{cochineal}
-
 \usepackage{eulervm}
-% \usepackage{mathpazo} % math
-
 \usepackage{tikz-cd}
 \usepackage{enumerate}
 
@@ -129,16 +121,22 @@ This piece contains the solutions for Serg Lang's Graduate Algebra Chapter II ex
 
   \item[(18)] Suppose $\ip \subsetneq \ia \subsetneq \io$. Then by the above exercise, $\ia \mid \ip$, i.e. $\ip = \ia\ic$. But since $\ip \neq \ia$, $\ic \neq \io$ and distinct factorizations of $\ip$ exist, a contradiction.
 
-  \item[(19)] Let $\ic = \ia + \ib$ and let $\prod_i\ip_i^{r_i}$ be the factorization of $\ia$. By the previous problem we can find $x \in \ia$ such that
-        $$x =
-        \begin{cases}
-          0 \mod \ip_i^{r_i} \text{ if } \ip^{r_i}_i \mid \ic \\
-          1 \mod \ip^{r_i}_i \text{ otherwise }
-        \end{cases}
-        $$
+  \item[(19)]
+        By similar reasoning as question (15), for every prime ideal $\ip$, there is an element $t \in \ip - \ip^2$ such that $\ip \mid (t)$. It also directly follows that $(t^n)$ has $\ip^n$ in its prime factorization.
 
-    Now $x^{-1}\ia \subseteq \ia^{-1}\ia  = \io$. But
+        Given distinct primes $\ip_1, \dots, \ip_n$, and positive integers $r_1, \dots, r_n$ we can find $x_i \in \io$ such that $(x_i)$ has $\ip_i^{r_i}$ in its prime factorization. By the chinese remainder theorem, we then can select $x \in  \io$ such that $x = x_i \mod \ip_i^{r_i + 1}$ that has the product of all the prime powers $\ip_i^{r_i}$ in its prime factorization.
 
+        Let $\ia = \ip_1^{s_1}\cdots \ip_n^{s_n}$. Taking $r_i = s_i$ in the previous pararaph, we obtain a $(x)$ that is a multiple of $\ia$ for some $y \in \io.$ Let $(x) = \ia \ic$ for some ideal $\ic$. Note that the inverse of this ideal is the fractional ideal $x^{-1}\io$ which is of the form $\ia^{-1} \ic^{-1}$. Next, we construct another ideal $(u)$ by defining $r_i$ as follows:
+
+        $$r_i = \begin{cases}
+          0 \quad \text{ if } \ip_i \mid \ia \\
+          m_i \quad \text{ if } \ip_i^{m_i + 1} + \ic = \ip_i^{m_i}\\
+          0 \quad \text{ if } \ip_i \mid \ib, \ip_i \nmid (x)
+                \end{cases}
+          $$
+
+        \newcommand{\iz}{\I z}
+        Now it follows that $(u) = \ic \iz$ for some ideal $\iz$ such that $\iz + \ib = \io.$ Observe that $ux^{-1}\ia = u\io x^{-1}\io \ia = \iz.$ Taking $c = x/y \in K$, we conclude the proof.
 \end{enumerate}
 
 \end{document}
