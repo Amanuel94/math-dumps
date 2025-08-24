@@ -324,9 +324,27 @@ To show, the set spans $A$, we consider  $A/A_0.$  Suppose, there is $av_m \in A
                 $$\ia \oplus \ib \iso \io \oplus \ia \ib$$
 
           \item
+                First we show that $f = m_c$ for some $c \in K$. Let $a_1, a_2 \in \ia.$ For fixed elements, $a_1, a_2$, we can assume $f(a_1) = c_1a_1$ and $f(a_2) = c_2a_2$ for $c_1, c_2\in K$ since both $\ia$ and $\ib$ are contained in the field $K$. By the definition of fractional ideals, there is an element $c \in \io$ such that $ca_1, ca_2 \in \io$ and $ca_1a_2 \in \ia$. By the $\io$-linearlity $f$ and by commuitivity of $K$, $f(ca_1a_2) = ca_1f(a_2) = ca_2f(a_1) \implies c_1 = c_2$. Thus $f = m_c$. This also proves $\ib = c\ia$ for some $c \in K$.
+
+
+                We can define an extension of $f$, $f_K$, in $K$ as $f_K(x) = f_K(a^{-1}ax) = a^{-1}xf_K(a) = a^{-1}f(a)x = cx.$ $f_K$ is clearly $K$-linear and agrees with $f$ on $\ia$.
+                \begin{remark}
+                  Lang takes for granted that the assumption that there exists a $K$-linear map $f_K$. This is not obvious and we have just proved that in fact there exists a $K$-linear map that is an extenstion of $f$.
+                \end{remark}
+
+          \item
+                The assertion that $m_b$ is an element of $\dual{\ia}$ follows directly from the inclusion $b\ia \subseteq \ia^{-1} \ia = \io.$ This implies $\ia^{-1} \subseteq \dual{\ia}$. We show the reverse inclusion holds.
+
+                Let $\phi \in \dual{\ia}$. By the previous subproblem, it suffices to show that $\phi(\ia)$ is an ideal of $\io$. Since $\phi(\ia)$ is a $\io$-submodule of $\io$, $\phi(\ia)$ is an additve subgroup of $\io$. For $a, b \in \ia$, by properties of $\io$-homomorphism $\phi$, $\phi(\phi(a)b) = \phi(a)\phi(b) \in \phi(\ia)$. Finally,
+                for $c \in \io$, $c\phi(\ia) = \phi(c\ia) \subseteq \phi(a)$ where the last inclusion followed from the definition of fractional ideals.
+
+                Thus, we have $\phi(\ia) = c\ia$ where $c = \phi_K(1)$. $c$ has to be a member of $\ia^{-1}$ because otherwise $c\io + \ia^{-1}$ would be an inverse of $\ia$ making $\ia^{-1}$ non-unqiue, a contradiction in Dedekind domains.
+
+    \end{enumerate}
+        \item \begin{enumerate}[(a)]
+          \item
 
         \end{enumerate}
-
 
 \end{enumerate}
 
