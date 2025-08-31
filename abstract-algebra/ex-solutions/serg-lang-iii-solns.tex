@@ -5,20 +5,15 @@
 \usepackage{amsthm}
 \usepackage{hyperref}
 \usepackage{bookmark}
-% \usepackage{fbb}
-% \usepackage{newpx}
-% \usepackage{libertine}
-% \usepackage{crimson}
-% \usepackage{bm}
 \usepackage{cochineal}
 \usepackage[a4paper, margin=1in]{geometry}
 
-% \usepackage{eulervm} % math
 \usepackage{mathpazo} % math
 
 \usepackage{tikz-cd}
 \usepackage{enumerate}
 
+\usetikzlibrary{arrows.meta}
 \newtheorem{theorem}{Theorem}
 \newtheorem{lemma}[theorem]{Lemma}
 \newtheorem{corollary}[theorem]{Corollary}
@@ -342,6 +337,52 @@ To show, the set spans $A$, we consider  $A/A_0.$  Suppose, there is $av_m \in A
 
     \end{enumerate}
         \item \begin{enumerate}[(a)]
+                \item
+                      $M$ should be torsion-free. Otherwise, by projectivity of $M$, for some free module $F \supseteq M$ and any surjective $\io$-homomorphism $f: F \to M$, there is a correspoding $g: M \to F$ such that $f \circ g = \id_M$. If non-zero $x \in M$ is a torision element, say with exponent $a \in \io$, then $0 = g(ax) = ag(x) \in F$ implying either $a = 0$ or $g(x) = 0$. Since $f(g(x)) = x \neq 0$, it follows $a = 0$, proving $M$ is torsion free.
+
+                      Localizing $M$ at any prime ideal $\ip$ of $\io$, we see that the module $M_\ip$ is a PID that is torsion-free and finity generted. This makes $M_\ip$ free. Let $M_\ip = \bigoplus_{i=1}^n \io_\ip m_i$. By finiteness of $m_i$, there is an element $c \in \io$ such that $cm_i \in M$ for all $i$. We then find $F'$ as
+
+                      $$F' = \bigoplus_{i = 1}^n \io (cm_i)  \subseteq M.$$
+
+                      Now, let $\{v_1, \dots, v_k\}$ be the generators of $M$ and let
+                      $$v_i = \sum_{j = 1}^n r_j^{(i)}m_i.$$
+                      Pick $d \in \io$ such that $dr_j^{(i)} \in \io$ which exists by the finiteness of $r_j^{(i)}$. It follows that $dM \subseteq \bigoplus_{i = 1}^n \io m_i$ and that
+                      $$M \subseteq \bigoplus_{i = 1}^{n} \io (\frac{1}d m_i) = F.$$
+
+                      The equality $\rank\ F = \rank\ F'$ immediately follows.
+
+                \item
+                      Let $\frac{1}d m_i = e_i$ in the proof of (b).  We prove the statement by inducting on the number of basis elements, $n$.
+
+                      When $n = 1$,  then define $\ia_1 = \set{a : ae_1 \in M}$. This subset of $\io$ is an ideal of $\io$ because if $m = ae_1$ for some $a$, then $rae_1 = rm \in M$ for any $r \in \io$.
+
+                      For the induction step, suppose $N$ is a submodule of $M$ spanned by $e_1, \dots. e_{n-1}.$ By induction hypothesis, $N = \bigoplus_{i=1}^{n-1} \ia_ie_i$. Consider the exact sequence
+                      $$ 0 \to N \to M \to M/N \to 0.$$
+
+                      Since $\rank\ M/N = \rank\ M - \rank\ N = 1$, and by the projectivity of $M/N$, the induction follows.
+
+                \item
+                      The statement that $M \iso \io^{n-1}\oplus \ia$ for some ideal $\ia$ follows immediately from part (b) of this problem and part (a) of problem 12.
+
+                      \newcommand{\Pic}{\mathrm{Pic}}
+                      Let $F: K_o(\io) \to \Pic(\io)$ be the given association. First, we show that this association is a group homomorphism. By the linear independece of $F$ (as defined in (a)), the
+                      'decomposition' of $M$ in terms of $\ia_i$ is unique. Thus, $\ia = \ia_1 \cdots \ia_n$ is uniquely determined by $M$, making $F$ a well-defined mapping.
+
+                      Consider $M, N$ are two finite projective modules. Then $F(M) + F(N) = \io^{n-1} \oplus \ia \oplus \io^{m-1}\oplus \ib = \io^{n-m-2} \oplus \ia \oplus \ib = \io^{n-m+1}\oplus \ia \ib = F(M \oplus N).$ Thus $F$ is a group homomorphism.
+
+                      Let $M \in \ker F$. Then, $F(M) = \io$. This implies $M = \io^{n}$ is free which is a single equivalence class in $K_0(A)$. Therefore, $M = [0]$. Finally, taking $M$ as any ideal $\ia$ of $\io$ as $\io$-module, we see that $F(M) = \ia$, making $F$ surjective and thus an isomorphism.
+
+        \end{enumerate}
+
+        \textbf{A few snakes}
+  \item
+
+        Let $M' \fto{\phi'} M \fto{\phi}  M'' \to 0$ and let $0 \to N' \fto \psi' N \fto \psi N''$ be the two exact sequence in the diagram.
+        \begin{enumerate}[(a)]
+          \item Let $g(x) = 0$. By commutitivity, $\psi(gx) = h(\phi x) =  0$. By the injectivity of $h$, $\phi(x) = 0$. By exactness of the top sequence, $x = \phi'(y)$ for $y \in M'$. By commutitivity of the diagram, $0 = g(\phi' y) = \psi'(fy)$. By exactness of the bottom sequence $f(y) = 0$. By the injectivity of $f$, then $y = 0$ and its image under $\psi'$, $x$ is also $0$. This proves $g$ is a mono-morphism.
+
+          \item Let $x \in N$. Then $\psi x \in N''$. By surjectivity of $h$ and $\phi$, there is an element $y \in M$ such that $h(\phi y) = \psi x$. By commutitivity, it follows that $\psi x = \psi(g y)$ and consequently $x - g y \in \ker \psi$. By exactness, $x - g y = \psi' z$ for some $z \in N'$ and by surjectivity of $f$, $x - g y = \psi'(f w)$ for some $w \in M'$. By commutitivity, it follows that $x - gy = g(\phi' w)$ or $x = g(y + \phi' w)$, implying $x \in \Img g$ ($g$ is surjective).
+
           \item
 
         \end{enumerate}
