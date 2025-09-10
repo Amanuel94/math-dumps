@@ -10,7 +10,7 @@
 
 % \usepackage{mathpazo} % math
 % \usepackage{mathpx}
-\usepackage{fbb}
+% \usepackage{fbb}
 \usepackage{eulervm }
 \usepackage{tikz-cd}
 \usepackage{enumerate}
@@ -543,6 +543,39 @@ To show, the set spans $A$, we consider  $A/A_0.$  Suppose, there is $av_m \in A
         Since, $g^{j}_{ik}$ form a directed family of morphisms, $A^{(i)}$ form a directed family and thus posses an inverse limit. By symmetry, $\invlim_i\invlim_j A_{ij}$ also exists. For fixed $i \leq k, j \leq l$, since $g^{j}_{ki} \circ f^{k}_{lj}  = f^{i}_{lj} \circ g^{l}_{ki}$, the two inverse limits are naturally isomorphic.
 
   \item
+        The $u_i$ and $v_i$ commute with the direct family of morphisms of $M'_i, M_i$ and $M_i, M''_i$ resp., we can define the maps between limits unambiguously as maps that send representative $[x] \mapsto [u_i(x)]$ and $[y] \mapsto [v_i(y)]$ where $x \in M'_i$ and $y \in M_i$. Let
+        $$0 \to \lim M' \fto  u \lim M \fto v \lim M'' \to 0.$$
 
+        and let $f_{ij}$, $g_{ij}$ and $h_{ij}$ be the directed family of morphisms of $M'_i, M_i$ and $M_i''$ resp. If $[x] \in \ker u$, the $g_{ij}(u_i(x)) = 0$ for some $i, j$. By commutitivity, this implies $u_j(f_{ij}(x)) = 0$. By exactness, $u_j$ is injective and $f_{ij}(x) = 0 \implies [x] = 0$. Thus $u$ is injective.
+
+        Similarly, if $[x] \in \ker v$, then $h_{ij}(v_i(x)) = 0 = v_j(g_{ij}(x))$ by commutitivity. Since $\ker v_j = \Img u_j$, $g_{ij}(x) = u_j(y)$ for some $y \in M'_j$. It directly follows that $u([y]) = [x]$ and thus $[x] \in \Img u \implies \ker v \subseteq \Img u$. For the reverse inclusion, let $[x] = u([y])$. Then $g_{kj}(x) = u_j(f_{ij}(y))$ for some $i, k \leq j$. By exactness, $v_j(g_{kj}(x)) = 0$ or $[x] \in \ker v$.
+
+        Finally, $[x] \in \lim M''$, then $h_{ij}(x) = v_j(y)$ for some $y \in M_j''$ by surjectivity of $v_j$. It immediately follows $v([y]) = [x]$, proving the direct limit preserves the exactness of a sequence
+
+  \item
+        All constructed maps are homomorphisms inherently.
+        \begin{enumerate}[(a)]
+          \item
+                Let $f \in \Hom(\bigoplus M_i, N)$ and let $f_i = f|_{M_i}: M_i \to N$, $x \mapsto f(x)$. By definition, $f = (f_i)$ and hence $f \in \prod_i \hom(M_i, N)$. Now, let $f_i \in \Hom(M_i, N)$. Define $f: \bigoplus M_i \to N$ by $f((x_i)) = \sum_i f_i(x_i)$. Therefore $\prod_i \Hom(M_i, N) \subseteq \Hom(\bigoplus M_i, N).$
+
+          \item
+                Let $f \in \Hom(N, \prod M_i)$ and let $\pi_j: \prod M_i \to M_j$ projection map to the $j$-th component. By definition, $f = (f \circ \pi_i)_i \in \prod_i \Hom(M_i, N), $ implying the forward inclusion. Let $f_i: N \to M_i$. Similarly to the previous subproblem, define $f(x) = (f_i(x)) \in \Hom(N, \prod_i M_i)$.
+        \end{enumerate}
+
+
+  \item
+        Let ${f_{ij}}$ be the directed family of morphism of $\set{M_i}$. Then the induced morphism $\phi_{ij}: g \to f_{ij} \circ g$ form a directed family morphisms for $\Hom(N, M_i)$ because
+
+        $$\phi_{ii}(g) =  f_{ii} \circ g = \id \circ g = g \quad \text{and}$$
+        $$\phi_{jk}(g) =  f_{jk} \circ g = f_{ik} \circ f_{ji} \circ g = f_{ik} \circ \phi_{ji}(g) = \phi_{ik} \circ \phi_{ji}(g), k \leq i \leq j.$$
+
+        Hence, the inverse limit $\invlim_i \Hom(N, M_i)$ exists. Let $\pi_j : \invlim M_i \to M_j$ be the natural projection map to the $j$-th component.
+
+        If $(g_i) \in \invlim \Hom(N, M_i)$, then $g_i = \phi_{ji}(g_j) = f_{ij} \circ g_j$ for all $j \geq i$. This is isomorphic to a morphism in $\Hom(N, \invlim M_i)$ naturally as $(g_i)(x)$ satisfies $g_i(x) = f_{ij}(g_j(x))$ making the image of $(g_i)$ a subset of $\invlim M_i$.  Thus $\invlim_i \Hom(N, M_i) \subseteq \Hom(N, \invlim_i M_i)$.
+
+        Similarly, for any $f \in \Hom(N, \invlim_i M_i)$, define $f_i: N \to M_i$ by $f_i(x) = \pi_j(f(x))$. Then $(f_i)_i \in \invlim_i \Hom(N, M_i)$.
+
+  \item
+        Let index set $I$ be the set of all fintely generated submodules of $M$ orderd by inclusion. For $A, B \in I$, $\{f_{AB}: A \to B\}$ be a family of morphisms indexed by $I$ defined by $f_{AB} = i_{AB}$, the canonical inclusion of $A$ into $B$. Clearly, this family is directed and admits a direct limit. Since $M = \bigsqcup_{A \in I} A/ \sim$, We can express $M$ as a direct limit of fintely generated submodules.
 \end{enumerate}
 \end{document}
