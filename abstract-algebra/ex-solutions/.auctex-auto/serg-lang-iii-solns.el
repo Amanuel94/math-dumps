@@ -6,7 +6,7 @@
    (TeX-add-to-alist 'LaTeX-provided-class-options
                      '(("article" "")))
    (TeX-add-to-alist 'LaTeX-provided-package-options
-                     '(("amsmath" "") ("amssymb" "") ("amsthm" "") ("hyperref" "") ("bookmark" "") ("geometry" "a4paper" "margin=1in") ("eulervm" "") ("tikz-cd" "") ("enumerate" "")))
+                     '(("amsmath" "") ("amssymb" "") ("amsthm" "") ("hyperref" "") ("bookmark" "") ("geometry" "a4paper" "margin=1in") ("fbb" "") ("eulervm" "") ("" "") ("tikz-cd" "") ("enumerate" "")))
    (add-to-list 'LaTeX-verbatim-macros-with-braces-local "href")
    (add-to-list 'LaTeX-verbatim-macros-with-braces-local "hyperimage")
    (add-to-list 'LaTeX-verbatim-macros-with-braces-local "hyperbaseurl")
@@ -24,7 +24,9 @@
     "hyperref"
     "bookmark"
     "geometry"
+    "fbb"
     "eulervm"
+    ""
     "tikz-cd"
     "enumerate")
    (TeX-add-symbols
