@@ -1,0 +1,265 @@
+\chapter{Polynomials}
+
+\begin{proposition}
+
+  If $k$ is a field and $k[X_1, \dots, X_m]$ is the ring of polynomials over the variables $X_1, \dots, X_n$. Let $f \in k[X_1, \cdots, X_m]$ and $S_1, \cdots,  S_m$ be infinites subsets of the field $k$ such that $f(a_1, \cdots, a_n)$ for all $a_i \in S_i$. Then $f = 0$.
+
+\end{proposition}
+\begin{proof}
+
+  For $m = 1$, the propostion is trivial. For $m > 1$, note that
+  $$k[X_1, \cdots, X_m] = k[X_1, \cdots, X_{m-1}][X_m].$$
+
+  For fixed $a_1, \dots, a_{m-1}$, $f(a_1, \cdots a_{m-1}, X_n)$ is then $\in k[X_n]$ and thus $f(a_1, \cdots, a_{m-1}, X_n) = 0$ obtainig the result by symmetry and induction.
+
+\end{proof}
+
+\begin{theorem}
+  Let $k$ be a field and let $U$ be a finite multiplicative subgroup $k$. Then $U$ is cyclic.
+\end{theorem}
+
+\begin{proof}
+  Let $U = \prod_p U(p)$ where $U(p)$ is a $p$-group for each prime $p$. Let $a \in U(p)$ be an element with maximal power say $p^r$. Then for all $b \in U(p)$,  $b^{p^r} - 1 = 0$ making $|U(p)| \leq p^r$. Hence each $U(p)$ is cyclic.
+
+\end{proof}
+\begin{remark}
+  Generally, certain polyonmials over fields like $X^{p^r} - 1$ in the above proof, help us enumerate elements of the field with certain characterstics by measns of their roots.
+\end{remark}
+
+
+\begin{definition}[Algebraic Closure]
+  A field $k$ is called algebaically closed if all polyonmials in $k[X]$ of degree $\geq 1$ have all their roots in $k$.
+\end{definition}
+
+\begin{definition}[Frobenius Map]
+  If $k$ is a field with characteristic $p$, we call the map
+  $$x \mapsto x^{p^r}$$
+  the frobenius map or frobenius endomorphism
+\end{definition}
+
+\subsection*{Polynomials over a Factorial Ring}
+Let $A$ be a factorial ring and $K$ be its field of fraction.
+\newcommand{\ord}{\mathrm{ord}}
+\begin{definition}[Order]
+  If $a \in K$ and $p \in A$ be a prime element.
+  $$\ord_p: K \to \ZZ,$$
+  $$\ord_p(a) := r: a = p^rx/y, p \nmid x, p \nmid y.$$
+
+  If $f \in K[X]$, $f(X) = \sum a_i x^i$, we extend the above definition as
+  $$\ord_p f = \min_p \ord_p (a_i),$$
+  where the minimum is taken over all primes $p$ of $A$.
+\end{definition}
+
+\newcommand{\cont}{\mathrm{cont}}
+\begin{definition}[$p$-content, content]
+  We say the element $up^{\ord_p f}$, a $p$-content for $f$ for any unit $u$. Then the content of $f$, denoted by $\cont(f)$ is defined as
+  $$ \prod_p p^{\ord_p f},$$
+  over all primes $p$, upto multiplication by a unit.
+\end{definition}
+
+\begin{remark}
+  Content is a generalization of the concept of gcd for fractions. For instance, $\cont(p) = p$, $\cont(px + q) = 1$, $\cont(px + p) = p$ for prime $p, q$.
+\end{remark}
+
+
+\begin{theorem}[Gauss Lemma]
+  For any two $f, g \in K[X]$, we have
+  $$\cont(fg) = \cont(f)\cont(g).$$
+  \end{theorem}
+
+  \noindent \textit{Sketch 1.}: If both $f$ and $g$ are primitive, then $fg$ is primitive. This can be shown by noting that for any prime $p$, if we can not extract $p$ from both $f$ and $g$, then there is a coefficient in $fg$ namely $c = \sum_{i+j = r + s} a_i b_j$ where $r$ and $s$ are the largest integers (resp) such that  $a_r$ and $b_s$ are indivisible by $p$ and $c$ is thus indivisible by $p$.
+
+
+  \noindent \textit{Sketch 2.}
+  Considering the reduction modulo a prime $p$ of two polynomials $f$, $g$, say $\bar f$ and $\bar g$, we have
+  $$\bar{fg} = \bar f \bar g.$$
+  Since $A/(p)$ is an integral domain, $\overline{fg} = 0 \iff \overline f = \overline g= 0$.
+
+  \begin{theorem}
+    $A[X]$ is factorial and the primes are primes of $A$ or irreducible polynomials of $K[X]$ with content of $1$.
+  \end{theorem}
+
+  \begin{proof}
+    Let $f$ factorize as follows in $K[X]$
+
+    $$f(X) = c \prod_i p_i(X),$$
+
+    such that $\cont(p_i) = 1$. Since $\cont(f) = c$, $c \in A$ and there exists a factorization of $f$ in $A[X]$. Uniquness follows from uniquness of factorization in $K[X]$ upto multiplication by units and unitary content of irreducibles in $A$.
+  \end{proof}
+
+
+  \subsection*{Critera of Irreducibility}
+  \begin{theorem}[Eisenstein's Criterion of Irreducibility]
+    Let $A$ be a factorial ring and let $f \in A[X]$ such that
+    $$f(X) = a_0 + a_1x + \cdots a_nx^n.$$
+    Let $p$ be a prime in $A$. If we have
+    \begin{eqnarray*}
+      a_n \nequiv 0 \mod p & a_i \equiv 0 \mod p &  i < n \\
+                           & a_0 \nequiv 0 \mod p^2 &       
+    \end{eqnarray*}
+    then $f$ is irreducible in $A[X]$ (thus $K[X]$).
+    
+  \end{theorem}
+
+  \noindent \textit{Sketch}: If $f$ were reducible to $g, h$ such that $[X^n]g = b_n$, $[X^n]h = c_n$ and $\deg g = m$, $\deg h = n$  then neither of $b_m$ and $c_n$ are divisible by $p$. Moreover, WLOG, there is greaterst index $r$ such that all of $c_i, i > r$ are divisible by $p$, then
+  $$[X^r]f = b_0c_r + \cdots $$
+  is not divisible by $p$.
+
+  \begin{theorem}[Reduction Criterion]
+    Let $A$, $B$ be entire rings and let $\phi: A \to B$ be a homomorphism. Let $K$, $L$ be the quotient fields of $A$, $B$ resp. Assume for $f \in A[X]$,  $\phi f \neq 0$ and $\deg \phi f =  \deg f$. If $\phi f$ is irreducible in $L[X]$, then $f$ does not factorize to $g, h \in A[X]$ such that both $\deg g$, $\deg h \geq 1$.
+    
+  \end{theorem}
+
+  \begin{proof}
+    Since $\phi f = (\phi g) (\phi h)$, by irreduciblity of $\phi f$, one of the two factors on the right should have degree $0$. But $\deg \phi f = \deg \phi g + \deg \phi h$ by assumption, thus $f = c \cdot h$ for some $c \in A$.
+  \end{proof}
+  \begin{remark}
+    
+    This theorem is powerful test to check irreducibility. Eg. $X^p - X - 1$ is irreducibile over the field $\ZZ/p\ZZ$ thus irreducible over $\mathbb{Q}$.
+  \end{remark}
+
+
+  \subsection*{Hilbert's Theorem}
+
+  \begin{theorem}[Hilbert's Theorem]
+    If $A$ is commutitive and Noetherian, so is $A[X]$.
+  \end{theorem}
+
+  \noindent \textit{Sketch}
+    Take an ideal of $A[X]$, $\I U = \oplus \I a_i X^i$. By ACC, there is $r$ such that $\I a_r = \I a_{r + s}$. Since $\I a_i$ is finitely generated, say by $a^i_j$, for $0  \leq i \leq r$, there are polynomials $f_{ij}(X) = a_{j}^{i}X^{i} + g(X)$, $g \in \I U$, $\deg g < i$, that generate $A[X]$ and the number of $f_{ij}$ is finite.
+
+
+    \subsection*{Partial Fractions}
+
+    \newcommand*{\Frac}{\mathrm{frac}}
+    \begin{theorem}
+      Let $A$ be a principal entire ring and let $K = \Frac(A)$. Let $\alpha \in K$ and $P$ be the set of representatives of the irreducibles of $A$, i.e, unique upto multiplication by units of $A$. For each $p \in P$, there exists an element $\alpha_p$ and non-negative integer $j(p)$ with $\gcd(p^{j(p)}, \alpha_p) = 1$ that satisfies
+
+      $$\alpha = \sum_{p \in P} \dfrac{\alpha_p}{p^{j(p)}}$$
+
+      with $j(p) = 0$ for all but finite elements of $P$. Moreover, this expression is unique upto the condition $\alpha_p \equiv \alpha_p' \mod p^{j(p)}$.
+    \end{theorem}
+
+    \begin{theorem}
+      Let $k$ be a field and $k[X]$ be the ring of polynomials over $k$. Let $f, g \in k[X]$ such that $\deg g \geq 1$. There exists a unique sequence of polyonmials $f_0, \dots, f_d$ with $\deg f_i < \deg g$ such that
+
+      $$f = f_0 + f_1g + \cdots f_dg^d.$$
+    \end{theorem}
+
+    The expresion of $f$ as such is called the \textbf{$g$-adic expansion} of $f$
+
+
+    \subsection*{Symmetric Polynomials}
+
+    Define the monomials $s_i$ as follows:
+    $$\prod_{i=1}^n(X + t_i)  = \sum_{i= 0}^n s_i X^{n-i}$$
+    \begin{theorem}
+      Let $f(t) \in A[t_1, \dots, t_n]$ be a symmetric polyomial with degree $d$. Then There is polynomial $g$ of weight $\leq d$ such that $f(t_1, \dots, t_n) = g(s_1, \dots, s_n)$. 
+    \end{theorem}
+
+
+    \subsection*{Mason-Stothers Theorem and The $abc$ Conjecture}
+    Let $n_0(f)$ be the number of distinct roots of the polynomisl $f \in K[X]$.
+    \begin{theorem}[Mason-Stothers]
+      If $a, b \in  K[t]$ are relatively prime polyonmials in an algebraically closed field $K$, then
+      $$\max(\deg(a, b)) \leq n_o(ab(a + b)) - 1.$$
+    \end{theorem}
+
+
+    \begin{conjecture}[$abc$ conjecture]
+      For a given $\epsilon > 0$, relatively prime integers $a, b$ and their sum $c$, and a constant factor $C(\epsilon)$ depending only on $\epsilon$,
+
+      $$\max(|a|, |b|, |c|) \leq C(\epsilon)N_0(abc)^{1 + \epsilon},$$
+
+      where $N_0(x)$ is the product of distinct prime divisors of $x$, called radical of $x$. 
+      
+    \end{conjecture}
+
+    \subsection*{The Resultant}
+    
+    Let $v = (v_0, \dots, v_n)$ and $w = (w_0, \dots, w_m)$ be algebraically independent
+    over a commutitive ring $A$. Let
+    
+$$f_v(X) = \sum_{i=0^n} v_iX^i, \quad g_w = \sum_{i = 0}^{m} w_i X^i$$
+\[
+\operatorname{Res}(f_v,g_w)
+= \det
+\begin{bmatrix}
+v_0 & v_1 & \cdots & v_n & 0 & \cdots & 0 \\
+0 & v_0 & v_1 & \cdots & v_n & \cdots & 0 \\
+\vdots & & \ddots & & & \ddots & \vdots \\
+0 & \cdots & 0 & v_0 & v_1 & \cdots & v_n \\[6pt]
+w_0 & w_1 & \cdots & w_m & 0 & \cdots & 0 \\
+0 & w_0 & w_1 & \cdots & w_m & \cdots & 0 \\
+\vdots & & \ddots & & & \ddots & \vdots \\
+0 & \cdots & 0 & w_0 & w_1 & \cdots & w_m
+\end{bmatrix}
+\]
+
+\newcommand{\Res}{\operatorname{Res}}
+Denote $R(v, w) = \Res(f_v, g_w)$. Then for any $z$, we have
+$R(zv, w) = z^nR(v, w), \quad  R(v, zw) = z^mR(v, w).$
+Hence, $R$ is homogenous in $v$ and $w$. We also have,
+$$[v_0^mw_m^n]R(v, w) = 1.$$
+
+One can also show there exists $\phi_{v, w}, \psi_{v, w} \in Z[v, w][X]$ such that
+
+$$R(v, w) = \phi_{v, w}f_v + \psi_{v, w}g_w.$$
+This relation serves as an 'invariant' (i.e. not depending on $X$). For example:
+
+\begin{proposition}
+For a subfield $K$ of $L$ and $f_a, g_b \in K[X]$ having a common root $\eta$, then $R(a, b) =  0$.
+\end{proposition}
+
+\begin{proposition}
+  Let
+  $$f_v(X) = v_0\prod_{i=1}^n (X - t_i) = \sum_{i=0}^n v_iX^i,$$
+  $$g_w(X) = w_0\prod_{i=1}^n (X - u_i) = \sum_{i=0}^m w_iX^i.$$
+
+  Then
+  $$\Res(f_v, g_w) = v_0^mw_0^n \prod_{i=1}^m \prod_{j=1}^n (t_i - u_j).$$
+  
+\end{proposition}
+
+\subsection*{Power Series}
+\label{sec:power-series}
+The formal power series $A[[X]]$ in one variable is formally defined as the ring of morphisms from $G$ to $A$ where $G$ is the multiplicative monioid of mappings from $\{X\} \to \mathbb{N}$. We denote an element $f$ as
+
+$$f(X) = \sum_{n = 0}^\infty a_n X^n$$
+where $f$ maps $(X^n: X \mapsto n)$ to $a_n \in  A.$
+
+We define power series in $n$ variables $A[[X_1, \dots, X_n]]$ inductively.
+If $k$ is a field then $k[[X_1, \cdots, X_n]]$ is a complete local ring where a sequence $\set{a_n}$ is considered Cauchy if there exist $N$ such that for all $n, m \geq N$, $a_n - a_m \in I^v$ for a given power $v$ and ideal $I$.
+
+\horline\\
+Here it's worth to consider what complete local ring means in other terms. A convergence point $a$ by the above notion is an element $a$ such that $a - a_k \in I^v$ for all $k \geq N(v)$ for any power $v$. This translates to an element $x = (x_0, \dots)$ in the projective limit $\invlim_n R/I^n$ such that $x_j = a_i \mod I^j$ for all $i \geq N(v)$ and $j \leq v$. Therefore, an element $x$ in the projective limit defines a convergence points for some Cauchy sequence and thus a ring is complete if $R$ is equal to the projective limit.
+
+Locality, on the otherhand, implies $R$ has only one maximal ideal and anything outside the a given maximal ideal is invertible. 
+
+\horline\\
+
+\begin{theorem}
+  Let $\I o$ be a complete local ring with maximal ideal $\I m$. Let $f(X) \in \I o[[X]]$ be given by
+  $$f(X) = \sum_{i=0}^\infty a_iX^i$$
+  such that not all $a_i$ lie in $\I m$. Suppose $a_0, \dots, a_{n-1} \in \I m$ and $a_n \in \I o^*$ is a unit. Then given $g \in \I o[[X]]$ one can solve the equation
+  $$g = qf + r$$
+  uniquely where $q \in \I o[[X]]$ and $r \in \I o[X]$, $\deg r \leq n-1.$ 
+\end{theorem}
+
+\begin{remark}
+  If $a_0$ is a unit and all the other $a_i$ are non-units, $f$ is invertible and and one can always solve $g = qf$ by mutliplying inverse of $f$ to both sides. The theorem states a general case where $a_i \leq n-1$ are non-units, in which case one will have to make for the first $n-1$ terms of $g$ by adding polynomial $r$.
+\end{remark}
+
+\noindent \textit{Example}: Let $\I o = \ZZ$, and $f(X) = 2 + X + 2X^2 + 4X^3 + \cdots $. Let $g(X) = \sum_{n = 0}^\infty 2^n X^n.$ $f(X) = 1 + Xg(X) \implies (1 - 2X)f(X) = 1 - X \implies (1 + X + X^2 + \cdots )f(X) = g(X).$
+
+The integrer $n$ is called \textbf{Weierstrass Degree} of $f$ and denoted $\deg_W(f)$.
+
+\begin{theorem}[Weierstrass Preparation]
+  Let $f$ be a polynomial in a complete local ring $\I o$ with $\deg_W(f) = n$. Then we can solve the following equation uniquely
+  $$(X^n + b_{n-1}X^{n-1}+ \cdots + b_0)u = f(X),$$
+  where $u$ is a unit in $\I o[[X]]$ and $b_i \in \I m.$
+  
+\end{theorem}
+\begin{theorem}
+ If $k$ is a field, then $k[[X_1, \dots, X_n]]$ is a UFD. 
+\end{theorem}

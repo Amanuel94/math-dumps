@@ -1,0 +1,448 @@
+\documentclass{article}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{hyperref}
+\usepackage{bookmark}
+\usepackage{cochineal}
+% \usepackage{ebgaramond}
+\usepackage[a4paper, margin=1in]{geometry}
+\usepackage{mathpazo}
+\usepackage{tikz-cd}
+\usepackage{enumerate}
+
+\usetikzlibrary{arrows.meta}
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{proposition}[theorem]{Proposition}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    urlcolor=cyan,
+    citecolor=red
+}
+
+\begin{document}
+
+\title{Lang's Algebra Chapter 4 Solutions}
+\author{Amanuel Tewodros}
+\maketitle
+
+% \tableofcontents
+
+% commands
+
+\newcommand{\size}[1]{|#1|}
+\newcommand{\idx}[2]{[#1 : #2]}
+\newcommand{\gen}[1]{\langle #1 \rangle}
+\newcommand{\set}[1]{\{#1\}}
+\newcommand{\normal}{\trianglelefteq}
+\newcommand{\subgroup}{\leq}
+\newcommand{\normalizer}[1]{\text{N}_{#1}}
+\newcommand{\centerizer}{Z}
+\newcommand{\aut}{\text{Aut}}
+\newcommand{\inn}{\text{Inn}}
+\newcommand{\syl}{\text{Syl}}
+\newcommand{\sym}{\text{Sym}}
+\newcommand{\alt}{\text{Alt}}
+\newcommand{\id}{\text{id}}
+\newcommand{\im}{\text{im}}
+\newcommand{\orbit}[1]{\mathcal{O}_{#1}}
+\newcommand{\ZZ}{\mathbb{Z}}
+\newcommand{\C}[1]{\mathbb{Z}/#1\mathbb{Z}}
+\newcommand{\iso}{\cong}
+\newcommand{\dihedral}[1]{D_{#1}}
+\newcommand{\dicyc}{\text{DiC}}
+\newcommand{\hol}{\text{Hol}}
+\newcommand{\I}[1]{\mathfrak{#1}} 
+\newcommand{\Map}{\mathrm{Map}}
+% \newcommand{\nequiv}{\not \equiv}
+\newcommand{\cat}[1]{\mathcal{#1}}
+\newcommand{\Cat}{\mathcal{C}}
+\newcommand{\Mor}{\text{Mor}}
+\newcommand{\Ob}{\text{Ob}}
+\newcommand{\End}{\text{End}}
+\newcommand{\horline}{\noindent\rule{\textwidth}{1pt} \newline}
+\newcommand{\Img}{\mathrm{Im}\ }
+\newcommand{\Hom}{\mathrm{Hom}}
+\newcommand{\fto}[1]{\overset{#1}{\to}}
+\newcommand{\from}{\leftarrow}
+\newcommand{\m}[1]{\mathfrak{#1}}
+\newcommand{\dual}[1]{#1^{\vee}}
+\newcommand{\ddual}[1]{#1^{\vee \vee}}
+\newcommand{\rank}{\mathrm{rank}}
+\newcommand{\tor}[1]{#1_{\mathrm{tor}}}
+\newcommand{\dirlim}{\underrightarrow{\lim}}
+\newcommand{\invlim}{\underleftarrow{\lim}}
+\newcommand{\localize}[2]{{#1}^{-1}#2}
+\newcommand{\Coker}{\mathrm{Coker\ } }
+
+\begin{enumerate}[(1)]
+  \item We will show that a $\implies$ b $\implies$ c $\implies$ a. 
+        
+        \begin{enumerate}
+          \item[a$\implies$b] Suppose there is $g(X)$, $\deg g > 0$, such that $(g(X)) \supsetneq (f(X))$. This implies there is $h(X)$ such that $h(X)g(X) = f(X)$. By primality, $g(X) \notin (f(X))$, implies $h(X) \in (f(X))$. This implies $h(X)$ generates $(f(X))$ which implies $h(X) = cf(X)$ and $g(X) = d$ for some $d \in k$, a contradiction. Hence $(f(X))$ must be maximal.
+
+        \item[b$\implies$c] If $f(X) = g(X)h(X)$, where neither $g(X)$ nor $h(X)$ are units, then $(g(X)) \supsetneq (f(X))$, contradicting the maximality of $(f(X))$. 
+
+        \item[c$\implies$a] Let $h(X) = r(X)s(X) \in (f(X))$. Since $k[X]$ is UFD and $f(X) | h(X)$, the prime factorization at least one of $r$ and $s$ contains $f(X)$ as a factor. WLOG, let $f(X) \mid r(X)$, then $r(X) \in (f(X))$ and thus $(f(X))$ is prime.
+        \end{enumerate}
+
+
+  \item
+
+        \begin{enumerate}[(a)]
+          \item
+                The equivalent statement for rational numbers is the following:
+                
+                \textit{For a given rational number $a/b$ and the set of primes $P$ of $\ZZ$, we have}
+                $$\frac{a}b = \sum_{p \in P} \frac{a_p}{p^{j_p}} + N,$$
+                \textit{where $j_p > 0$ if $a_p = 0$, $a_p = 0$ if $j_p=  0$, $a_p \leq p^{j_p}$ and $N$ is an integer. This expression is unique.}
+
+                First, we show that such expression exists. Let $b$ be a product of two coprime numbers $c$ and $d$. The by Euclid's algorithm, there are numbers $x, y$ such that $cx + dy = a$. Substituing this in $a/b$, we see that
+                $$\dfrac{a}{b} = \dfrac{x}{d} + \dfrac{y}{c} .$$
+                And hence,
+                $$ \dfrac{a}{b} = \sum_{p\in P} \dfrac{a_p}{p^{j_p}}, $$
+                Where $a_p = 0$ if $j_p = 0$. If $a_p \geq p^{j_p}$, then we can write $a_p/p^{j_p}$ as $a_p'/p^{j_p} + N_p$ for some $N_p > 0$ and $a_p < p^{j_p}$. Hence, the given expression exists. For uniqueness, let
+
+                $$\dfrac{a}{b} = \sum_{p \in P} \frac{a_p}{p^{j_p}} + N = \sum_{p \in P} \frac{b_p}{p^{i_p}} + M.$$
+
+                Fix a prime $q$ and WLOG assume $j_q > i_q$. Then we have the following equation
+
+                $$\ell(a_q - p^{j_q - i_q}b_q) = q^{j_q}L,$$
+                where $\ell$ is the least common multiple of all $p^{j_p}, p^{i_p}, p \neq q$ and $L$ is some integer. Since $q^{j_p}$ divides the L.H.S but not $\ell$ and $a_q$, we have $j_q = i_q$. This implies
+
+                $$\dfrac{a_q - b_q}{q^{j_q}}  = \sum_{p \neq q} \dfrac{b_p -  a_p}{p^{j_p}} + M - N$$
+                Since $q \nmid p^{j_p}$ we have $b_p = a_p$ and since $|a_q - b_q| < p^{j_p}$, $M = N$. Hence, the expression is unique.
+
+
+          \item
+                The equivalent statement for positive integers is the following:
+                
+                \textit{If $\alpha, \beta \in \ZZ$, such that $\beta > 1$, then there exisit unique positive integers}
+                $$\alpha_0, \alpha_1, \dots, \alpha_d \in \ZZ,$$
+                \textit{such that $\alpha_i < \beta$ and}
+                $$\alpha = \alpha_0 + \alpha_1\beta + \cdots + \alpha_d\beta^d.$$
+
+                If $\alpha < \beta$, there is nothing to show. If $\beta \leq \alpha$, then by Euclid's algorithm, there are unique positive integers $q$ and $r < \beta$ such that $\alpha = q\beta + r$ and $q < \alpha$. By induciton, existence (and thust uniqueness) is proven.
+        \end{enumerate}
+
+  \item
+        $f(X + Y) \mod Y = f(X)$. Collecting similar powers of $Y$, we have the given expression. Now take the $i$-th derivative of $f(X + Y)$ with respect to $Y$
+        $$D^{i}f(X + Y)  = \sum_{k = i}^n k! \phi_k(X) Y^{k - i}.$$
+        Substituting $Y = 0$, you get $D^{i}f(X) = i!\phi_i(X)$.
+
+
+  \item
+        First we introduce the notion of partial derivative similar to that in calcus as follows:
+
+        $$\dfrac{\partial}{\partial X_i}\bigl(\sum_{(v)} a_{(v)} X_1^{v_1} \cdots X_n^{v_n}\bigr) = \begin{cases}
+          \bigl(\sum_{(v)}a_{(v)}v_i X_1^{v_1}\cdots X_i^{v_i-1} \cdots X_n^{v_n} \bigr) \text{ if } v_i > 0, \\
+          0 \text{ if otherwise.}
+        \end{cases}$$
+        
+        We define the taylor expansion in $n$ variables as a polynomial in $k[X_1, \dots, X_n, Y_1, \dots, Y_n]$ such that
+
+        $$f(X_1 +Y_1, \dots, X_n + Y_n) = f(X_1, \dots, X_n) + \sum_{(v)} \phi_{(v)}(X_1, \dots, X_n)Y^{v_1}\cdots Y^{v_n}.$$
+        The above definition can be shown to be unambiguous using a similar proof as (3). Taking the $v_i$-th partial derivative of $f$ with respect to $X_i$ followed by substituting $Y_i = 0$ and rearranging terms the following relation is proved.
+        $$\phi_{(v)}(X_1, \dots, X_n) = \dfrac{1}{v_1! \cdots v_n!}\dfrac{\partial^{v_1 + \cdots + v_n}f}{\partial X_1^{v_1}\cdots \partial X_n^{v_n}}$$
+
+
+  \item
+        \begin{enumerate}[(a)]
+          \item
+                For $f(X) = X^4 + 1$, we notice that $f(X + 1) = X^4 + 4X^3 + 6X^2 + 4X + 2$ is irreducible over $\ZZ$ by Eisenstein's crietrion or irreducibility. For $g(X) = X^6 + X^3 + 1$, reducibity over $\ZZ$ fails by the integral root test as $g(\pm 1) \neq 0$. Irreducibilty over $\mathbb Q$ directly follows from the irreducibility over $\ZZ$.
+
+          \item
+                If $f$ is a reducible polynomial over $k$, say $f(X) = g(X)h(X)$, $\deg h, \deg g \geq 1$, then $\deg h + \deg g = 3$. This can only happen if either of $h$ and $g$ has degree $1$. $X^3 - 5X^2 + 1$ fails irreducibility test by the integral root test thus not irreducible over $\mathbb Q$.
+
+          \item
+                Considering $X^2 + Y^2 - 1$ as an element of $K[Y][X]$, we see that $K[Y]$ is factorial and we can use Eisenstein's irreduciblity test using the irreducible $Y - 1$ as $p$ and we see that $Y - 1 \mid Y^2 - 1, (Y - 1)^2 \nmid Y^2 - 1$ and $Y - 1 \nmid 1$. Thus $X^2 +Y^2 - 1$ is irreducible over $\mathbb Q$ and $\mathbb C$.        
+        \end{enumerate}
+
+  \item
+        Let $f(X) = a_0 + \cdots + a_dX^d$. We can turn $f$ to monic by factoring out $a_d$ as $g(X) = f(X)/a_d = X^d + \frac{a_{d-1}}{a_d}X^{d-1} + \cdots + \frac{a_0}{a_d}$. If $t_1, \dots, t_m$ are the root of $g$, then we have $t_1 \cdots t_m = a_0/a_d$. It then must be the case that for a root $t_i = x_i/y_i$, $x_i \mid a_0$ and $y_i \mid a_d$.
+
+  \item
+        \begin{enumerate}[(a)]
+          \item 
+            Suppose $(0, \dots, 0)$ is the only root of $f$. Since $a^{q - 1} = 1$ for any finite field with $q$ elements and $a \neq 0$, 
+            $$1 - f(X)^{q - 1} =
+            \begin{cases}
+            1 \text{ if } X = 0,\\
+            0  \text{ otherwise. }
+            \end{cases}
+            $$
+
+            Let $g(X_n) = 1- f(X_1, \dots, X_n) \in k[X_1, \dots, X_{n-1}][X_n]$.  This implies all the units $u_1, \dots, u_{q-1}$ are zeros of $g$ and $\prod_{k=1}^{q-1}(X_n - u_{k})$ divides $g(X_n)$. This product is equal to $X_n^{q-1}-1$. Doing this for all $X_i$, we see that
+
+            $$h(X)\prod_{s=1}^n 1 - X_s^{q-1} = (1 - f(X)^{q-1}).$$
+            The degree of the polynomial on the RHS $< n(q-1)$ where as that of the LHS is $\deg h + (q-1)n > (q-1)n$, a contradiction. Thus $f(X)$ must have a root other than $0$.
+
+          \item
+                If $q = 2$, the sum expression is obviously true. Otherwise note that  $u$ is unit iff $-u$ is unit in $k$ and that $u^{k} = v^k $ iff $v = u$ if $u$ and $v$ are units. Thus the sum expression is true. By definition,
+                $$N = \sum_{x \in k^n} (1 - f(x)^{q-1}).$$
+                The second expresion for $\prod_i \psi(i)$ directly follow from taking the sum fixing each $x_k$ one by one and factoring out common units $x_1^{i_1} \cdots x_{k}^{i_{k}}$ for all valid $k$.
+
+                For the last part, we have
+                    \[
+                    I = \{ (i_1, \dots, i_n) \in \mathbb{Z}_{\ge 0}^n : i_1 + \cdots + i_n \le d(q-1) \}.
+                    \]
+
+                    \begin{align*}
+                    N 
+                    &= \sum_{x \in k^n} \bigl(1 - f(x)^{q-1}\bigr) \\[3pt]
+                    &\equiv - \sum_{i \in I} 
+                        c(i)\!\!\sum_{x \in k^n} x_1^{i_1} \cdots x_n^{i_n}
+                        \pmod{q} \\[3pt]
+                    &\equiv - \sum_{i \in I} 
+                        c(i) \prod_{k=1}^n \psi(i_k)
+                        \pmod{q}.
+                    \end{align*}
+            In the last term all exponents $i_j$ can not be a multiple of $q-1$ because otherwise $\deg f \geq n$. Thus the product $\mod q = 0$ and the statement is proved.
+dots
+          \item
+                By assumption and (b) $f_1\cdots f_r(a) = 0$ for some $a \neq 0$. This implies at least one $f_i(a) = 0$. But then $\sum_{k = 1}^r \prod_{j \neq k} f_j(a) = \prod_{j=1, j \neq i }^r f_j(a)$ which implies we have $f_j \neq f_i$ such that $f_j(a) = 0$. Carrying out this process, we prove that $a$ is shared across all $a$. 
+                
+
+          \item
+                Let $f$ be an arbitrary function from $k^n \to k$. Then we define the polynomial $g \in k[X_1, \dots, X_n]$ as
+
+                $$g(X_1, \dots, X_n) = \sum_{c \in k^n} f(c)(1 - \prod_{i=1}^n (X_i - c_i)^{q - 1}).$$
+                It is clear $g = f$
+                
+        \end{enumerate}
+
+
+  \item
+        The induced map is going to be the map $f(X) \mapsto f(aX + b)$ which also fixes the elements of $A$. The map is injective because if $f(aX + b) = 0$, then $f(X) = 0$ for infinitely many entries thus $f(X) = 0$. We also observe that $f(aX + b) = h(X)$, then $h(a^{-1}X - a^{-1}b) = f(X)$, making the induced map an automorphism with the inverse $f(X)\ \mapsto f(a^{-1}X - a^{-1}b)$.
+
+  \item
+        Let $f$ be an automorphism on $A[X]$. By bijectivity, for any $p \in A[X]$, we have $\deg f(p) = \deg p$. Thus $\deg f(X) = 1$ or $f(X) = aX + b$ for some $a, b \in A$. Now suppose $X = f(cX + d) = ac(X) + cb + d$. This implies $ac = 1$ and $a$ must be a unit.
+
+  \item
+        Let $X \mapsto p(X)/q(X) \in K(X)$ where $p$ and $q$ are coprime in $K[X]$. By surjectivity, we have $f(X) = \sum_{i=0}^{d'}a_iX^i, g(X) = \sum_{i = 0}^d b_i X^i$, $a_{d'}, b_d \neq 0$ such that $f(\frac{p}{q} X)/g(\frac{p}{q}X) = X$. We note that
+        $$f(\frac{p}q X) = \big(\sum_{i=0}^{d'} a_i p^i(X)q^{d'-i}(X)\big)\big/q^{d'}(X)$$. Similar thing can be said for $g(\frac{p}q X)$. By rearranging terms, we get the equation
+
+        \begin{equation}\label{eqn1}
+          xq^{d'}(X)\sum_{i=0}^d b_i p^i(X)q^{d - i}(X)  =  q^{d}(X)\sum_{i=0}^{d'}a_ip^i(X)q^{d'-i}(X).
+          \end{equation}
+
+        We have three cases:
+        \begin{enumerate}
+          \item[$d' < d$.] Since $q^d(X)$ must divide the L.H.S, $q(X) \mid \sum_{i=0}^{d}b_i p^i(X)q^{d - i}(X)$ or $q(X) \mid x$. The former can only happen if $b_d = 0$ contradicting assumption. This implies $q(X) \mid x$ or in other words $q(X) = cX$ for some $c \in K$.
+
+          \item[$d' > d$.] This is similar to the previous case except there are no enough factors in R.H.S to accomodate the extra multipicity of $q(X)$ and thus impossible to have such $(d', d)$ pair.
+
+          \item[$d' = d$.] In this case, we can simiplify and rearrange terms to get
+
+                $$(b_dX - a_d)p^d(X) = \sum_{i = 0}^{d-1} (a_i - xb_i)p^i(X)q^{d - i}(X).$$
+                Since $q(X)$ divides the R.H.S and $p$ and $q$ are coprime, $q(X) \mid b_dX - a_d \notin K$. Thus $\deg q \leq 1$.
+                
+        \end{enumerate}
+
+        Thus $q(X) = aX + b$ for some $a, b \in K$. To show that $\deg p \leq 1$, we suppose NOT, and compare the degrees of two sides of equation \ref{eqn1}. The LHS has a degree of $1 + d'\deg q + d \deg p$. The RHS has a degree of $d \deg q + d'\deg p$. This is clearly a contradiction, thus $\deg p \leq 1$.        
+
+
+  \item
+        \begin{enumerate}[(a)]
+          \item Given the extension homomorphism $D$ in $K$, $D(1) = D(1/1) = 0$ and $D(1/y) = -Dy/y^2$. Then, for $x, y \in A$,
+                \begin{align*}
+                  D(xy) & = D(x/y^{-1})\\
+                        & = \dfrac{y^{-1}Dx - x D(1/y)}{y^{-2}}. \\
+                        & = xDy + yDx\\
+                \end{align*}
+
+                Next, we show that $D$ is well-defined in $K$.
+                \begin{align*}
+                D(cx/xy) & = \dfrac{cyD(cx) - cxD(cy)}{c^2y^2} \\
+                         & = \dfrac{cy(cDx + xDc) - cx(cDy + yDc)}{c^2y^2} \\
+                         & = D(x/y).\\
+                \end{align*}
+
+          \item
+                \begin{align*}
+                  L(xy) & = D(xy)/xy \\
+                        & = xDy/xy + yDx/xy\\
+                        & = Dy/y + Dx/x \\
+                        & = L(x) + L(y)
+                \end{align*}
+
+          \item Applying product rule directly, 
+                \begin{align*}
+                  R'(X) & = D \big( c\prod_i (X - \alpha_i)^{m_i} \big) \\
+                        & = c\sum_i m_i(X - \alpha_i)^{m_i - 1}\prod_{j\neq i} (X - \alpha_j)^{m_j} \\ 
+                \end{align*}
+                Dividing this sum by $R(X)$, we get the desired sum.
+        \end{enumerate}
+
+  \item
+        \begin{enumerate}[(a)]
+          \item Let $f(X) = (a_1X - b_1)(a_2X - b_2) =  a_1a_2(X - \frac{b_1}{a_1})(X - \frac{b_2}{a_2})$. The discriminant is then
+                \begin{align*}
+                  D(f) & = (a_1a_2)^2 \bigg( \dfrac{b_1}{a_1} - \dfrac{b_2}{a_2}\bigg)^2 \\
+                       & = (a_2b_1  - a_1b_2)^2\\
+                       & = (a_2b_1 + a_1b_2)^2 - 4a_1a_2b_2b_2\\
+                       & = b^2 - 4ac\\
+                \end{align*}
+
+          \item
+                We first prove the expression is true for $a_0 = 1$ and $f(X) = (X - t_1)(X - t_2)(X - t_3)$.
+                \begin{align*}
+                  s_1^2s_2^2 & = ((t_1 + t_2 + t_3)(t_1t_2 + t_2t_3 + t_3t_1))^2\\
+                             & = \big( \sum x_1^2 x_2  + 3s_3 \big)^2\\
+                             & = \sum x_1^4x_2^2 + 9s_3^2\\ 
+                             & + 2\big(\sum x_1^3x_2^3 + \sum x_1^4x_2x_3 + \sum x_1^3x_2^2x_3 + \sum x_1^2x_2^2x_3^2 \big)\\
+                             & + 6\sum x_1^3x_2^2x_3\\
+                             &  = \sum x_1^4x_2^2 + 2\sum x_1^4x_2x_3 + 2\sum x_1^3x_2^3  + 8\sum x_1^3x_2^2x_3 + 15 x_1^2x_2^2x_3^2\\
+                  s_1^3s_3   & = (t_1 + t_2 + t_3)^3s_3\\
+                             & = s_3(\sum x_1^3 + 3\sum x_1^2x_2 + 6\sum x_1x_2x_3)\\
+                             & =  \sum x_1^4x_2x_3 + 3\sum x_1^3x_2^2x_3 + 6\sum x_1^2x_2^2x_3^2\\
+                  s_2^3      & = (t_1t_2 + t_2t_3 + t_3t_1)^3\\
+                             & = \sum x_1^3x_2^3 + 3\sum x_1^3x_2^2x_3 + 6\sum x_1^2x_2^2x_3^2\\
+                  s_1s_2s_3  & = s_3(t_1 + t_2 + t_3)(t_1t_2 + t_2t_3 + t_3t_1)\\
+                             & =  s_3(\sum x_1^2x_2 + 3x_1x_2x_3)\\
+                  & = \sum x_1^3x_2^2x_1 + 3 x_1^2x_2^2x_3^2\\
+                \end{align*}
+
+                where the sums are taken over all order pairs $(x_1, x_2, x_3) \in \set{t_1, t_2, t_3}^3, x_i \neq x_j$.
+                By the definition of the discriminant, we have
+                \begin{align*}
+                  D_f & = (t_1 -  t_2)^2(t_2 - t_3)^2(t_1 - t_3)^2\\
+                  & = \sum x_1^4x_2^2 - 2 \sum x_1^4x_2x_3 - 2\sum x_1^3x_2^3 + 2\sum x_1^3x_2^2x_3 -6x_1^2x_2^2x_3^2\\
+                \end{align*}
+                From the above one obtains
+                $$D_f = s_1^2s_2^2 - 4s_1^3s_3 - 4s_2^3 + 18s_1s_2s_3 - 27s_3^2.$$
+                Since the above polynomial is homogenous of degree $6$ and $D_{cf} = c^{4}D_f$, the statement follows.
+
+
+          \item
+                $f'(X) = \sum_{i = 1}^n \prod_{j \neq i } (X - t_i)$. Hence $f'(t_i) = \prod_{i \neq j}(t_i - t_j)$ where $i$ is fixed. By definition
+
+                $$D_f = (-1)^{n(n-1)/2}\prod_{i \neq j} (t_i - t_j).$$
+                where the product is taken over all pairs $(i, j) i \neq j$ which is equivalent to
+                $$D_f = (-1)^{n(n-1)/2}\prod_{i=1}^n f'(t_i).$$
+        \end{enumerate}
+
+  \item
+        \begin{enumerate}[(a)]
+          \item
+                First suppose, $f$ and $g$ are coprime. By Mason-Stothers we have
+                \begin{align*}
+                  3 \deg f & \leq \deg f + \deg g + \deg (f ^3 - g^2) - 1\\
+                  2 \deg g & \leq \deg f + \deg g + \deg (f ^3 - g^2) - 1
+                \end{align*}
+
+                Adding the above inequalities and simplifying, we get
+                $$\deg f \leq 2 \deg(f^3 - g^2) - 2$$
+
+                If $f$ and $g$ have common factor, then $n_0(fg) < n_0(f) + n_0(g) \leq \deg f + \deg g$. Hence the statement is proven.
+
+          \item
+                The proof for case for relativey prime $f, g$ is very similar to (a). So suppose $f = df_1, g = dg_1$ where $d \notin K$ is the greatest common divisor of $f$ and $g$.
+                % So suppose $d \notin K$ is the greatest common divisor of $f$ and $g$ and $Af + Bg = d$. Then, we have $Af/d$ and $Bg/d$ are relativly prime. By (a), we have,
+
+                % \begin{align*}
+                %    \deg Af - \deg d & \leq 2 \deg \bigg( \bigg(\dfrac{Af}d\bigg)^3 - \bigg(\dfrac{Bg}d\bigg)^2 \bigg) - 2\\
+                %                            & = 2 (\deg ((Af)^3/d - (Bg)^2) - 2 \deg d) - 2\\
+                %                            & \leq 2(\deg (Af^3 - (Bg)^2 )) - 4\deg d - 2\\
+                %                            & \leq 2(\deg(f^3  - g^2)) - 2\\
+  % \end{align*}
+
+                Taking $A = Ad, f = f_1, g = g_1, B = B$ in the relatively prime case, we then have the following
+                \begin{align*}
+                  \deg f_1 & \leq \deg Ad + \deg B + 2 \deg(Adf_1^3 + Bg_1^2) - 2\\
+                           &\leq \deg A + \deg d + \deg B + 2\big((Af^3 + Bg^2)/d^2\big) - 2\\
+                           &\leq \deg A + \deg d + \deg B + 2(\deg (Af^3 + Bg^2) - 2\deg d) - 2\\
+                           & \leq \deg A + \deg B + 2 \deg (Af^3 + Bg^2) - 3 \deg d - 2\\
+                  \implies & \deg f \leq \deg A + \deg B + 2\deg(Af^3 + Bg^2) - 2
+                \end{align*}
+                Taking $A = d$ and $B = -1$, we get the general case for part (a).
+
+          \item By part $(b)$, we may assume without loss of generality that $f$ and $g$ are coprime. By Mason's Theorem,
+
+                            \[
+                            m\deg(f) \leqslant \deg(f) + \deg(g) + \deg(h) - 1
+                            \]
+
+                            \[
+                            n\deg(g) \leqslant \deg(f) + \deg(g) + \deg(h) - 1
+                            \]
+
+                            Then, with the above equations we find:
+
+                            \[
+                            (n-1)(m-1)\deg(f) \leqslant (n-1)\deg(g) + (n-1)\deg(h) - (n-1)
+                            \]
+
+                            \[
+                            (n-1)\deg(g) \leqslant \deg(f) + \deg(h) - 1
+                            \]
+
+                            Adding these together, we find the general version:
+
+                            \[
+                            \big((n-1)(m-1)-1\big)\deg(f) \leqslant n\deg(h) - n
+                            \]
+        \end{enumerate}
+
+  \item
+        Let $\epsilon > 0$ be a positive number and let $u, v$ be relatively prime non-zero integers. Let $w = u + v$. Define a polynomial $f$ as
+        $$f(X) = X(X - 3u)(X + 3v)$$
+        Making the translation $\xi = X + v - u$, we get
+        $$f(\xi) = \xi^3 - \gamma_2\xi - \gamma_3.$$
+        Since the discriminant is preserved under such translation,  we have the following
+        $$D = 4\gamma_2^3 - 27\gamma_3^2 = 3^6(uvw)^2.$$
+
+        But, by the generalized Szpiro conjecture,
+        \begin{align*}
+          |\gamma_2|  & \ll N_o(D)^{2 + \epsilon}\\
+                      & \ll N_o((uvw)^2)^{2 + \epsilon} = N_o(uvw)^{2 + \epsilon},
+        \end{align*}
+
+        and
+        \begin{align*}
+          |\gamma_3| & \ll N_o(uvw)^{3 + \epsilon}\\
+        \end{align*}
+
+
+        If $r_1, r_2, r_3$ are the roots of $f(\xi)$, then
+        \begin{align*}
+          \gamma_2 & = -(r_1r_2 + r_2r_3 + r_3r_1)\\
+                   & = -((v-u)(v + w) + (v + w)(-u - w) + (-u - w)(v - w))\\
+          \gamma_3 & = r_1r_2r_3\\
+          & = (v - u)(v + w)(-u - w)
+        \end{align*}
+        From above, the $abc$ conjecture follows.
+
+  \item
+        Define two sets:
+        \[
+        A = \set{p \text{ prime}: 2^{p- 1} \not \equiv 1 \mod p^2 }\\
+        \]
+        \[
+        B = \set{p \text{ prime}: 2^{n} \equiv 1 \mod p \text{ and } 2^{n} \not \equiv 1 \mod p^2, n \geq 1}
+        \]
+
+        The two sets are equivalent: Let $p \in B$ and let $d$ be the order of $2$ modulo $p$. Since $2^d - 1 \mid 2^n - 1$, we note that $2^d \not \equiv 1 \mod p^2.$ At the same time, $2^{p-1} - 1 = (2^d - 1)(p-1)/d$ (since $d \mid (p-1)$), we note that $2^{p-1} - 1 \not \equiv 0 \mod p^2$. Hence, $B \subseteq A$. The reverse inclusion directly follows from Fermat's little theorem.\\
+        It follows that we can write any number of the form $2^n - 1$ as a product $xy$ such that $x \in A = B$ and $y \in A^c$. If $A$ is finite, then $x \leq \prod_{p \in A}p$. We also note that, by assumption, $N_0(y) \ll \sqrt{y}$. Assuming $abc$ conjecture is true and taking $a = 2^n-1$ and $b = 1$, we have
+        \begin{align*}
+          2^{n}-1 &= xy\\
+                  &\ll N_0(xy)^{1 + \epsilon}\\
+          &\ll y^{(1/2)(1 + \epsilon)}
+        \end{align*}
+
+        which can only be true if $y$ is bounded. This implies the finiteness of $A^c$, contradicting the infinitude of primes.
+        
+        
+
+\end{enumerate}
+\end{document}
