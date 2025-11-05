@@ -442,7 +442,103 @@ dots
 
         which can only be true if $y$ is bounded. This implies the finiteness of $A^c$, contradicting the infinitude of primes.
         
-        
+
+  \item
+        Let $F(X) = a_0 + a_1X + \cdots + a_dX^d$ and $G(X) = b_0 + b_1X + \cdots + b_{d'}X^{d'}$, and assume that
+        \[
+        |F| = \max_{0 \le i \le d} |a_i| \ge 1, \qquad |G| = \max_{0 \le j \le d'} |b_j| \ge 1.
+        \]
+
+        Let $S$ be the Sylvester matrix of $F$ and $G$, of size $(d+d') \times (d+d')$. The resultant $R$ of $F$ and $G$ satisfies
+        \[
+        R = \det(S) = \sum_{\sigma \in \mathfrak{S}_{d+d'}} \mathrm{sgn}(\sigma) 
+        \prod_{i=1}^{d+d'} S[i,\sigma(i)].
+        \]
+        Taking absolute values and using the triangle inequality,
+        \[
+        |R| \le \sum_{\sigma \in \mathfrak{S}_{d+d'}} \prod_{i=1}^{d+d'} |S[i,\sigma(i)]|.
+        \]
+        Each entry of $S$ is a coefficient of $F$ or $G$, hence has absolute value at most $\max(|F|,|G|)$. More precisely, exactly $d'$ rows contain coefficients of $F$ and $d$ rows contain coefficients of $G$, so each product contains $d'$ occurrences of coefficients of $F$ and $d$ occurrences of coefficients of $G$. Therefore,
+        \[
+        |R| \le |F|^{d'} |G|^{d} (d+d')! =: B.
+        \tag{1}
+        \]
+
+        WLOG, we can assume $\gcd(F, G) = 1$. There exist polynomials $\phi,\psi \in \mathbb{C}[X]$ such that
+        \[
+        R = \phi(X)F(X) + \psi(X)G(X),
+        \]
+        with
+        \[
+        \deg \phi < d', \qquad \deg \psi < d.
+        \]
+        Write
+        \[
+        \phi(X) = \alpha_0 + \alpha_1X + \cdots + \alpha_{d'-1}X^{d'-1}, \qquad
+        \psi(X) = \beta_0 + \beta_1X + \cdots + \beta_{d-1}X^{d-1}.
+        \]
+
+        Equating coefficients of $X^k$ in $R = \phi F + \psi G$, and padding all coefficients outside their natural ranges with $0$, we obtain the system
+        \begin{align}
+        a_0\alpha_0 + b_0\beta_0 &= R, \tag{2} \\
+        \sum_{i=0}^k (a_i\alpha_{k-i} + b_i\beta_{k-i}) &= 0, \qquad 1 \le k \le d+d'-1. \tag{3}
+        \end{align}
+
+        From (1) and (2) we get
+        \[
+        |a_0\alpha_0 + b_0\beta_0| = |R| \le B.
+        \]
+        Since $|a_0| \le |F|$ and $|b_0| \le |G|$, it follows that
+        \[
+        |\alpha_0| + |\beta_0| \le \frac{|R|}{\min(|a_0|,|b_0|)} \le B.
+        \tag{4}
+        \]
+
+        We now prove by induction on $k$ that
+        \[
+        |\alpha_k| + |\beta_k| \le kB \quad \text{for all } 0 \le k \le d+d'-1.
+        \tag{5}
+        \]
+        The case $k=0$ is (4). Assume the claim holds for all $0,1,\dots,k-1$. Using (3), we have
+        \[
+        a_0\alpha_k + b_0\beta_k = -\sum_{i=1}^k (a_i\alpha_{k-i} + b_i\beta_{k-i}).
+        \]
+        Taking absolute values,
+        \[
+        |a_0||\alpha_k| + |b_0||\beta_k|
+        \le \sum_{i=1}^k \bigl(|a_i||\alpha_{k-i}| + |b_i||\beta_{k-i}|\bigr).
+        \]
+        Using $|a_i| \le |F|$, $|b_i| \le |G|$, and the induction hypothesis,
+        \[
+        |a_0||\alpha_k| + |b_0||\beta_k|
+        \le |F| \sum_{i=1}^k |\alpha_{k-i}| + |G| \sum_{i=1}^k |\beta_{k-i}|
+        \le (|F|+|G|) \sum_{i=1}^k (iB).
+        \]
+        Since $\sum_{i=1}^k i = \frac{k(k+1)}{2} \le k^2$, and $|a_0|,|b_0| \ge 1$, we obtain
+        \[
+        |\alpha_k| + |\beta_k| \le kB.
+        \]
+        This completes the induction and proves (5).
+
+        Now evaluate the identity $R = \phi(w)F(w) + \psi(w)G(w)$ at $X=w$:
+        \[
+        |R| = |\phi(w)F(w) + \psi(w)G(w)|
+        \le (|\phi(w)| + |\psi(w)|)(|F(w)| + |G(w)|).
+        \tag{6}
+        \]
+        Since $|\alpha_k| + |\beta_k| \le kB$ and $c = \max(1,|w|)$, we have
+        \[
+        |\phi(w)| + |\psi(w)|
+        \le \sum_{k=0}^{d+d'-1} (|\alpha_k| + |\beta_k|) |w|^k
+        \le \sum_{k=0}^{d+d'-1} kB\,c^k
+        \le Bc^{d+d'}(d+d').
+        \tag{7}
+        \]
+        Finally, combining (1), (6), and (7), we obtain
+        \[
+        |R|
+        \le c^{d+d'} |F|^{d'} |G|^{d} (d+d')^{d+d'} (|F(w)| + |G(w)|).
+        \]
 
 \end{enumerate}
 \end{document}
