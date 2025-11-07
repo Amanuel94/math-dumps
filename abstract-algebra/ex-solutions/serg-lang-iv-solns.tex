@@ -540,5 +540,15 @@ dots
         \le c^{d+d'} |F|^{d'} |G|^{d} (d+d')^{d+d'} (|F(w)| + |G(w)|).
         \]
 
+  \item
+        \begin{enumerate}[(a)]
+          \item By definition $g(X)$ has $d - 2$ integral (and therefore real) roots, $b_1, \dots, b_{d-2}$ and conjugate pairs of complex roots. Since each $b_i$ is distinct, all the local exterema of the $g(X)$ lays striclty above or below the $x$-axis. We can find the extremea by taking the derivative and solving $Dg(X) = 0$ for $X$. Let $x_1, \dots x_{d-2}$ be the solutions and let $y_i := |g(x_i)|$. Then by the monotonicity of $p/p^{dn}$, there exists $n$ such that $p/p^{dn} < y_i$ for all $y_i$. For such $n$, $g_n(X)$ has exactly $d-2$ real roots.
+
+          \item
+                Let $g(X) =  a_0 + \cdots + X^d$. Note that
+                $$(p^{dn})g_n(X) = p + p^{dn}a_0 + p^{dn-n}a_1(p^nX) + \cdots + p^{n}a_{d-1}(p^nX)^{d-1} + (p^nX)^d$$
+                By Eisenstein's criterion of irreduciability, the RHS is irreducible in $\mathbb{Z}$. But that means $g_n(X)$ is irreducible in $\mathbb{Q}$. 
+        \end{enumerate}
+
 \end{enumerate}
 \end{document}
