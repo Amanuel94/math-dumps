@@ -550,5 +550,31 @@ dots
                 By Eisenstein's criterion of irreduciability, the RHS is irreducible in $\mathbb{Z}$. But that means $g_n(X)$ is irreducible in $\mathbb{Q}$. 
         \end{enumerate}
 
+  \item
+        \begin{enumerate}[(a)]
+          \item $P(X) = \frac{1}2X^2 + \frac{1}2X$.  
+
+          \item
+                First we show that the set $\{$ $X \choose{i}$ $\}$ for $0 \leq i \leq r$ form a $\mathbb{Q}$-basis for the submodule of $\mathbb{Q}[X]$ of polynomials of degree at most $r$: We proceed by induction on $r$. The case $r=0$ is clear since $\binom{X}{0}=1$. Assume the claim holds for $r-1$ and let
+            \[
+            f(X)=a_rX^r+a_{r-1}X^{r-1}+\cdots+a_0\in\mathbb{Q}[X]
+            \]
+                have degree $r$. As $\binom{X}{r}=\dfrac{1}{r!}X^r+\text{(lower degree terms)}$, there is a unique rational number $b_r=a_r r!$ for which the polynomial $g(X):=f(X)-b_r\binom{X}{r}$ has degree $<r$; by the induction hypothesis $g$ is a unique $\mathbb{Q}$-linear combination of $\binom{X}{0},\dots,\binom{X}{r-1}$, whence $f(X)=\sum_{i=0}^r b_i\binom{X}{i}$ with uniquely determined $b_i\in\mathbb{Q}$. This shows the family spans and is linearly independent, so it is a basis.
+
+
+                Hence, given $P \in \mathbb{Q}$ that is integral for at least all $n \geq N, N \in \mathbb{N}$. We can write
+                \[
+                P(X) = b_r\binom{X}r + \cdots + b_0\binom{X}0.
+                \]
+
+                We note that $\binom{X+1}i - \binom{X}i =  \binom{X}{i-1}$. Hence $P_1(X) = P(X+1) - P(X)$. Defining $P_i(X) = P_{i-1}(X + 1) - P_{i-1}(X)$ for $i \geq 2$, we get that
+                $$P_i(X) = \sum_{k = 0}^{r-i} b_{i+k}\binom{X}{k}.$$
+
+                Each $P_i(X)$ is integral for at least all sufficiently large $n$. But $P_r(X)$ is a constant polynomial namely $P_r(X) =  b_r$, whence $b_r \in \mathbb{Z}$. This proves $P_r(X)$ is integral for all $\mathbb{N}$. Now assume  all $b_{r-k+1} \in \ZZ$ for all $k \leq i$ and $P_{r-i+1}(X)$ is integral for all $\ZZ$ for some $i$. Since $P_{r-i+1}(0) \in \mathbb{Z}$, $P_{r - i}(1) - P_{r-i}(0) = b_{r-i} \in \ZZ$ and it follows that $P_{r-i}(X)$ is also integral for all $\ZZ$. Inducting on $i$, the stament follows.
+
+          \item
+                Since $Q$ is integral, let $Q(X) =  \sum_{i = 0}^{\deg Q} a_i\binom{X}i$. Then by part (b) of this question, there is a polynomial $P(n)$ such that $Q(n) = P(n) - P(n-1)$ if we define $P(X) = \sum_{i = 0}^{\deg Q} a_{i}\binom{X}{i+1} + c$ where $c$ is any constant. Let $m$ be the smallest integer such that $Q(m) = f(m) - f(m-1)$. It follows that $f(n) = \sum_{k=m}^n Q(k)  + f(m-1)$. Similarly $P(n) = \sum_{k=m}^n Q(k) + P(m-1)$. Hence $f(n) - P(n) = f(m-1) - P(m-1)$. Since $c$ can be any constant per our definiton, we can pick $c$ so that $P(m-1) = f(m-1)$, making $P(n) = f(n)$ for all $n \geq m$.
+        \end{enumerate}
+
 \end{enumerate}
 \end{document}
