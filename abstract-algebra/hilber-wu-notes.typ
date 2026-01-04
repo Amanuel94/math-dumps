@@ -1,8 +1,9 @@
 #import "@preview/fletcher:0.5.8" as fletcher: diagram, node, edge
+// #set text(font:"MathJax_SansSerif", weight:"thin")
+#set text(font:"MathJax_SansSerif")
 
 #show heading.where(level: 1): set text(size: 23pt)
 #show heading.where(level: 1): set align(center)
-
 = Notes on Category Theory
 #align(right)[_from Hilton and Wu, A Course in Modern Algebra_]
 
@@ -66,9 +67,64 @@ We say the category $frak(C)^("op")$ _the opposite category of $frak(C)$_ if $"O
 
 An example of dual statment $S$:
 $S(frak(C))$: $I$ is an initial object if $frak(C)(I, X)$ is a singleton for every $X in frak(C)$.\
-$S(frak(C)^"op")$: $I$ is an initial object if $frak(C)^"op"(I, X)$ is a singleton for every $X in frak(C)^"op"$\
+$S(frak(C)^"op")$: $I$ is an initial object if $frak(C)^"op"  (I, X)$ is a singleton for every $X in frak(C)^"op"$\
 $S^("op")(frak(C))$: $I$ is a coinitial object if $frak(C)(X, I)$ is a singleton for every $X in frak(C)^"op"$.
 
 #rect[If $S$ is a statement such that it is meaningful in all categories. If $S$ is true in $frak(C)$, then $S$ is also true in $frak(C)^"op"$)]
 
 
+*Definition 5 (Monic and Epic)*: A morphism $f$ is called _monic_ if $f bullet.stroked u = f bullet.stroked v$ implies $ u = v$. We call the dual analoge _epic_.
+
+*Theorem 1*: #align(center)[
+    monic $<=>$ injective\
+    epic  $<=>$ surjective
+]
+
+#let Coker = "Coker"
+Remark: The cokernel $Coker f = Y slash im f$ and  $ker f$ are dual pairs. Hence, if $f$ is surjective in $frak(C)$, then $f$ is injective in $frak(C)^"op"$.  
+
+*Definition 6 (Kernel)*, In category theory, a kernel $kappa$ of a morphism $f: X -> Y$ of a category $frak(C)$ is defined as a monic morphism $kappa: K -> X$ such that\
+(i) $f bullet.stroked kappa  = 0$\
+(ii) $f bullet.stroked g = 0$ implies the exisitence of $h$ such that  $g = f bullet.stroked h$.
+
+*Definition 7 (Contravariant Functor)*: A functor $F: frak(C) -> frak(D)$ is called contravariant if $F: frak(C)^"op" -> frak(D)$.
+
+Example (_The contravariant powerset functor_): Let $Q: frak(S) -> frak(S)$ such that $Q X = 2^X$ and for a morphism $f: X -> Y$, $(Q f) B = f^(-1) B$ where $B subset.eq Y$ so that $Q f: 2^Y -> 2^X$. This gives rise to more interesting properties than the _covariant powerset functor_ $P$. For example, consider the subsets, $A_1, A_2 subset.eq X$ and $B_1, B_2 subset.eq Y$. It is not necessarily true that $
+    P(f)(A_1 inter A_2) =^? P(A_1) inter P(A_2) 
+$
+where as, the following is $
+    Q(f)(B_1 inter B_2) = Q(B_1) inter Q(B_2)
+$
+for example if $A_1 = {x}, A_2 = {y}$, $f(x) = f(y)$.
+
+== Products and Coproducts
+*Definition 8 (Product)*: If $A_1, A_2 in "Ob"(frak(C))$, we define $ (P, p_1, p_2)$ with $p_i: P -> A_i$  if for any $f_i: X -> A_i$ there is a unique $f: X -> P$ following diagram commutes:
+
+
+#align(center)[#diagram(cell-size: 10mm,  $
+    & A_1\
+	X edge("ne", f_1, ->)  edge("se", f_2, ->) edge("e", f, ->) & P edge("u", p_1, ->) edge("d", p_2, ->)  \
+        & A_2
+    
+$)]
+
+Products in categories are unique upto canonical equivalence. 
+Example: $bb(Z) slash 2 bb(Z) times bb(Z) slash 4 bb(Z) in frak(C)$ does not exsist in the category of cyclic groups.
+
+#set enum(numbering: "(i)")
+*Proposition 1*:\
+1. $(g_1 times g_2) bullet.stroked (h_1 times h_2) = (g_1 bullet.stroked h_1 times g_2 bullet.stroked h_2)$.
+2. $(g_1 times g_2) bullet.stroked {f_1, f_2} = {g_1 bullet.stroked f_1,  g_2 bullet.stroked f_2}$
+3. ${f_1, f_2} bullet.stroked g = {f_1g, f_2g}$
+
+Example: In the category of finitely generated abelian groups, no infinite set has a product. The set ${bb(Z) slash p^n bb(Z) : n in bb(N)}$ has infite product in the category of torision abelian groups namely the torsion subgroup of the product $product bb(Z) slash p^n bb(Z)$.\
+
+
+*Definition 9 (Coproducts)*: $(Q, q_1, q_2)$ such that the below diagram commutes.
+
+#align(center)[#diagram(cell-size: 10mm,  $
+    & A_1\
+	X edge("ne", f_1, <-)  edge("se", f_2, <-) edge("e", f, <-) & Q edge("u", q_1, <-) edge("d", q_2, <-)  \
+        & A_2
+    
+$)]
