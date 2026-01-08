@@ -192,7 +192,7 @@ such that the following universal property holds:
     " " edge("r", phi.alt_1, ->, label-side: #left) edge("d", phi.alt_2, ->, label-side: #right) & " "  edge("d", psi_1, ->, label-side: #left)   \
     " " edge("r", psi_2, -> , label-side: #right) & " " & \
 
-        & & " " edge(vertices: #((univ, (1, 0))), <-, label: alpha_1 , label-side: #right)  edge(vertices: #((univ, (0, 1))),  <- , label: alpha_2, label-side: #left) edge(vertices: #((univ, (1, 1))), label: alpha, <-, label-pos: #80%, label-side: #right, label-sep: #0em) \
+        & & X edge(vertices: #((univ, (1, 0))), <-, label: alpha_1 , label-side: #right)  edge(vertices: #((univ, (0, 1))),  <- , label: alpha_2, label-side: #left) edge(vertices: #((univ, (1, 1))), label: alpha, <-, label-pos: #80%, label-side: #right, label-sep: #0em) \
 $)]
 
 The pullback is similar to the product in the following way. Consider a category $frak(C)$. Let $Y$ be an object in $frak(C)$. Then define the category $frak(C) slash Y$ as the category of morphisms $f: X -> Y$ for all $X in "Ob"(frak(C))$. The morphisms of $frak(C) slash Y$, $f: phi -> psi$ are the morphisms such that the following diagram commutes:
@@ -287,4 +287,34 @@ $
     frak(A b)(G slash G', A) tilde.equiv  frak(G)(G, U A)
 $
     
-In fact the morphism $phi.alt |-> eta(phi.alt) = U phi.alt $ is an isomorphism. 
+In fact the morphism $phi.alt |-> eta(phi.alt) = U phi.alt $ is an isomorphism.
+
+*Theorem 4*: If $F_1 adj G_1$ and $F_2 adj G_2$, then $F_1F_2 adj G_2G_1$.
+
+_Sketch of proof_: Since $frak(D)(F_1 A, B) tilde.equiv frak(C)(A, G_1 B)$ and $frak(C)(F_2 A, B) tilde.equiv frak(E)(A, G_2 B)$, $frak(D)(F_1 F_2 A, B) = frak(C)(F_2A, G_1 B) = frak(E)(A, G_2 G_1 B)$ 
+
+*Theorem 5*: A funtor determines its adjoint upto natural canonical equivalnece.
+
+*Theorem 6*: If a functor has a left adjoint, it preserves, products, kernels, pullbacks and monics. 
+
+*Definition 12 (units and counits)*: Let $F adj G$, then the unit of the adjunction is the natural transformation $epsilon: 1 -> G F$ and the counit of the adjunction is the natural transformation $delta: F G -> 1$. We have $epsilon_A  = eta( 1_(F A))$ and $delta_B = eta^(-1)(1_(G B))$.  
+
+*Theorem 7*: If $F: frak(C) -> frak(D)$ and $G: frak(D) -> frak(C)$ are two functors and $epsilon: 1 -> G F$ and $delta: F G -> 1$ are two natural transformations, such that
+
+#align(center)[
+    #diagram(cell-size: 10mm, $
+
+        F edge("r", F epsilon, ->) edge(vertices: #(((0, 0), (0, 0.4), (2, 0.4), (2, 0))), 1, ->, label-side: #center ) &  F G F edge("r", delta F,  ->) & F  
+        \
+    $)
+]
+
+#align(center)[
+    #diagram(cell-size: 10mm, $
+
+        G edge("r", epsilon G, ->) edge(vertices: #(((0, 0), (0, 0.4), (2, 0.4), (2, 0))), 1, ->, label-side: #center ) &  G F G edge("r", G delta,  ->) & G  
+        \
+    $)
+]
+
+The rule $eta(f) = G f circ epsilon_(A)$ where $f : F A -> B$ defines an adjunction $F adj^eta G$.
